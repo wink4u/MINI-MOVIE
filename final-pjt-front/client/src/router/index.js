@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NormalView from '@/views/NormalView'
 import ConceptView from '@/views/ConceptView'
-import HomeView from '@/views/HomeView'
+import LoginView from '@/views/LoginView'
+import SignupView from '@/views/SignupView'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,10 +17,16 @@ const routes = [
     name: 'concept',
     component: ConceptView
   },
+
   {
-    path: '/home',
-    name: 'home',
-    component: HomeView
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
   },
   // {
   //   path: '/about',
