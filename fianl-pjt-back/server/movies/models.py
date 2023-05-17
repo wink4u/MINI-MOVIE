@@ -18,3 +18,4 @@ class Movie(models.Model):
     video = models.BooleanField(blank=True)
     vote_average = models.FloatField(blank=True)
     vote_count = models.IntegerField(blank=True)
+z
