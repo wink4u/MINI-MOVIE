@@ -4,6 +4,7 @@ import NormalView from '@/views/NormalView'
 import ConceptView from '@/views/ConceptView'
 import LoginView from '@/views/LoginView'
 import SignupView from '@/views/SignupView'
+import HomeView from '@/views/HomeView'
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,6 +28,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: HomeView
   },
   // {
   //   path: '/about',

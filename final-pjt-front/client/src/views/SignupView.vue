@@ -1,8 +1,14 @@
 <template>
     <b-container role="group" class="p-5 login-form">
-        <h1>회원가입</h1>
+        <h1>회원가입</h1><hr>
         <b-row>
-    
+            <label for="input-email">E-mail</label>
+            <b-form-input id="input-email" placeholder="EMAIL" v-model="email"
+            trim aria-describedby=" input-live-feedback"
+            ></b-form-input>
+        </b-row>
+        <br>
+        <b-row>
             <label for="input-username">아이디</label>
             <b-form-input id="input-username" placeholder="ID" v-model="username"
             trim :state="nameState" aria-describedby=" input-live-feedback"
@@ -12,7 +18,6 @@
             </b-form-invalid-feedback>
         </b-row>
         <b-row>
-    
             <label for="input-password1">비밀번호</label>
             <b-form-input id="input-password1" placeholder="PASSWORD" v-model="password1"
             trim type="password" :state="passwordState1" aria-describedby=" input-live-feedback"></b-form-input>
@@ -20,8 +25,8 @@
                 비밀번호 5글자 이상
             </b-form-invalid-feedback>
         </b-row>
+
         <b-row>
-    
             <label for="input-password2">비밀번호</label>
             <b-form-input id="input-password2" placeholder="PASSWORD확인" v-model="password2"
             trim type="password" :state="passwordState2" aria-describedby=" input-live-feedback"></b-form-input>
@@ -40,6 +45,7 @@ export default {
     name: 'SignUp',
     data() {
         return {
+            email: '',
             username: '',
             password1: '',
             password2: '',
@@ -63,14 +69,14 @@ export default {
                 method: 'post',
                 url: "http://127.0.0.1:8000/auth/signup/",
                 data: {
+                    // email : this.email,
                     username: this.username,
                     password1: this.password1,
                     password2: this.password2,
-                    // email: this.email
                 }
             })
             .then((res) => {
-                console.log(res)
+                console.log(res.data)
             })
             .catch((err)=> {
                 console.log(err)
