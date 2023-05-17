@@ -30,7 +30,21 @@
     <router-view/>
 </div>
 </template>
-
+<script>
+export default {
+  name: 'APP',
+  methods: {
+    getMovies() {
+      for (let i = 1; i < 4; i++) {
+        this.$store.dispatch('getMovies', i)
+      }
+    }
+  },
+  created() {
+    this.getMovies()
+  } 
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

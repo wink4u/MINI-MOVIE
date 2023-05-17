@@ -13,21 +13,36 @@ export default new Vuex.Store({
   state: {
     userData: {},
     token: null,
+    movieList: [],
   },
   getters: {
   },
   mutations: {
+    GETMOVIES(state, data){
+      data.forEach((movie) => {
+        state.movieList.push(movie)
+      }) 
+    },
     LOGIN(state, userData){
       state.userData = userData
-      console.log(state.userData)
     },
     SAVE_TOKEN(state, token) {
       state.token = token
       console.log(state.token)
-      router.push({name: 'articles'})
+      router.push({name: 'home'})
     },
   },
   actions: {
+    getMovies(context, index) {
+        axios({
+          method: 'GET',
+          url: `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${index}&api_key=16e600d87afb33a4184a23b641d8b0c0`
+        })
+        .then((res) => {
+          console.log(res.data.results)
+          context.commit('GETMOVIES', res.data.results)
+    })
+  },
     login(context, payload) {
       context.commit('LOGIN', payload)
       const username = payload.username
