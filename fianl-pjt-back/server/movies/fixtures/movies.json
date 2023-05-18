@@ -1,0 +1,662 @@
+[
+{
+  "model": "movies.movie",
+  "pk": 1,
+  "fields": {
+    "overview": "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
+    "poster_path": "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+    "release_date": "2023-04-05",
+    "title": "The Super Mario Bros. Movie",
+    "vote_average": 7.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 2,
+  "fields": {
+    "overview": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+    "poster_path": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    "release_date": "2022-12-14",
+    "title": "Avatar: The Way of Water",
+    "vote_average": 7.7
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 3,
+  "fields": {
+    "overview": "Three siblings find an ancient vinyl that gives birth to bloodthirsty demons that run amok in a Los Angeles apartment building and thrusts them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
+    "poster_path": "/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
+    "release_date": "2023-04-12",
+    "title": "Evil Dead Rise",
+    "vote_average": 7.1
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 4,
+  "fields": {
+    "overview": "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever.",
+    "poster_path": "/1E5baAaEse26fej7uHcjOgEE2t2.jpg",
+    "release_date": "2023-05-17",
+    "title": "Fast X",
+    "vote_average": 6.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 5,
+  "fields": {
+    "overview": "A steely special ops agent finds his morality put to the test when he infiltrates a crime syndicate and unexpectedly bonds with the boss' young son.",
+    "poster_path": "/3BSxAjiporlwQTWzaHZ9Yrl5C9D.jpg",
+    "release_date": "2023-04-28",
+    "title": "AKA",
+    "vote_average": 7.0
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 6,
+  "fields": {
+    "overview": "After dominating the boxing world, Adonis Creed has been thriving in both his career and family life. When a childhood friend and former boxing prodigy, Damian Anderson, resurfaces after serving a long sentence in prison, he is eager to prove that he deserves his shot in the ring. The face-off between former friends is more than just a fight. To settle the score, Adonis must put his future on the line to battle Damian — a fighter who has nothing to lose.",
+    "poster_path": "/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg",
+    "release_date": "2023-03-01",
+    "title": "Creed III",
+    "vote_average": 7.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 7,
+  "fields": {
+    "overview": "Following the latest Ghostface killings, the four survivors leave Woodsboro behind and start a fresh chapter.",
+    "poster_path": "/wDWwtvkRRlgTiUr6TyLSMX8FCuZ.jpg",
+    "release_date": "2023-03-08",
+    "title": "Scream VI",
+    "vote_average": 7.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 8,
+  "fields": {
+    "overview": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+    "poster_path": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+    "release_date": "2023-03-22",
+    "title": "John Wick: Chapter 4",
+    "vote_average": 7.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 9,
+  "fields": {
+    "overview": "After his grandfather's death, a man travels with his wife and kids to his hometown, where chaos ensues with his relatives over the inheritance.",
+    "poster_path": "/ieyUpr5ES9QEz1cn4clCnBf9XJl.jpg",
+    "release_date": "2023-03-23",
+    "title": "¡Que Viva México!",
+    "vote_average": 7.4
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 10,
+  "fields": {
+    "overview": "On July 7, 1944, a U.S. Army hospital on the remote island of Saipan is overrun by Japanese forces during a relentless attack. Outgunned and surrounded by the enemy, a lone medic puts it all on the line to lead a band of wounded soldiers to safety.",
+    "poster_path": "/aWLR3s0EpqZYXNXXHVH0GCu6Gru.jpg",
+    "release_date": "2023-02-24",
+    "title": "Battle for Saipan",
+    "vote_average": 5.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 11,
+  "fields": {
+    "overview": "During the war in Afghanistan, a local interpreter risks his own life to carry an injured sergeant across miles of grueling terrain.",
+    "poster_path": "/aX0H63vho7rZ9Rm3I567Zf00Z1t.jpg",
+    "release_date": "2023-04-19",
+    "title": "Guy Ritchie's The Covenant",
+    "vote_average": 7.7
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 12,
+  "fields": {
+    "overview": "After a high-ranking North Korean official requests asylum, KCIA Foreign Unit chief Park Pyong-ho and Domestic Unit chief Kim Jung-do are tasked with uncovering a North Korean spy, known as Donglim, who is deeply embedded within their agency. When the spy begins leaking top secret intel that could jeopardize national security, the two units are each assigned to investigate each other.",
+    "poster_path": "/tDe5eLxAbeK7sYckUn5aH3ngWnn.jpg",
+    "release_date": "2022-08-10",
+    "title": "Hunt",
+    "vote_average": 6.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 13,
+  "fields": {
+    "overview": "A matriarchal witch passes on her sinister inheritance to her grand-daughter, triggering the most horrific curses.",
+    "poster_path": "/uL9fFTdNmUUlKIJfHJclN5X3bxH.jpg",
+    "release_date": "2023-03-02",
+    "title": "Two Witches",
+    "vote_average": 6.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 14,
+  "fields": {
+    "overview": "In the wake of King Edward's death, Uhtred of Bebbanburg and his comrades adventure across a fractured kingdom in the hopes of uniting England at last.",
+    "poster_path": "/7yyFEsuaLGTPul5UkHc5BhXnQ0k.jpg",
+    "release_date": "2023-04-14",
+    "title": "The Last Kingdom: Seven Kings Must Die",
+    "vote_average": 7.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 15,
+  "fields": {
+    "overview": "Salt-of-the-earth Cole falls head over heels for enigmatic Sadie — but then makes the shocking discovery that she’s a secret agent. Before they can decide on a second date, Cole and Sadie are swept away on an international adventure to save the world.",
+    "poster_path": "/liLN69YgoovHVgmlHJ876PKi5Yi.jpg",
+    "release_date": "2023-04-18",
+    "title": "Ghosted",
+    "vote_average": 7.1
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 16,
+  "fields": {
+    "overview": "Kicked out of a small Western town for sinful behavior, free-spirited Alice and Nora set out for Virginia City to pursue their dream of opening a restaurant. Out on the prairie, they come across an injured bounty hunter named Elden. Hoping to share in the reward, they nurse Elden back to health and help him stalk his prey, Grimes. But as Nora and Alice both develop feelings for Elden, no one notices that Grimes is now on their tail, and the hunters become the hunted…",
+    "poster_path": "/icL1zn5z1L5ULIpxkuOLjeUgURY.jpg",
+    "release_date": "2023-04-21",
+    "title": "Two Sinners and a Mule",
+    "vote_average": 5.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 17,
+  "fields": {
+    "overview": "Billy Batson and his foster siblings, who transform into superheroes by saying \"Shazam!\", are forced to get back into action and fight the Daughters of Atlas, who they must stop from using a weapon that could destroy the world.",
+    "poster_path": "/A3ZbZsmsvNGdprRi2lKgGEeVLEH.jpg",
+    "release_date": "2023-03-15",
+    "title": "Shazam! Fury of the Gods",
+    "vote_average": 6.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 18,
+  "fields": {
+    "overview": "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
+    "poster_path": "/kuf6dutpsT0vSVehic3EZIqkOBt.jpg",
+    "release_date": "2022-12-07",
+    "title": "Puss in Boots: The Last Wish",
+    "vote_average": 8.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 19,
+  "fields": {
+    "overview": "Father Gabriele Amorth, Chief Exorcist of the Vatican, investigates a young boy's terrifying possession and ends up uncovering a centuries-old conspiracy the Vatican has desperately tried to keep hidden.",
+    "poster_path": "/4IjRR2OW2itjQWQnmlUzvwLz9DQ.jpg",
+    "release_date": "2023-04-05",
+    "title": "The Pope's Exorcist",
+    "vote_average": 7.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 20,
+  "fields": {
+    "overview": "In this world of contract killers, Morgan Gaines is the best of the best. When Morgan is hired to kill six people around the world, he soon discovers all the targets are also assassins unknowingly hired to kill each other.",
+    "poster_path": "/y2d2SBqK33mGOG2CqAYMo3YbWE4.jpg",
+    "release_date": "2023-02-24",
+    "title": "Assassin Club",
+    "vote_average": 6.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 21,
+  "fields": {
+    "overview": "A charming thief and a band of unlikely adventurers undertake an epic heist to retrieve a lost relic, but things go dangerously awry when they run afoul of the wrong people.",
+    "poster_path": "/v7UF7ypAqjsFZFdjksjQ7IUpXdn.jpg",
+    "release_date": "2023-03-23",
+    "title": "Dungeons & Dragons: Honor Among Thieves",
+    "vote_average": 7.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 22,
+  "fields": {
+    "overview": "Having grown sick and tired of his centuries as Dracula's lackey, Renfield finds a new lease on life — and maybe even redemption — when he falls for feisty, perennially angry traffic cop Rebecca Quincy.",
+    "poster_path": "/p6yUjhvNGQpFZilKwOKbxQ1eHlo.jpg",
+    "release_date": "2023-04-07",
+    "title": "Renfield",
+    "vote_average": 7.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 23,
+  "fields": {
+    "overview": "Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope's parents Janet van Dyne and Hank Pym, and Scott's daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.",
+    "poster_path": "/A7SobaUTvb6d5Z3dpOhFxPG0RQf.jpg",
+    "release_date": "2023-02-15",
+    "title": "Ant-Man and the Wasp: Quantumania",
+    "vote_average": 6.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 24,
+  "fields": {
+    "overview": "The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage.",
+    "poster_path": "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+    "release_date": "2017-04-19",
+    "title": "Guardians of the Galaxy Vol. 2",
+    "vote_average": 7.6
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 25,
+  "fields": {
+    "overview": "One day, her family gathers for an offering and they worry that she's the only one without a boyfriend. Her brother-in-law, Ho-seok, sets her up on a blind date with his colleague, Min-soo, who has always been nice to him. The more she talks to Min-soo, the more Seo-ri realizes she is interested in her brother-in-law, Ho-seok. She then tries to meet up with him frequently.",
+    "poster_path": "/hC9yqXygRNVDz2B9NfZocqmhczM.jpg",
+    "release_date": "2019-12-08",
+    "title": "The Youngest Sister-in-law",
+    "vote_average": 0.0
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 26,
+  "fields": {
+    "overview": "On the eve of her 38th birthday, a woman desperately attempts to fix her broken biological clock.",
+    "poster_path": "/m6Yt77C9u7Aume9dTJMCSRzWDED.jpg",
+    "release_date": "2023-03-28",
+    "title": "Clock",
+    "vote_average": 5.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 27,
+  "fields": {
+    "overview": "Inspired by a true story, an oddball group of cops, criminals, tourists and teens converge in a Georgia forest where a 500-pound black bear goes on a murderous rampage after unintentionally ingesting cocaine.",
+    "poster_path": "/gOnmaxHo0412UVr1QM5Nekv1xPi.jpg",
+    "release_date": "2023-02-22",
+    "title": "Cocaine Bear",
+    "vote_average": 6.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 28,
+  "fields": {
+    "overview": "65 million years ago, the only 2 survivors of a spaceship from Somaris that crash-landed on Earth must fend off dinosaurs and reach the escape vessel in time before an imminent asteroid strike threatens to destroy the planet.",
+    "poster_path": "/rzRb63TldOKdKydCvWJM8B6EkPM.jpg",
+    "release_date": "2023-03-02",
+    "title": "65",
+    "vote_average": 6.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 29,
+  "fields": {
+    "overview": "Deep in the wilderness of Lapland, Aatami Korpi is searching for gold but after he stumbles upon Nazi patrol, a breathtaking and gold-hungry chase through the destroyed and mined Lapland wilderness begins.",
+    "poster_path": "/pnQYjDxqZ3C6reI8N0MfNi4NMkZ.jpg",
+    "release_date": "2023-01-27",
+    "title": "Sisu",
+    "vote_average": 7.0
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 30,
+  "fields": {
+    "overview": "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
+    "poster_path": "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg",
+    "release_date": "2023-05-03",
+    "title": "Guardians of the Galaxy Vol. 3",
+    "vote_average": 8.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 31,
+  "fields": {
+    "overview": "A female FBI agent holidaying in Eastern Europe with her family gets her life upside down when her daughter is kidnapped. She has to team up with a criminal on the run to save her daughter before time runs out.",
+    "poster_path": "/mSgqZlz7umts77mEhmEhv9piUKv.jpg",
+    "release_date": "2022-12-15",
+    "title": "Adrenaline",
+    "vote_average": 5.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 32,
+  "fields": {
+    "overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+    "poster_path": "/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+    "release_date": "2022-10-19",
+    "title": "Black Adam",
+    "vote_average": 7.1
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 33,
+  "fields": {
+    "overview": "Spain, late 1980s. Newcomer Sara tries to fit in with the other teens in this tight-knit small town in the province of Tarragona. If only she were more like her extroverted best friend, Rebe. They go out one night at a nightclub, on the way home, they come upon a little girl holding a doll, dressed for her first communion. And that's when the nightmare begins.",
+    "poster_path": "/uYxrWr9o44yO0HvVfFFHGu01gfX.jpg",
+    "release_date": "2023-02-10",
+    "title": "The Communion Girl",
+    "vote_average": 6.1
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 34,
+  "fields": {
+    "overview": "Through a series of unfortunate events, three mummies end up in present-day London and embark on a wacky and hilarious journey in search of an old ring belonging to the Royal Family, stolen by ambitious archaeologist Lord Carnaby.",
+    "poster_path": "/qVdrYN8qu7xUtsdEFeGiIVIaYd.jpg",
+    "release_date": "2023-01-05",
+    "title": "Mummies",
+    "vote_average": 7.1
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 35,
+  "fields": {
+    "overview": "Rich and powerful Simon Qing has been schooled in the ways of sex by his virile father, but is still a virgin. That is, until he meets his first love Violetta who has fun with him all over his father’s estate. Their love does not last, so Simon embarks on a journey. Along the way he meets the comely nun Moon whom Simon deflowers and then marries. He then becomes enamored of Golden Lotus but she is married to dwarf Wu Da-Lang.",
+    "poster_path": "/A1yymig7S0FTWv9cTtOwdI1cH5V.jpg",
+    "release_date": "2009-03-04",
+    "title": "The Forbidden Legend: Sex & Chopsticks 2",
+    "vote_average": 6.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 36,
+  "fields": {
+    "overview": "Sixteen-year-old servant Greg is in love with Sophia, the daughter of a wealthy merchant. The feeling is mutual but Sophia’s parents want her to marry another - a man of high social standing and low moral values. Greg is forcibly separated from his beloved and made to join General Alexander Suvorov’s army. During the legendary Swiss expedition, Greg earns the respect and loyalty of Suvorov and his men by thwarting a treacherous enemy plot, proving that anyone can be a hero if they are driven by love.",
+    "poster_path": "/geZLtEgfuK7HMH9WcG2VuWtf9Gi.jpg",
+    "release_date": "2022-05-01",
+    "title": "The Swiss Adventure",
+    "vote_average": 4.6
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 37,
+  "fields": {
+    "overview": "While visiting family in Mexico, a lonely boy befriends a mythical creature hiding on his grandfather's ranch and embarks on the adventure of a lifetime.",
+    "poster_path": "/ra3xm8KFAkwK0CdbPRkfYADJYTB.jpg",
+    "release_date": "2023-04-07",
+    "title": "Chupa",
+    "vote_average": 6.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 38,
+  "fields": {
+    "overview": "Superman, Batman, Wonder Woman, Flash, Cyborg, Green Lantern and Vixen are transported to the strange world of Remnant and find themselves turned into teenagers. Meanwhile, Remnant heroes Ruby, Weiss, Blake and Yang must combine forces with the Justice League to uncover why their planet has been mysteriously altered before a superpowered Grimm destroys everything.",
+    "poster_path": "/sjBFnG8DpouuWi161KbjbAER235.jpg",
+    "release_date": "2023-04-25",
+    "title": "Justice League x RWBY: Super Heroes & Huntsmen, Part One",
+    "vote_average": 7.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 39,
+  "fields": {
+    "overview": "A deadly female assassin comes out of hiding to protect the daughter that she gave up years before, while on the run from dangerous men.",
+    "poster_path": "/vnRthEZz16Q9VWcP5homkHxyHoy.jpg",
+    "release_date": "2023-05-04",
+    "title": "The Mother",
+    "vote_average": 6.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 40,
+  "fields": {
+    "overview": "The pirates feel right at home in Sandborough, but the atmosphere cools right down when the ninjas come to live in the street. After all, pirates and ninjas are sworn enemies!  While pirate captain Hector Blunderbuss struggles to get rid of his new neighbours, son Billy and ninja daughter Yuka become friends. The pirates challenge the ninjas to the ultimate battle at the village's annual hexathlon. Who will win the match? Ninjas are faster and more agile of course, but pirates are the best cheats in all of the seven seas...",
+    "poster_path": "/uDsvma9dAwnDPVuCFi99YpWvBk0.jpg",
+    "release_date": "2022-04-20",
+    "title": "Pirates Down the Street II: The Ninjas from Across",
+    "vote_average": 6.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 41,
+  "fields": {
+    "overview": "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death.  As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
+    "poster_path": "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+    "release_date": "2022-11-09",
+    "title": "Black Panther: Wakanda Forever",
+    "vote_average": 7.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 42,
+  "fields": {
+    "overview": "The youngest of King Triton’s daughters, and the most defiant, Ariel longs to find out more about the world beyond the sea, and while visiting the surface, falls for the dashing Prince Eric. With mermaids forbidden to interact with humans, Ariel makes a deal with the evil sea witch, Ursula, which gives her a chance to experience life on land, but ultimately places her life – and her father’s crown – in jeopardy.",
+    "poster_path": "/ym1dxyOk4jFcSl4Q2zmRrA5BEEN.jpg",
+    "release_date": "2023-05-18",
+    "title": "The Little Mermaid",
+    "vote_average": 5.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 43,
+  "fields": {
+    "overview": "A prequel to The Wandering Earth.",
+    "poster_path": "/pR858ihc6Ls9xohpdRJVjV787ml.jpg",
+    "release_date": "2023-01-22",
+    "title": "The Wandering Earth II",
+    "vote_average": 7.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 44,
+  "fields": {
+    "overview": "A former pro football player must retire after a life-altering injury, and as the years passes he wishes to know how his life would've turned out had he remained a star.",
+    "poster_path": "/hk2kW6uwTEa8cxDeF1UPfIpEYkF.jpg",
+    "release_date": "2023-05-03",
+    "title": "Quiero Tu Vida",
+    "vote_average": 6.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 45,
+  "fields": {
+    "overview": "After starting their own detective agency, Nick and Audrey Spitz land a career-making case when their billionaire pal is kidnapped from his wedding.",
+    "poster_path": "/s1VzVhXlqsevi8zeCMG9A16nEUf.jpg",
+    "release_date": "2023-03-28",
+    "title": "Murder Mystery 2",
+    "vote_average": 6.6
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 46,
+  "fields": {
+    "overview": "Loosely based on a 17th century erotic Chinese story named The Carnal Prayer Mat, the story follows a young scholar named Yangsheng who gets married to the beautiful daughter of a local merchant. When their sex life proves unsatisfactory, Yangsheng leaves home and journeys to the Pavilion of Ultimate Bliss.",
+    "poster_path": "/mmvFokJgpFmNt522Hfpq3Zfs2Ra.jpg",
+    "release_date": "2011-04-14",
+    "title": "3-D Sex and Zen: Extreme Ecstasy",
+    "vote_average": 4.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 47,
+  "fields": {
+    "overview": "Discover the game-changing partnership between a then undiscovered Michael Jordan and Nike's fledgling basketball division which revolutionized the world of sports and culture with the Air Jordan brand.",
+    "poster_path": "/76AKQPdH3M8cvsFR9K8JsOzVlY5.jpg",
+    "release_date": "2023-04-05",
+    "title": "Air",
+    "vote_average": 7.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 48,
+  "fields": {
+    "overview": "Twelve-year-old Noura dangles uncertainly in that difficult netherworld between childhood and adulthood. His growing libido has gotten him banned from the women's baths, where his mother took him when he was younger, but he's not yet old enough to participate in grown-up discussions with the men of his Tunisian village. Noura's only real friend is a troublemaker named Salih -- the village political outcast.",
+    "poster_path": "/14lvkOnU9dfDKp6PE2TFeCCzVU5.jpg",
+    "release_date": "1990-09-14",
+    "title": "Halfaouine: Boy of the Terraces",
+    "vote_average": 6.8
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 49,
+  "fields": {
+    "overview": "Yong-ho and Seong-ho decide to organize their marriage and leave the last memories. He decides to go on a trip to the sea where four people went together at the beginning of the wedding. In fact, they liked each other's opponents. In the open sea, each person begins to exude their hidden emotions...​",
+    "poster_path": "/wESfP4ZeBbwjjFw2tql4Bqx101Q.jpg",
+    "release_date": "2020-08-28",
+    "title": "Swapping: A Divorce Trip Between Two Couples",
+    "vote_average": 8.5
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 50,
+  "fields": {
+    "overview": "It's 1914.  Sixteen-year-old Roger returns home to spend his summer vacation.  His initial efforts are unsuccessful, but World War I breaks out and men are seen marching off to battle. Roger goes overboard when he is presented with several amorous opportunities.",
+    "poster_path": "/xvtRgQIRegLjsjaIkKQbh0hk3Qy.jpg",
+    "release_date": "1986-11-04",
+    "title": "Exploits of a Young Don Juan",
+    "vote_average": 5.7
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 51,
+  "fields": {
+    "overview": "A group of friends who each have to navigate their own destiny, growing up on the bustling streets and neighborhood of Isale Eko, Lagos.",
+    "poster_path": "/nGwFsB6EXUCr21wzPgtP5juZPSv.jpg",
+    "release_date": "2023-04-07",
+    "title": "Gangs of Lagos",
+    "vote_average": 6.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 52,
+  "fields": {
+    "overview": "A long-running conspiracy is swirling over a mysterious power wielded by the Queen in Raja, a small country west of Tempest. When a slime who evolved into a Demon Lord named Rimuru Tempest crosses paths with Hiiro, a survivor of the Ogre race, an incredible adventure packed with new characters begins. The power of bonds will be put to the test!",
+    "poster_path": "/xITip9n9uMAUA0TU6niMXU2tbh0.jpg",
+    "release_date": "2022-11-25",
+    "title": "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+    "vote_average": 7.7
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 53,
+  "fields": {
+    "overview": "As viable water is depleted on Earth, a mission is sent to Saturn's moon Titan to retrieve sustainable H2O reserves from its alien inhabitants. But just as the humans acquire the precious resource, they are attacked by Titan rebels, who don't trust that the Earthlings will leave in peace.",
+    "poster_path": "/qNz4l8UgTkD8rlqiKZ556pCJ9iO.jpg",
+    "release_date": "2022-09-30",
+    "title": "Attack on Titan",
+    "vote_average": 6.0
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 54,
+  "fields": {
+    "overview": "After a heroic job of successfully landing his storm-damaged aircraft in a war zone, a fearless pilot finds himself between the agendas of multiple militias planning to take the plane and its passengers hostage.",
+    "poster_path": "/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg",
+    "release_date": "2023-01-12",
+    "title": "Plane",
+    "vote_average": 6.9
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 55,
+  "fields": {
+    "overview": "Christopher Robin is headed off to college and he has abandoned his old friends, Pooh and Piglet, which then leads to the duo embracing their inner monsters.",
+    "poster_path": "/ewF3IlGscc7FjgGEPcQvZsAsgAW.jpg",
+    "release_date": "2023-01-27",
+    "title": "Winnie the Pooh: Blood and Honey",
+    "vote_average": 5.7
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 56,
+  "fields": {
+    "overview": "When a headstrong street orphan, Seiya, in search of his abducted sister unwittingly taps into hidden powers, he discovers he might be the only person alive who can protect a reincarnated goddess, sent to watch over humanity. Can he let his past go and embrace his destiny to become a Knight of the Zodiac?",
+    "poster_path": "/1nbFEdIFprRNSWcCM0RUjQqZifF.jpg",
+    "release_date": "2023-04-27",
+    "title": "Knights of the Zodiac",
+    "vote_average": 6.4
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 57,
+  "fields": {
+    "overview": "The hottest biotech company in the world has discovered they can clone history’s most influential people from the dead. Now, they are auctioning clones of Michelangelo, Galileo, Vivaldi, and others for tens of millions of dollars to the world’s ultra-rich. But when they steal the Shroud of Turin and clone the DNA of Jesus Christ, all hell breaks loose.",
+    "poster_path": "/2lUYbD2C3XSuwqMUbDVDQuz9mqz.jpg",
+    "release_date": "2023-01-13",
+    "title": "The Devil Conspiracy",
+    "vote_average": 6.3
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 58,
+  "fields": {
+    "overview": "One year on from the notorious Ripper murders, London is terrorised once again by a series of brutal killings. When gruesome letters from the Ripper begin landing on his desk, an innocent reporter finds himself drawn into a deadly mystery, threatening the lives of everyone around him.",
+    "poster_path": "/cuEIBHTWAvaYkhhS8HfOkhce2MB.jpg",
+    "release_date": "2023-04-03",
+    "title": "Ripper's Revenge",
+    "vote_average": 6.0
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 59,
+  "fields": {
+    "overview": "Good-hearted teenager William always lived in hope of following in his late father’s footsteps and becoming a storm chaser. His father’s legacy has now been turned into a storm-chasing tourist business, managed by the greedy and reckless Zane Rogers, who is now using William as the main attraction to lead a group of unsuspecting adventurers deep into the eye of the most dangerous supercell ever seen.",
+    "poster_path": "/gbGHezV6yrhua0KfAgwrknSOiIY.jpg",
+    "release_date": "2023-03-17",
+    "title": "Supercell",
+    "vote_average": 6.2
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 60,
+  "fields": {
+    "overview": "Wendy Darling, a young girl afraid to leave her childhood home behind, meets Peter Pan, a boy who refuses to grow up. Alongside her brothers and a tiny fairy, Tinker Bell, she travels with Peter to the magical world of Neverland. There, she encounters an evil pirate captain, Captain Hook, and embarks on a thrilling adventure that will change her life forever.",
+    "poster_path": "/9NXAlFEE7WDssbXSMgdacsUD58Y.jpg",
+    "release_date": "2023-04-20",
+    "title": "Peter Pan & Wendy",
+    "vote_average": 5.8
+  }
+}
+]
