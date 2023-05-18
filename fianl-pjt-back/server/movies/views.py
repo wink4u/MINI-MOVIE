@@ -11,6 +11,7 @@ def movie_save(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         movie = Movie(**data)
+        print(movie)
         movie.save()
         return Response(status=status.HTTP_200_OK)
     return Response(status=status.HTTP_400_BAD_REQUEST)
