@@ -44,7 +44,7 @@ export default new Vuex.Store({
           url: `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${index}&api_key=16e600d87afb33a4184a23b641d8b0c0`
         })
         .then((res) => {
-
+          
           context.commit('GETMOVIES', res.data.results)
     })
   },
@@ -73,13 +73,14 @@ export default new Vuex.Store({
     postMovies() {
       this.state.movieList.forEach((movie) => {
         const data = {
-          'genre_ids' : movie.genre_ids,
+          // 'genre_ids' : movie.genre_ids,
           'overview' : movie.overview,
           'poster_path' : movie.poster_path,
-          'release_data' : movie.release_data,
+          // 'release_data' : movie.release_data,
           'title' : movie.title,
           'vote_average' : movie.vote_average
         }
+        console.log(data)
         axios({
           method: 'post',
           url: `${API_URL}/movies/save/`,

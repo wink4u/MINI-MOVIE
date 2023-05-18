@@ -2,14 +2,18 @@ from django.shortcuts import render, get_object_or_404
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+from rest_framework import status
 from .serializers import MovieListSerializer, MovieDetailSerializer
 from. models import Movie
-
+import json
 @api_view(['POST'])
 def movie_save(request):
     if request.method == 'POST':
-        print(request.data)
+        data = json.loads(request.body)
+        movie = Movie(**data)
+        movie.save()
+        return Response(status=status.HTTP_200_OK)
+    return Response(status=status.HTTP_400_BAD_REQUEST)
 
 # 전체 영화 조회
 @api_view(['GET'])
