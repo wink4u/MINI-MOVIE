@@ -1,12 +1,29 @@
 <template>
     <div>
-        1
+
     </div>
 </template>
 
 <script>
 export default {
-    name: 'NormalView'
+    name: 'NormalView',
+    // data() {
+    //     return {
+    //         movieLi = [],
+    //         genre_ids : [],
+    //         overview : '',
+    //         poster_path: '',
+    //         release_data: '',
+    //         title: '',
+    //         vote_average: '',
+    //     }
+    // },
+    methods: {
+
+    },
+    created() {
+        this.$store.dispatch('postMovies')
+    }
 }
 </script>
 

@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router'
-import createPersistedState from 'vuex-persistedstate'
+// import createPersistedState from 'vuex-persistedstate'
 const API_URL = 'http://127.0.0.1:8000'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  plugins: [
-    createPersistedState(),
-  ],
+  // plugins: [
+  //   createPersistedState(),
+  // ],
   state: {
     userData: {},
     token: null,
@@ -26,9 +26,14 @@ export default new Vuex.Store({
     LOGIN(state, userData){
       state.userData = userData
     },
+    LOGOUT(state){
+      console.log('2')
+      state.token = null
+      sessionStorage.removeItem('key')
+    },
     SAVE_TOKEN(state, token) {
       state.token = token
-      console.log(state.token)
+      sessionStorage.setItem('key', token)
       router.push({name: 'home'})
     },
   },
@@ -39,7 +44,7 @@ export default new Vuex.Store({
           url: `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${index}&api_key=16e600d87afb33a4184a23b641d8b0c0`
         })
         .then((res) => {
-          console.log(res.data.results)
+
           context.commit('GETMOVIES', res.data.results)
     })
   },
@@ -55,13 +60,39 @@ export default new Vuex.Store({
         }
       })
       .then((res) => {
-        console.log(res.data.access)
-        context.commit('SAVE_TOKEN', res.data.access)
+        context.commit('SAVE_TOKEN', res.data.key)
       })
       .catch((err) => {
         console.log(err)
       })
     },
+    logout(context) {
+      console.log('1')
+      context.commit('LOGOUT')
+    },
+    postMovies() {
+      this.state.movieList.forEach((movie) => {
+        const data = {
+          'genre_ids' : movie.genre_ids,
+          'overview' : movie.overview,
+          'poster_path' : movie.poster_path,
+          'release_data' : movie.release_data,
+          'title' : movie.title,
+          'vote_average' : movie.vote_average
+        }
+        axios({
+          method: 'post',
+          url: `${API_URL}/movies/save/`,
+          data: data
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      })
+    }
   },
   modules: {
   }

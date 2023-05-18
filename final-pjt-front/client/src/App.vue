@@ -16,6 +16,9 @@
               <router-link to="/login" class="nav-link active" aria-current="page">로그인</router-link>
             </li>
             <li class="nav-item">
+              <a class="nav-link active cursor-on" aria-current="page" @click="logout">로그아웃</a>
+            </li>
+            <li class="nav-item">
               <router-link to="/signup" class="nav-link active" aria-current="page">회원가입</router-link>
             </li>
           </ul>
@@ -38,6 +41,10 @@ export default {
       for (let i = 1; i < 4; i++) {
         this.$store.dispatch('getMovies', i)
       }
+    },
+    logout() {
+      console.log('1')
+      this.$store.dispatch('logout')
     }
   },
   created() {
@@ -66,4 +73,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.cursor-on {
+  cursor : pointer;
+}
 </style>
+
