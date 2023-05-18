@@ -21,6 +21,9 @@
             <li class="nav-item">
               <router-link to="/signup" class="nav-link active" aria-current="page">회원가입</router-link>
             </li>
+            <li class="nav-item" v-if="this.$store.state.token">
+              <router-link to="/board" class="nav-link active" aria-current="page">자유게시판</router-link>
+            </li>
           </ul>
         </div>
       </div>
