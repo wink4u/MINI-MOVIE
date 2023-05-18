@@ -36,6 +36,11 @@
 <script>
 export default {
   name: 'APP',
+  data() {
+    return {
+      checkOut: false
+    }
+  },
   methods: {
     getMovies() {
       for (let i = 1; i < 4; i++) {
@@ -45,11 +50,22 @@ export default {
     logout() {
       console.log('1')
       this.$store.dispatch('logout')
-    }
-  },
+    },
+    saveValue() {
+      localStorage.setItem('checkOut', JSON.stringify(true));
+    },
+    loadValue() {
+      const value = localStorage.getItem('checkOut'); 
+      this.checkOut = value ? JSON.parse(value) : false; 
+    },
+  } ,
   created() {
-    this.getMovies()
-  } 
+    this.loadValue()
+    if (this.checkOut === false) {
+      this.getMovies()
+    }
+    this.saveValue()
+  }
 }
 </script>
 <style>

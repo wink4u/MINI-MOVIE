@@ -14,13 +14,11 @@ export default new Vuex.Store({
     userData: {},
     token: null,
     movieList: [],
-    Homeout: true
   },
   getters: {
   },
   mutations: {
     GETMOVIES(state, data){
-      state.Homeout = false
       data.forEach((movie) => {
         state.movieList.push(movie)
       }) 
@@ -29,7 +27,6 @@ export default new Vuex.Store({
       state.userData = userData
     },
     LOGOUT(state){
-      console.log('2')
       state.token = null
       sessionStorage.removeItem('key')
     },
@@ -41,19 +38,17 @@ export default new Vuex.Store({
   },
   actions: {
     getMovies(context, index) {
-      if (this.state.Homeout === true) {
         axios({
           method: 'GET',
           url: `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${index}&api_key=16e600d87afb33a4184a23b641d8b0c0`
         })
         .then((res) => {
           res.data.results.forEach((movie) => {
-            console.log(movie)
             const data = {
               // 'genre_ids' : movie.genre_ids,
               'overview' : movie.overview,
               'poster_path' : movie.poster_path,
-              // 'release_data' : movie.release_data,
+              'release_date' : movie.release_date,
               'title' : movie.title,
               'vote_average' : movie.vote_average
             }
@@ -62,19 +57,15 @@ export default new Vuex.Store({
               url: `${API_URL}/movies/save/`,
               data: data
             })
-            .then((res) => {
-              console.log(res)
-              console.log(this.state.movieList)
-            })
-            .catch((err) => {
-              console.log(err)
+            .then(() => {
+              // console.log(this.state.movieList)
             })
           })
           context.commit('GETMOVIES', res.data.results)
+          console.log(this.state.movieList)
     })
-
-      }
   },
+
     login(context, payload) {
       context.commit('LOGIN', payload)
       const username = payload.username

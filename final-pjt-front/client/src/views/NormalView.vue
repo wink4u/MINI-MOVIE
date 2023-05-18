@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div v-for="(movie, index) in movieList" :key="index">
+        {{ movieList }}
+        <!-- <div v-for="(movie, index) in movieList" :key="index">
             {{ movie.title || null }}
             {{ movie.overview || null }}
             {{ movie.vote_average || null }}
-            {{ movie.poster_path || null }}
-        </div>
+            {{ movie.poster_path || null }} -->
+        <!-- </div> -->
     </div>
 </template>
 
@@ -14,9 +15,10 @@ export default {
     name: 'NormalView',
     data() {
         return {
+            
         }
     },
-    methods: {
+    computed: {
         movieList() {
             return this.$store.state.movieList
         }
