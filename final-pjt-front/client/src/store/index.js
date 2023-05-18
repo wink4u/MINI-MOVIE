@@ -76,11 +76,10 @@ export default new Vuex.Store({
           // 'genre_ids' : movie.genre_ids,
           'overview' : movie.overview,
           'poster_path' : movie.poster_path,
-          // 'release_data' : movie.release_data,
+          'release_date' : movie.release_date,
           'title' : movie.title,
           'vote_average' : movie.vote_average
         }
-        console.log(data)
         axios({
           method: 'post',
           url: `${API_URL}/movies/save/`,
