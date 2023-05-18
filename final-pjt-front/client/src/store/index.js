@@ -14,6 +14,7 @@ export default new Vuex.Store({
     userData: {},
     token: null,
     movieList: [],
+    freeBoard: [],
   },
   getters: {
   },
@@ -35,6 +36,17 @@ export default new Vuex.Store({
       sessionStorage.setItem('key', token)
       router.push({name: 'home'})
     },
+    GETBOARD(state, data) {
+      state.freeBoard = data
+    }
+    // FREEBOARD(state, data) {
+    //   console.log(state)
+    //   const usename = sessionStorage.getItem('username')
+    //   const boarddata = {'username': usename, 'title': data.title, 'content':data.content}
+    //   console.log(boarddata)
+    //   state.freeBoard.push(boarddata)
+    //   console.log(state.freeBoard)
+    // }
   },
   actions: {
     getMovies(context, index) {
@@ -79,6 +91,7 @@ export default new Vuex.Store({
       })
       .then((res) => {
         context.commit('SAVE_TOKEN', res.data.key)
+        sessionStorage.setItem('username', username)
       })
       .catch((err) => {
         console.log(err)
@@ -87,30 +100,19 @@ export default new Vuex.Store({
     logout(context) {
       context.commit('LOGOUT')
     },
-    // postMovies() {
-    //   this.state.movieList.forEach((movie) => {
-    //     const data = {
-    //       // 'genre_ids' : movie.genre_ids,
-    //       'overview' : movie.overview,
-    //       'poster_path' : movie.poster_path,
-    //       // 'release_data' : movie.release_data,
-    //       'title' : movie.title,
-    //       'vote_average' : movie.vote_average
-    //     }
-    //     console.log(data)
-    //     axios({
-    //       method: 'post',
-    //       url: `${API_URL}/movies/save/`,
-    //       data: data
-    //     })
-    //     .then((res) => {
-    //       console.log(res)
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    //   })
+    getBoard(context) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/comment`,
+      })
+      .then((res) => {
+        context.commit('GETBOARD', res.data)
+      })
+    }
+    // freeBoard(context, data) {
+    //   context.commit('FREEBOARD', data)
     // }
+
   },
   modules: {
   }

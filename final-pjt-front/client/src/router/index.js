@@ -6,6 +6,7 @@ import LoginView from '@/views/LoginView'
 import SignupView from '@/views/SignupView'
 import HomeView from '@/views/HomeView'
 import FreeBoard from '@/views/FreeBoard'
+import createBoard from '@/views/createBoard'
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
     path: '/board',
     name: 'board',
     component: FreeBoard
+  },
+  {
+    path: '/board/create',
+    name: 'boardcreate',
+    component: createBoard
   },
   // {
   //   path: '/about',

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">SweetM</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
     <nav>
       <router-link to="/normal">일반</router-link> |
@@ -80,13 +80,13 @@ export default {
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+nav { 
+
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #34383b !important;
 }
 
 nav a.router-link-exact-active {
