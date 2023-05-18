@@ -13,11 +13,11 @@ class GenreSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Genre
-        fields = ('name')
+        fields = ('name',)
         
 
 class MovieDetailSerializer(serializers.ModelSerializer):
-    genres = GenreSerializer(many=True, read_only=True)
+    genre_ids = GenreSerializer(many=True, read_only=True)
     
     class Meta:
         model = Movie
