@@ -6,6 +6,11 @@ from rest_framework.response import Response
 from .serializers import MovieListSerializer, MovieDetailSerializer
 from. models import Movie
 
+@api_view(['POST'])
+def movie_save(request):
+    if request.method == 'POST':
+        print(request.data)
+
 # 전체 영화 조회
 @api_view(['GET'])
 def movie_list(request):
