@@ -14,11 +14,13 @@ export default new Vuex.Store({
     userData: {},
     token: null,
     movieList: [],
+    Homeout: true
   },
   getters: {
   },
   mutations: {
     GETMOVIES(state, data){
+      state.Homeout = false
       data.forEach((movie) => {
         state.movieList.push(movie)
       }) 
@@ -39,14 +41,39 @@ export default new Vuex.Store({
   },
   actions: {
     getMovies(context, index) {
+      if (this.state.Homeout === true) {
         axios({
           method: 'GET',
           url: `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${index}&api_key=16e600d87afb33a4184a23b641d8b0c0`
         })
         .then((res) => {
-          
+          res.data.results.forEach((movie) => {
+            console.log(movie)
+            const data = {
+              // 'genre_ids' : movie.genre_ids,
+              'overview' : movie.overview,
+              'poster_path' : movie.poster_path,
+              // 'release_data' : movie.release_data,
+              'title' : movie.title,
+              'vote_average' : movie.vote_average
+            }
+            axios({
+              method: 'post',
+              url: `${API_URL}/movies/save/`,
+              data: data
+            })
+            .then((res) => {
+              console.log(res)
+              console.log(this.state.movieList)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+          })
           context.commit('GETMOVIES', res.data.results)
     })
+
+      }
   },
     login(context, payload) {
       context.commit('LOGIN', payload)
@@ -67,33 +94,32 @@ export default new Vuex.Store({
       })
     },
     logout(context) {
-      console.log('1')
       context.commit('LOGOUT')
     },
-    postMovies() {
-      this.state.movieList.forEach((movie) => {
-        const data = {
-          // 'genre_ids' : movie.genre_ids,
-          'overview' : movie.overview,
-          'poster_path' : movie.poster_path,
-          // 'release_data' : movie.release_data,
-          'title' : movie.title,
-          'vote_average' : movie.vote_average
-        }
-        console.log(data)
-        axios({
-          method: 'post',
-          url: `${API_URL}/movies/save/`,
-          data: data
-        })
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      })
-    }
+    // postMovies() {
+    //   this.state.movieList.forEach((movie) => {
+    //     const data = {
+    //       // 'genre_ids' : movie.genre_ids,
+    //       'overview' : movie.overview,
+    //       'poster_path' : movie.poster_path,
+    //       // 'release_data' : movie.release_data,
+    //       'title' : movie.title,
+    //       'vote_average' : movie.vote_average
+    //     }
+    //     console.log(data)
+    //     axios({
+    //       method: 'post',
+    //       url: `${API_URL}/movies/save/`,
+    //       data: data
+    //     })
+    //     .then((res) => {
+    //       console.log(res)
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    //   })
+    // }
   },
   modules: {
   }
