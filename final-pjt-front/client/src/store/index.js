@@ -17,12 +17,13 @@ export default new Vuex.Store({
     freeBoard: [],
   },
   getters: {
+    boards : state => state.boards
   },
   mutations: {
     GETMOVIES(state, data){
       data.forEach((movie) => {
         state.movieList.push(movie)
-      }) 
+      })
     },
     LOGIN(state, userData){
       state.userData = userData
@@ -38,6 +39,10 @@ export default new Vuex.Store({
     },
     GETBOARD(state, data) {
       state.freeBoard = data
+    },
+    GETDATAMOVIES(state, data) {
+      console.log(data)
+      state.movieList = data
     }
     // FREEBOARD(state, data) {
     //   console.log(state)
@@ -57,7 +62,7 @@ export default new Vuex.Store({
         .then((res) => {
           res.data.results.forEach((movie) => {
             const data = {
-              'genre_ids' : movie.genre_ids,
+              // 'genre_ids' : movie.genre_ids,
               'overview' : movie.overview,
               'poster_path' : movie.poster_path,
               'release_date' : movie.release_date,
@@ -108,6 +113,20 @@ export default new Vuex.Store({
       })
       .then((res) => {
         context.commit('GETBOARD', res.data)
+      })
+    },
+    getDataMovies(context){
+      console.log('123456')
+      axios({
+        method: 'get',
+        url: `${API_URL}/movies/`,
+      })
+      .then((res) => {
+        console.log(res.data)
+        context.commit('GETDATAMOVIES', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
       })
     }
     // freeBoard(context, data) {

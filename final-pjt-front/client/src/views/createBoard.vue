@@ -2,7 +2,7 @@
     <div class="container">
     <h1>자유게시판</h1>
     <div v-if="freeBoardList">
-        <ul class="collection" v-for="(board, index) in freeBoardList" :key="index">
+        <ul class="collection" v-for="(board, index) in freeBoard" :key="index">
             <li class="collection-item">
                 <p>{{ board.title }}</p>
             </li>
@@ -30,7 +30,7 @@
 <script>
 import M from 'materialize-css'
 import axios from 'axios'
-
+import { mapState } from 'vuex'
 
 const API_URL = 'http://127.0.0.1:8000'
 export default {
@@ -56,16 +56,14 @@ export default {
                     title, content
                 }
             })
-            .then((res) => {
-                console.log(res)
+            .then(() => {
+                this.$store.dispatch('getBoard')
                 this.$router.push({name:'board'})
             })
         }
     },
     computed: {
-        freeBoardList() {
-            return this.$store.state.freeBoard
-        }
+        ...mapState(['freeBoard'])
     }
 }
 </script>

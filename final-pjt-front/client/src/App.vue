@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link to="/home" class="nav-link active" aria-current="page">홈</router-link>
+              <router-link to="/" class="nav-link active" aria-current="page">홈</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/login" class="nav-link active" aria-current="page">로그인</router-link>
@@ -66,6 +66,8 @@ export default {
     this.loadValue()
     if (this.checkOut === false) {
       this.getMovies()
+    } else {
+      this.getDataMovies()
     }
     this.saveValue()
   }

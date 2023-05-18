@@ -5,7 +5,7 @@ class MovieListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Movie
-        fields = '(title, overview, poster_path)'
+        fields = '__all__'
         
 
 # movie Genre_id에 따라서 Genre를 불러오기위한 Serializer

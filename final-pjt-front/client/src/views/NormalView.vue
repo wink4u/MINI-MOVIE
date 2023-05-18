@@ -1,27 +1,28 @@
 <template>
-    <div>
-        {{ movieList }}
-        <!-- <div v-for="(movie, index) in movieList" :key="index">
-            {{ movie.title || null }}
-            {{ movie.overview || null }}
-            {{ movie.vote_average || null }}
-            {{ movie.poster_path || null }} -->
-        <!-- </div> -->
+    <div class="">
+        <div class="row row-cols-4 row-cols-md-5 gy-3">
+            <MovieCard v-for="movie in movieList"
+            :key="movie.id"
+            :movie="movie"></MovieCard>
+        </div>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import MovieCard from '@/components/MovieCard'
 export default {
     name: 'NormalView',
+    components: {
+    MovieCard,
+  },
     data() {
         return {
             
         }
     },
     computed: {
-        movieList() {
-            return this.$store.state.movieList
-        }
+        ...mapState(['movieList'])
     },
     // created() {
     //     this.$store.dispatch('postMovies')
