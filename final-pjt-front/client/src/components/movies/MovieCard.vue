@@ -1,29 +1,32 @@
 <template>
   <div>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <!-- <img src="..." class="d-block w-100" alt="..."> -->
         </div>
         <div class="carousel-item">
-          <!-- <img src="..." class="d-block w-100" alt="..."> -->
         </div>
         <div class="carousel-item">
-          <!-- <img src="..." class="d-block w-100" alt="..."> -->
         </div>
       </div>
-    </div>
-  
-  
-    <div class="card">
-      <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
-      <div class="middle">
-        <div class="text-block">
-          <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
-          <h3>{{movie.vote_average}}</h3>
+    </div> -->
+    
+    <div>
+      <div class="card">
+        <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
+        <div class="middle">
+          <div class="text-block">
+            <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
+            <h3>{{movie.vote_average}}</h3>
+          </div>
         </div>
       </div>
+      <div class="image_title font_regular">
+        <p class="image_title_text" v-if="movie.title.length <= maxLength ">{{ movie.title }}</p> 
+        <p class="image_title_text" v-else> {{ movie.title.slice(0, maxLength) }}..</p> 
+      </div>
     </div>
+    
   </div>
 </template>
 
@@ -31,7 +34,8 @@
 export default {
   data() {
     return {
-      userLike : false
+      userLike : false,
+      maxLength : 11
     }
   },
   props: {
@@ -55,7 +59,7 @@ export default {
   opacity: 0.2;
 }
 .card:hover .middle {
-  opacity: 2;
+  opacity: 1;
 }
 .middle {
   transition: .5s ease;
@@ -84,6 +88,23 @@ export default {
   height: 500px;
   object-fit: cover;
 }
+
+.image_title{
+  font-size : 25px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  height : 50px;
+  
+}
+
+.image_title_text {
+  font-family: 'Hahmlet', serif;
+}
+.font_regular {
+  font-weight: 400;
+}
+
 .heart-button {
   width: 30px;
   height: 30px;

@@ -1,9 +1,10 @@
 <template>
     <div class="">
-        <div class="row row-cols-4 row-cols-md-5 gy-3">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 gy-3">
             <MovieCard v-for="movie in MovieLst"
             :key="movie.id"
-            :movie="movie">1</MovieCard>
+            :movie="movie"></MovieCard>
+            <p>movie.title</p>
         </div>
     </div>
 </template>

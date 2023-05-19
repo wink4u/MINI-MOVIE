@@ -27,6 +27,7 @@ const accounts = {
         },
         SAVE_TOKEN(state, token) {
             state.token = token
+            console.log(state.token)
             sessionStorage.setItem('key', token)
             router.push({ name: 'home' })
         },
