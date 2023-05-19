@@ -10,23 +10,19 @@
 
 <script>
 import { mapState } from 'vuex'
-import MovieCard from '@/components/MovieCard'
+import MovieCard from '@/components/movies/MovieCard'
 export default {
     name: 'NormalView',
     components: {
-    MovieCard,
-  },
+        MovieCard,
+    },
     data() {
         return {
-            
         }
     },
     computed: {
         ...mapState(['movieList'])
-    },
-    // created() {
-    //     this.$store.dispatch('postMovies')
-    // }
+    }
 }
 </script>
 

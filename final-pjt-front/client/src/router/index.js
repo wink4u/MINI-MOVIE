@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import NormalView from '@/views/NormalView'
-import ConceptView from '@/views/ConceptView'
-import LoginView from '@/views/LoginView'
-import SignupView from '@/views/SignupView'
+import NormalView from '@/views/movies/NormalView'
+import ConceptView from '@/views/movies/ConceptView'
+import LoginView from '@/views/accounts/LoginView'
+import SignupView from '@/views/accounts/SignupView'
 import HomeView from '@/views/HomeView'
-import FreeBoard from '@/views/FreeBoard'
-import createBoard from '@/views/createBoard'
+import FreeBoard from '@/views/boards/FreeBoard'
+import createBoard from '@/views/boards/createBoard'
 Vue.use(VueRouter)
 
 const routes = [

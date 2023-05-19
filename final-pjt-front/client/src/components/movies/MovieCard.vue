@@ -1,10 +1,27 @@
 <template>
-  <div class="card">
-    <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
-    <div class="middle">
-      <div class="text-block">
-        <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
-        <h3>{{movie.vote_average}}</h3>
+  <div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- <img src="..." class="d-block w-100" alt="..."> -->
+        </div>
+        <div class="carousel-item">
+          <!-- <img src="..." class="d-block w-100" alt="..."> -->
+        </div>
+        <div class="carousel-item">
+          <!-- <img src="..." class="d-block w-100" alt="..."> -->
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="card">
+      <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
+      <div class="middle">
+        <div class="text-block">
+          <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
+          <h3>{{movie.vote_average}}</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -12,7 +29,6 @@
 
 <script>
 export default {
-  name: "MovieCard",
   data() {
     return {
       userLike : false
@@ -75,13 +91,13 @@ export default {
   border: none;
   outline: none;
   cursor: pointer;
-  background-image: url('../assets/empty-heart.png');
+  background-image: url('@/assets/empty-heart.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .heart-button.liked {
-  background-image: url('../assets/filled-heart.png');
+  background-image: url('@/assets/filled-heart.png');
 }
 
 </style>
