@@ -12,10 +12,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
-    userData: {},
-    token: null,
-    movieList: [],
-    freeBoard: [],
   },
   getters: {
 

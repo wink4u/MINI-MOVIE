@@ -1,21 +1,18 @@
 import axios from 'axios'
 import router from '@/router'
-
+import createPersistedState from 'vuex-persistedstate'
 const API_URL = 'http://127.0.0.1:8000'
 
 const accounts = {
+    plugins: [
+        createPersistedState()
+    ],
     state: {
         userData: {},
         token: null,
-        movieList: [],
-        freeBoard: [],
     },
     getters: {
-        boards: state => state.boards,
-        userData: state => state.userData,
-        token: state => state.token,
-        movieList: state => state.movieList,
-        freeBoard: state => state.freeBoard
+
     },
     mutations: {
         LOGIN(state, userData) {
