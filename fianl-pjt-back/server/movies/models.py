@@ -4,10 +4,10 @@ class Genre(models.Model):
     name = models.CharField(max_length=50)
 
 class Movie(models.Model):
-    # adult = models.BooleanField(blank=True)
+    adult = models.BooleanField(blank=True)
     # backdrop_path = models.CharField(max_length=200, blank=True)
-    # genre_ids = models.ManyToManyField(Genre, related_name = 'movie')
-    # movie_id = models.IntegerField()
+    genre_ids = models.ManyToManyField(Genre, related_name = 'movie')
+    movie_id = models.IntegerField()
     # original_language = models.CharField(max_length=200, blank=True)
     # original_title = models.CharField(max_length=100, blank=True)
     overview = models.CharField(max_length=200, blank=True)
