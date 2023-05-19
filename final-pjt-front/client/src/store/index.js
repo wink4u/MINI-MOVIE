@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // import axios from 'axios'
 // import router from '../router'
-import accounts from '@/store/moduels/account'
-import board from '@/store/moduels/board'
-import movies from '@/store/moduels/movies'
+import accounts from '@/store/modules/account'
+import board from '@/store/modules/board'
+import movies from '@/store/modules/movies'
 
 // const API_URL = 'http://127.0.0.1:8000'
 Vue.use(Vuex)

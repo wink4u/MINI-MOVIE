@@ -16,7 +16,7 @@ const board = {
           state.freeBoard = data
         },
         GETDATAMOVIES(state, data) {
-          console.log(data)
+          // console.log(data)
           state.movieList = data
         }
     },

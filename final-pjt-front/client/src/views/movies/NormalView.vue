@@ -1,9 +1,9 @@
 <template>
     <div class="">
         <div class="row row-cols-4 row-cols-md-5 gy-3">
-            <MovieCard v-for="movie in movieList"
+            <MovieCard v-for="movie in MovieLst"
             :key="movie.id"
-            :movie="movie"></MovieCard>
+            :movie="movie">1</MovieCard>
         </div>
     </div>
 </template>
@@ -21,8 +21,9 @@ export default {
         }
     },
     computed: {
-        ...mapState(['movieList'])
-    }
+        ...mapState({ MovieLst: state => state.movies.movieLst })
+    },
+
 }
 </script>
 

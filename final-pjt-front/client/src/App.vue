@@ -62,15 +62,15 @@ export default {
       this.checkOut = value ? JSON.parse(value) : false; 
     },
   } ,
-  created() {
-    this.loadValue()
-    if (this.checkOut === false) {
-      this.getMovies()
-    } else {
-      this.getDataMovies()
-    }
-    this.saveValue()
-  }
+  // created() {
+  //   this.loadValue()
+  //   if (this.checkOut === false) {
+  //     this.getMovies()
+  //   } else {
+  //     this.getDataMovies()
+  //   }
+  //   this.saveValue()
+  // }
 }
 </script>
 <style>
