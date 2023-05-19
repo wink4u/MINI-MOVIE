@@ -2,8 +2,6 @@ from rest_framework import serializers
 from .models import Movie, Genre, Board, Comment
 from django.contrib.auth import get_user_model
 
-User = get_user_model()
-
 class MovieListSerializer(serializers.ModelSerializer):
     
     class Meta:
@@ -17,26 +15,35 @@ class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ('name',)
+    
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ('pk', 'username',)
         
-
-
 class BoardSerializer(serializers.ModelSerializer):
 
-    class UserSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = User
-            fields = ('pk', 'username',)
 
+    user = UserSerializer(read_only=True)
     class Meta:
         model = Board
-        fields = ('pk', 'title', 'content', 'updated_at', 'created_at',)
+        fields = '__all__'
+        read_only_field = ('user',)
+    
+    # def create(self, validated_data):
+    #     validated_data['user'] = self.context['request'].user
+    #     return super().create(validated_data)
+
+
 
 class CommentSerializer(serializers.ModelSerializer):
+
     class UserSerializer(serializers.ModelSerializer):
         class Meta:
-            model = User
+            model = get_user_model()
             fields = ('pk', 'username',)
-    
+    user = UserSerializer(read_only=True)
+
     def to_representation(self, instance):
         rep = super().to_representation(instance)
         rep.pop("movie" , None)
