@@ -15,7 +15,7 @@ const movies = {
     mutations: {
         GETDATAMOVIES(state, data) {
             data.forEach((movie) => {
-                state.movieLst.push(movie)
+                state.movieList.push(movie)
             })
         },
 
@@ -35,7 +35,7 @@ const movies = {
                 })
         }
         ,
-        
+
     }
 }
 export default movies

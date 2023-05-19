@@ -22,7 +22,7 @@ export default {
         }
     },
     computed: {
-        ...mapState({ MovieLst: state => state.movies.movieLst })
+        ...mapState({ MovieLst: state => state.movies.movieList })
     },
 
 }
