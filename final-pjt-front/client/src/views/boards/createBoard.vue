@@ -1,7 +1,7 @@
 <template>
     <div class="container">
     <h1>자유게시판</h1>
-    <div v-if="freeBoardList">
+    <div v-if="freeBoard">
         <ul class="collection" v-for="(board, index) in freeBoard" :key="index">
             <li class="collection-item">
                 <p>{{ board.title }}</p>
@@ -13,7 +13,7 @@
         <p>당신의 마음을 달래줄 소식이 없네요</p>
     </div>
 
-    <form @submit.prevent="freeBoard">
+    <form @submit.prevent="createB">
         <div class="input-field">
             <input type="text" id="title" name="title" v-model="title" required>
             <label for="title">제목</label>
@@ -29,10 +29,7 @@
 
 <script>
 import M from 'materialize-css'
-import axios from 'axios'
-import { mapState } from 'vuex'
 
-const API_URL = 'http://127.0.0.1:8000'
 export default {
     name: 'createBoard',
     data() {
@@ -46,24 +43,17 @@ export default {
     },
 
     methods: {
-        freeBoard(){
-            const title = this.title
-            const content = this.content
-            axios({
-                method: 'post',
-                url: `${API_URL}/comments/create/`,
-                data: {
-                    title, content
-                }
-            })
-            .then(() => {
-                this.$store.dispatch('getBoard')
-                this.$router.push({name:'board'})
-            })
+        createB() {
+            const board = {title: this.title, content: this.content}
+            console.log(board)
+            this.$store.dispatch('createB', board)
         }
+
     },
     computed: {
-        ...mapState(['freeBoard'])
+        freeBoard() {
+            return this.$store.state.board.freeBoard
+    }
     }
 }
 </script>

@@ -14,7 +14,6 @@ export default {
   },
   created() {
     this.getDataMovies();
-    console.log(1)
   }
 };
 </script>

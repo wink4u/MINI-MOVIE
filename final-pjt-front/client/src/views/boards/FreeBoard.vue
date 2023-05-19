@@ -9,9 +9,9 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody v-if="boards">
           <tr v-for="(board, index) in boards" :key="index">
-            <!-- <td>{{ board.user.username }}</td> -->
+            <td>{{ board.user.username }}</td>
             <td>{{ board.title }}</td>
             <td>{{ board.content }}</td>
           </tr>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+
 export default {
     name: 'FreeBoard',
     methods: {
@@ -34,7 +34,9 @@ export default {
         }
     },
     computed: {
-      ...mapGetters(['boards'])
+      boards() {
+        return this.$store.state.board.freeBoard
+      }
     },
     created() {
         this.getBoard()
