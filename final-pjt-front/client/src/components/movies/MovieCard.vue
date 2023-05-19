@@ -17,7 +17,14 @@
         <div class="middle">
           <div class="text-block">
             <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
-            <h3>{{movie.vote_average}}</h3>
+            <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
+            <div class="button-margin"></div>
+            <div class="button-wrapper">
+              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : movie.id }}">
+                상세 보기
+              </router-link>
+            </div>
+            <!-- <div class="btn btn-primary" @click="movie_datil(movie.pk)">영화 상세보기</div> -->
           </div>
         </div>
       </div>
@@ -46,7 +53,7 @@ export default {
   methods: {
     toggleHeart() {
       this.userLike = !this.userLike
-}
+    },
   }
 }
 </script>
@@ -60,6 +67,14 @@ export default {
 }
 .card:hover .middle {
   opacity: 1;
+}
+
+.button-margin {
+  height : 100px;
+}
+
+.btn-size {
+  left : 0%;
 }
 .middle {
   transition: .5s ease;
@@ -89,6 +104,10 @@ export default {
   object-fit: cover;
 }
 
+.movie_detail {
+  height : 60px;
+}
+
 .image_title{
   font-size : 25px;
   display : flex;
@@ -103,6 +122,10 @@ export default {
 }
 .font_regular {
   font-weight: 400;
+}
+
+.font_middle {
+  font-weight:500;
 }
 
 .heart-button {
@@ -121,4 +144,19 @@ export default {
   background-image: url('@/assets/filled-heart.png');
 }
 
+.button-wrapper {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+}
+
+.custom-button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  font-size : 25px;
+}
 </style>
