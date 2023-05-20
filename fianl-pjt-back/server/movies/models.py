@@ -25,7 +25,7 @@ class Board(models.Model):
     title = models.CharField(max_length=30)
     content = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at =   models.DateTimeField(auto_now=True)
 
 class Comment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -33,3 +33,12 @@ class Comment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class BoardComment(models.Model):
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    comment_board = models.ForeignKey(Board, on_delete=models.CASCADE)
+    write_comment_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
+    # write_review_board = models.ForeignKey(Board , on_delete=models.CASCADE, null=True, blank=True)
+    # like_review_users = models.ManyToManyField(settings.AUTH_USER_MODEL)

@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import get_user_model
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import MovieListSerializer, MovieDetailSerializer, BoardSerializer
+from .serializers import BoardCommentSerializer
 from accounts.serializers import UserSerializer
-from .models import Movie, Board
+from .models import Movie, Board, BoardComment, Comment
 import json
 
 # 전체 영화 조회
@@ -45,8 +46,39 @@ def board_list(request):
 @api_view(['POST'])
 def board_create(request):
     serializer = BoardSerializer(data=request.data)
-    # user = get_user_model().objects.get(username=request.user)
     if serializer.is_valid(raise_exception=True):
         serializer.save(user=request.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'POST'])
+# @permission_classes([])
+def board_create_comment(request, board_pk):
+    board = get_object_or_404(Board, pk=board_pk)
+    if request.method == 'POST':
+        serializer = BoardCommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(comment_board=board, write_comment_user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+    if request.method == 'GET':
+        comments = BoardComment.objects.filter(comment_board=board)
+        serializer = BoardCommentSerializer(comments, many=True)
+        return Response(serializer.data)
+    
+
+@api_view(['GET'])
+def comments(request):
+    if request.method == 'GET':
+        comments = BoardComment.objects.all()
+        serializer = BoardCommentSerializer(comments, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+def board_change_comment(request, board_pk, id):
+    board = get_object_or_404(Board, pk=board_pk)
+    comment = get_object_or_404(BoardComment, pk=id, comment_board=board)
+    
+    if request.method == 'DELETE':
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
