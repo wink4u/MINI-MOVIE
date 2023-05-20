@@ -77,6 +77,7 @@ export default {
             })
             .then((res) => {
                 console.log(res.data)
+                this.$router.push({name:'login'})
             })
             .catch((err)=> {
                 console.log(err)

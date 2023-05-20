@@ -21,6 +21,7 @@ const accounts = {
         LOGOUT(state) {
             state.token = null
             sessionStorage.removeItem('key')
+            router.push({name: 'home'})
         },
         SAVE_TOKEN(state, token) {
             state.token = token

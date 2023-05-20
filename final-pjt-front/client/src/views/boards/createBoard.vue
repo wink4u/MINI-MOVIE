@@ -2,7 +2,7 @@
     <div class="container">
     <h1>자유게시판</h1>
     <div v-if="freeBoard">
-        <ul class="collection" v-for="(board, index) in freeBoard" :key="index">
+        <ul class="collection" v-for="(board, index) in freeBoard.slice(0,5)" :key="index">
             <li class="collection-item">
                 <p>{{ board.title }}</p>
             </li>

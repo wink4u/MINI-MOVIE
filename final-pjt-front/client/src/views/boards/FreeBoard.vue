@@ -10,10 +10,10 @@
         </thead>
 
         <tbody v-if="boards">
-          <tr v-for="(board, index) in boards" :key="index">
+          <tr v-for="(board, index) in boards" :key="index" @click="detailBoard(index)">
             <td>{{ board.user.username }}</td>
-            <td>{{ board.title }}</td>
-            <td>{{ board.content }}</td>
+            <td>{{ board.title.slice(0, 10) }}</td>
+            <td>{{ board.content.slice(0, 30) }}</td>
           </tr>
         </tbody>
       </table>
@@ -31,15 +31,23 @@ export default {
         },
         getBoard() {
             this.$store.dispatch('getBoard')
-        }
+        },
+        detailBoard(board_id) {
+          this.$router.push({name:'BoardDetail', params:{'board_id':board_id}})
+        },
+        allcomments(){
+        this.$store.dispatch('allComments')
+        },  
     },
     computed: {
       boards() {
         return this.$store.state.board.freeBoard
-      }
+      },
+      
     },
     created() {
         this.getBoard()
+        this.allcomments()
     }
 }
 </script>

@@ -8,6 +8,7 @@ import HomeView from '@/views/HomeView'
 import FreeBoard from '@/views/boards/FreeBoard'
 import createBoard from '@/views/boards/createBoard'
 import DetailView from '@/views/movies/DetailView'
+import BoardDetail from '@/views/boards/BoardDetail'
 Vue.use(VueRouter)
 
 const routes = [
@@ -51,6 +52,12 @@ const routes = [
     path: '/detail/:id',
     name: 'detail',
     component: DetailView,
+    props: true
+  },
+  {
+    path: '/board/:board_id',
+    name: 'BoardDetail',
+    component: BoardDetail,
     props: true
   }
   // {
