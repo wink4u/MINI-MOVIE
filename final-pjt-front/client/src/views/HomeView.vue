@@ -9,7 +9,7 @@ export default {
   name: 'HomeView',
   methods: {
     getDataMovies() {
-      this.$store.dispatch('movies/getDataMovies');
+      this.$store.dispatch('getDataMovies');
     }
   },
   created() {

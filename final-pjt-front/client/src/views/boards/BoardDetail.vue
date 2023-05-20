@@ -52,7 +52,7 @@ export default {
       content: ''
     }
   },
-  
+
   computed: {
     ...mapState({ Boardlist: state => state.board.freeBoard }),
     ...mapState({ allComments: state => state.board.allComments }),
@@ -69,8 +69,6 @@ export default {
     },
     deleteComment(comment){
       const username = sessionStorage.getItem('username')
-      console.log(comment.write_comment_user.username)
-      console.log(comment.id)
       if (comment.write_comment_user.username === username) {
         this.$store.dispatch('deleteComment', { board_id: this.board_id, id: comment.id })
       } else {
@@ -83,7 +81,6 @@ export default {
     this.GetComments(this.board_id)
   },
   created() {
-
   }
 }
 </script>
