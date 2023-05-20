@@ -69,7 +69,9 @@ export default {
     },
     deleteComment(comment){
       const username = sessionStorage.getItem('username')
+ 
       if (comment.write_comment_user.username === username) {
+        console.log('1gjhghjg')
         this.$store.dispatch('deleteComment', { board_id: this.board_id, id: comment.id })
       } else {
         alert('남의 댓글은 삭제 안대용')

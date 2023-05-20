@@ -27,12 +27,18 @@ export default {
     name: 'FreeBoard',
     methods: {
         createBoard(){
+          if (sessionStorage.getItem('key')){
             this.$router.push({name:'boardcreate'})
+          } else {
+            alert('로그인 하세요')
+            this.$router.push('/login')
+          }
         },
         getBoard() {
             this.$store.dispatch('getBoard')
         },
         detailBoard(board_id) {
+          
           this.$router.push({name:'BoardDetail', params:{'board_id':board_id}})
         },
         allcomments(){

@@ -56,3 +56,12 @@ class BoardCommentSerializer(serializers.ModelSerializer):
         model = BoardComment
         fields = '__all__'
         read_only_field = ('write_comment_user','comment_board',)
+
+# 영화 좋아요 등록 및 해제
+class MovieLikeSerialzer(serializers.ModelSerializer):
+    like_movie_users = UserSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = Movie
+        # 영화 id, 좋아요를 한 사용자 목록, 좋아요 수
+        fields = ('id','like_movie_users', )

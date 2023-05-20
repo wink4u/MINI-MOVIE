@@ -10,18 +10,33 @@ const movies = {
         token: null,
         movieList: [],
         eachComments : [],
-        allMovieComments : []
+        allMovieComments : [],
+        movieLike: {
+            like_movie_users: [],
+          },
+        movie: []
     },
     getters: {
     },
     mutations: {
         GETDATAMOVIES(state, data) {
-            data.forEach((movie) => {
-                state.movieList.push(movie)
-            })
+            state.movieList = data
+        },
+        GETDETAILMOVIE(state, data){
+            state.movie = data
+            // console.log(state.movie)
         },
         GETCOMMENTS(state, data) {
             state.eachComments = data
+        },
+        LIKE_MOVIE(state, like_data) {
+     
+            state.movieLike= like_data
+            console.log(state.movieLike)
+            console.log('1234')
+        },
+        ALL_COMMENTS(state, data) {
+            state.allMovieComments = data
         }
 
     },
@@ -32,14 +47,26 @@ const movies = {
                 url: `${API_URL}/movies/`,
             })
             .then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                 context.commit('GETDATAMOVIES', res.data)
             })
             .catch((err) => {
                 console.log(err)
             })
         },
-        GetComments(context, movie_pk){
+        // getdetailMovie(context, movie_id){
+        //     axios({
+        //         method: 'get',
+        //         url: `${API_URL}/movies/${movie_id}/`
+        //     })
+        //     .then((res) => {
+        //         // console.log(res.data)
+        //         context.commit('GETDETAILMOVIE', res.data)
+        //     })
+        // },
+
+
+        GetCommentsMovie(context, movie_pk){
             axios({
                 url: `${API_URL}/movies/${movie_pk}/movieComment/`,
                 method: 'get',
@@ -61,9 +88,9 @@ const movies = {
               },
               data: {'content' : content},
             })
-            .then((res) => {
-              console.log(res)
-              context.dispatch('GetComments', movie_id)
+            .then(() => {
+                context.dispatch('GetCommentsMovie', movie_id)
+                context.dispatch('GetComments', movie_id)
             })
             .catch((err)=>{
               console.log(err)
@@ -79,16 +106,34 @@ const movies = {
               headers: {'Authorization': `Token ${token}`},
             })
             .then(()=> {
-              context.dispatch('GetComments', movie_id)
+                context.dispatch('GetCommentsMovie', movie_id)
+                context.dispatch('GetComments', movie_id)
             })
           },
         allComments(context){
-        axios({
-            url: `${API_URL}/movies/comments/`,
-            method: 'get',
-        })
-        .then((res) => context.commit('ALL_COMMENTS', res.data))
-    }
+            axios({
+                url: `${API_URL}/movies/comments/`,
+                method: 'get',
+            })
+            .then((res) => context.commit('ALL_COMMENTS', res.data))
+            },
+    
+        likeMovie(context, movieId) {
+            axios({
+                url: `${API_URL}/movies/${movieId}/like/`,
+                method: 'post',
+                headers: {'Authorization': `Token ${token}`},
+            })
+            .then(res => {
+            context.commit("LIKE_MOVIE", res.data)
+            context.dispatch('getDataMovies')
+
+
+            })
+            .catch(err => {
+            console.error(err)
+            })
+        },
         
 
     }

@@ -12,16 +12,18 @@
     </div> -->
     
     <div>
+      {{ movie }}
+   
       <div class="card">
         <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
         <div class="middle">
           <div class="text-block">
-            <button class="heart-button" @click="toggleHeart()" :class="{'liked' : userLike}"></button>
+            <button class="heart-button" @click="like_movie()" :class="{'liked' : userLike}"></button>
             <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
-              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'movie_id' : movie.id }}">
-                상세 보기
+              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id }}">
+                상세 보기 
               </router-link>
             </div>
             <!-- <div class="btn btn-primary" @click="movie_datil(movie.pk)">영화 상세보기</div> -->
@@ -41,8 +43,8 @@
 export default {
   data() {
     return {
-      userLike : false,
-      maxLength : 11
+      maxLength : 11,
+      currentId: sessionStorage.getItem('userId')
     }
   },
   props: {
@@ -51,9 +53,26 @@ export default {
     }
   },
   methods: {
-    toggleHeart() {
+    like_movie() {
+      if (this.currentId in this.movie.like_movie_users){
+        this.userLike = true
+      }
+      this.$store.dispatch('likeMovie', this.movie.id)
       this.userLike = !this.userLike
     },
+    getdetailmovie() {
+      this.$store.dispatch('getdetailMovie', this.movie.id)
+    }
+  },
+
+  computed: {
+    userLike(){
+      if (this.currentId in this.movie.like_movie_users){
+        return true
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

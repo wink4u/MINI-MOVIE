@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 gy-3">
-            <MovieCard v-for="movie in MovieLst"
+            <MovieCard v-for="movie in MovieList"
             :key="movie.id"
             :movie="movie"></MovieCard>
             <p>movie.title</p>
@@ -22,8 +22,11 @@ export default {
         }
     },
     computed: {
-        ...mapState({ MovieLst: state => state.movies.movieList })
+        ...mapState({ MovieList: state => state.movies.movieList })
     },
+    created(){
+        this.$store.dispatch('getDataMovies')
+    }
 
 }
 </script>

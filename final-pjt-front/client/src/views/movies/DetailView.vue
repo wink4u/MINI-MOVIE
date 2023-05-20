@@ -60,25 +60,30 @@ const API_KEY = "AIzaSyAWNUiFp58G_MdghygPStTt15VpIEtjhyM"
 export default {
     name : 'DetailView',
     props: {
-        movie_id : Number
+        id : Number
     },
     data() {
         return {
             movie : [],
             videos : [],
             selectedViedo: {},
-            content: ''
+            content: '',
         } 
     },
     methods : {
         createMcomment() {
-            this.$store.dispatch('createMcomment', { movie_id: this.movie_id, content: this.content })
-            this.content = ''
+            if (sessionStorage.getItem('key')){
+                this.$store.dispatch('createMcomment', { movie_id: this.id, content: this.content })
+                this.content = ''
+            } else {
+                alert('로그인 하세요!')
+                this.$router.push('/login')
+            }
         },
         deleteComment(comment) {
             const username = sessionStorage.getItem('username')
             if (comment.user.username === username) {
-                this.$store.dispatch('deleteMcomment', { movie_id: this.movie_id, id: comment.id })
+                this.$store.dispatch('deleteMcomment', { movie_id: this.id, id: comment.id })
             } else {
                 alert('남의 댓글은 삭제 안대용')
             }
@@ -105,10 +110,10 @@ export default {
     }
     },
     created() {
-        this.$store.dispatch('GetComments', this.movie_id)
+        this.$store.dispatch('GetCommentsMovie', this.id)
         axios({
                 method: 'get',
-                url: `http://127.0.0.1:8000/movies/${this.movie_id}/`,
+                url: `http://127.0.0.1:8000/movies/${this.id}/`,
             })
             .then((res) => {
                 console.log(res.data)

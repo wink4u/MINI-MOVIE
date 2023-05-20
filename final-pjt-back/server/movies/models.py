@@ -20,6 +20,11 @@ class Movie(models.Model):
     vote_average = models.FloatField(blank=True)
     # vote_count = models.IntegerField(blank=True)
 
+    like_movie_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies', blank=True)
+    register_manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='register_movies', default=1)
+
+
+
 class Board(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
@@ -42,3 +47,4 @@ class BoardComment(models.Model):
     write_comment_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
     # write_review_board = models.ForeignKey(Board , on_delete=models.CASCADE, null=True, blank=True)
     # like_review_users = models.ManyToManyField(settings.AUTH_USER_MODEL)
+

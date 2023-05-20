@@ -82,7 +82,10 @@ const board = {
           method: 'get',
           headers: `Token ${token}`
         })
-        .then((res) => context.commit('SET_COMMENTS', res.data))
+        .then((res) => { 
+          context.dispatch('allComments')
+          context.commit('SET_COMMENTS', res.data)
+        })
         .catch(err => console.error(err.response))
       },
 
@@ -90,12 +93,15 @@ const board = {
         const token = sessionStorage.getItem('key')
         const board_id = data.board_id
         const id = data.id
+  
         axios({
           url: `${API_URL}/movies/${board_id}/${id}`,
           method: 'delete',
+          data: {board_pk: board_id, id: id},
           headers: {'Authorization': `Token ${token}`},
         })
         .then(()=> {
+          context.dispatch('allComments')
           context.dispatch('GetComments', board_id)
         })
       },
