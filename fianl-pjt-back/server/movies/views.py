@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import MovieListSerializer, MovieDetailSerializer, BoardSerializer
-from .serializers import BoardCommentSerializer
+from .serializers import BoardCommentSerializer, CommentSerializer
 from accounts.serializers import UserSerializer
 from .models import Movie, Board, BoardComment, Comment
 import json
@@ -25,6 +25,31 @@ def movie_detail(request, movie_pk):
     if request.method == 'GET':
         serializer = MovieDetailSerializer(movie)
         return Response(serializer.data)
+    
+
+@api_view(['GET', 'POST'])
+def movie_comment(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    if request.method == 'GET':
+        comments = Comment.objects.filter(movie=movie)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+    if request.method == 'POST':
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user, movie=movie)
+            return Response(status=status.HTTP_201_CREATED)
+
+@api_view(['DELETE'])
+def movie_change_comment(request, movie_pk, id):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    comment = get_object_or_404(Comment, pk=id, movie=movie)
+    
+    if request.method == 'DELETE':
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
 
 # 전체 자유게시판 목록 조회
 @api_view(['GET'])
@@ -35,14 +60,6 @@ def board_list(request):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 # 자유게시판 글 작성
-# @api_view(['POST'])
-# def board_create(request):
-#     serializer = BoardSerializer(data=request.data)
-#     if serializer.is_valid(raise_exception=True):
-#         serializer.save(user=request.user)
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 @api_view(['POST'])
 def board_create(request):
     serializer = BoardSerializer(data=request.data)
@@ -51,6 +68,7 @@ def board_create(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# 자유게시판 댓글 작성 , 게시판하나당 댓글
 @api_view(['GET', 'POST'])
 # @permission_classes([])
 def board_create_comment(request, board_pk):
@@ -65,7 +83,7 @@ def board_create_comment(request, board_pk):
         serializer = BoardCommentSerializer(comments, many=True)
         return Response(serializer.data)
     
-
+# 자유게시판 댓글 리스트
 @api_view(['GET'])
 def comments(request):
     if request.method == 'GET':
@@ -73,7 +91,7 @@ def comments(request):
         serializer = BoardCommentSerializer(comments, many=True)
         return Response(serializer.data)
 
-
+# 자유게시판 댓글 지우기
 @api_view(['DELETE'])
 def board_change_comment(request, board_pk, id):
     board = get_object_or_404(Board, pk=board_pk)

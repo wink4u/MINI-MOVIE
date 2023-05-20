@@ -5,6 +5,11 @@ urlpatterns = [
     path('', views.movie_list),
     # path('save/', views.movie_save),
     path('<int:movie_pk>/', views.movie_detail, name='movie_detail'),
+    #영화댓글
+    path('<int:movie_pk>/movieComment/', views.movie_comment),
+    path('<int:movie_pk>/<int:id>/', views.movie_change_comment),
+
+    #자유게시판
     path('board/', views.board_list),
     path('board/create/', views.board_create),
     path('comments/' , views.comments),
