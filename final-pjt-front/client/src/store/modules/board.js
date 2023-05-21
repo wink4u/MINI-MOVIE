@@ -95,7 +95,7 @@ const board = {
         const id = data.id
   
         axios({
-          url: `${API_URL}/movies/${board_id}/${id}`,
+          url: `${API_URL}/movies/board/${board_id}/${id}`,
           method: 'delete',
           data: {board_pk: board_id, id: id},
           headers: {'Authorization': `Token ${token}`},

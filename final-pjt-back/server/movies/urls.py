@@ -15,6 +15,6 @@ urlpatterns = [
     path('board/create/', views.board_create),
     path('comments/' , views.comments),
     path('<int:board_pk>/comment/', views.board_create_comment),
-    path('<int:board_pk>/<int:id>/', views.board_change_comment),
+    path('board/<int:board_pk>/<int:id>/', views.board_change_comment),
 ]
 

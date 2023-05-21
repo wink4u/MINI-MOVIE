@@ -55,7 +55,7 @@ def movie_change_comment(request, movie_pk, id):
     
     if request.method == 'DELETE':
         comment.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)    
     
 @api_view(['POST'])
 @permission_classes([permissions.IsAuthenticated])

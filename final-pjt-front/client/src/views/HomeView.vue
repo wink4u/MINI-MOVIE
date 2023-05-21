@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>홈</h1>
+    <h1>홈
+    </h1>
   </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
   },
   created() {
     this.getDataMovies();
-  }
+  },
+
 };
 </script>
 

@@ -13,12 +13,12 @@
     
     <div>
       {{ movie }}
-   
+      {{ currentUser }}
       <div class="card">
         <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
         <div class="middle">
           <div class="text-block">
-            <button class="heart-button" @click="like_movie()" :class="{'liked' : userLike}"></button>
+            <button class="heart-button" @click="changeLike()" :class="{'liked' : userLike}"></button>
             <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       maxLength : 11,
-      currentId: sessionStorage.getItem('userId')
+      userLike: false
     }
   },
   props: {
@@ -54,27 +54,30 @@ export default {
   },
   methods: {
     like_movie() {
-      if (this.currentId in this.movie.like_movie_users){
+      if (this.currentUser.id in this.movie.like_movie_users){
         this.userLike = true
+      } else {
+        this.userLike = false
       }
-      this.$store.dispatch('likeMovie', this.movie.id)
-      this.userLike = !this.userLike
     },
+    changeLike(){
+      this.userLike = !this.userLike
+      this.$store.dispatch('likeMovie', this.movie.id)
+    },
+      // this.userLike = !this.userLike
     getdetailmovie() {
       this.$store.dispatch('getdetailMovie', this.movie.id)
     }
   },
-
+  created() {
+    this.like_movie()
+  },
   computed: {
-    userLike(){
-      if (this.currentId in this.movie.like_movie_users){
-        return true
-      } else {
-        return false
-      }
+    currentUser() {
+      return this.$store.getters.currentUser
+    }
     }
   }
-}
 </script>
 
 <style scoped>

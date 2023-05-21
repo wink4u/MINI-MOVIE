@@ -11,12 +11,12 @@ const accounts = {
         userData: {},
         token: null,
         isLoggedIn: false,
-        // currentUser: {},
+        currentUser: ''
     },
     getters: {
-        // currentUser_id(state) {
-        //     return state.currentUser.id
-        // }
+        currentUser(state) {
+            return state.currentUser
+        }
     },
     mutations: {
         LOGIN(state, userData) {
@@ -26,7 +26,10 @@ const accounts = {
         LOGOUT(state) {
             state.token = null
             state.isLoggedIn = false
+            state.currentUser = ''
             sessionStorage.removeItem('key')
+            sessionStorage.removeItem('username')
+            sessionStorage.removeItem('userId')
             router.push({name: 'home'})
         },
         SAVE_TOKEN(state, token) {
@@ -35,10 +38,9 @@ const accounts = {
             sessionStorage.setItem('key', token)
             router.push({ name: 'home' })
         },
-        // SET_CURRENT_USER (state, user) { 
-        //     state.currentUser = user 
-        //     console.log(state.currentUser.id)
-        // },
+        CURRENTUSER(state, userData) {
+          state.currentUser = userData
+        }
     },
     actions: {
         login(context, payload) {
@@ -54,7 +56,6 @@ const accounts = {
             })
                 .then((res) => {
                     context.commit('SAVE_TOKEN', res.data.key)
-                    console.log(res.data)
                     sessionStorage.setItem('username', username)
                     context.dispatch('CurrentUser')
                 })
@@ -66,7 +67,7 @@ const accounts = {
         logout(context) {
             context.commit('LOGOUT')
         },
-        CurrentUser({ state, dispatch }) {
+        CurrentUser({ state, commit , dispatch }) {
             if (state.isLoggedIn) {
               axios({
                 url: `${API_URL}/accounts/userinfo/`,
@@ -80,9 +81,8 @@ const accounts = {
                     id: res.data.id,
                     username: res.data.username,
                   };
-                  console.log(userData)
+                  commit('CURRENTUSER', userData)
                   sessionStorage.setItem('userId', userData.id)
-                //   commit('SET_CURRENT_USER' , userData);
                 })
                 .catch(err => {
                   if (err.response.status === 401) {

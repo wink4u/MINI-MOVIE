@@ -119,6 +119,7 @@ const movies = {
             },
     
         likeMovie(context, movieId) {
+            const token = sessionStorage.getItem('key')
             axios({
                 url: `${API_URL}/movies/${movieId}/like/`,
                 method: 'post',
