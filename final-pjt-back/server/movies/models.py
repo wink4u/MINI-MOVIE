@@ -21,8 +21,8 @@ class Movie(models.Model):
     # vote_count = models.IntegerField(blank=True)
 
     like_movie_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies', blank=True)
-    register_manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='register_movies', default=1)
-    
+    register_manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+
 
 
 class Board(models.Model):
