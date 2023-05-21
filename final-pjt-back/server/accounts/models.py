@@ -7,4 +7,4 @@ class User(AbstractUser):
     sex = models.CharField(max_length=20, blank=True)
     region = models.CharField(max_length=100,blank=True)
     profile =  models.CharField(max_length=200, null=True, blank=True)
-    followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
+    # followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
