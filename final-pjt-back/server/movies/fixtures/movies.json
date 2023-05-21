@@ -14,7 +14,10 @@
                 27,
                 53,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -32,7 +35,10 @@
                 28,
                 35,
                 10749
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -50,7 +56,10 @@
                 878,
                 12,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -85,7 +94,10 @@
                 27,
                 53,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -103,7 +115,10 @@
                 53,
                 28,
                 80
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -121,7 +136,10 @@
                 28,
                 35,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -138,7 +156,10 @@
             "genre_ids": [
                 18,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -158,7 +179,10 @@
                 12,
                 14,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -176,7 +200,10 @@
                 27,
                 9648,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -194,7 +221,10 @@
                 28,
                 53,
                 80
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -212,7 +242,10 @@
                 10752,
                 36,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -229,7 +262,10 @@
             "genre_ids": [
                 18,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -246,7 +282,10 @@
             "genre_ids": [
                 53,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -264,7 +303,10 @@
                 878,
                 28,
                 18
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -283,7 +325,10 @@
                 14,
                 28,
                 12
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -303,7 +348,10 @@
                 36,
                 18,
                 10752
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -320,7 +368,10 @@
             "genre_ids": [
                 37,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -338,7 +389,10 @@
                 27,
                 35,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -358,7 +412,10 @@
                 14,
                 12,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -375,7 +432,10 @@
             "genre_ids": [
                 28,
                 10752
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -392,7 +452,10 @@
             "genre_ids": [
                 28,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -409,7 +472,10 @@
             "genre_ids": [
                 35,
                 80
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -426,7 +492,10 @@
             "genre_ids": [
                 18,
                 36
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -443,7 +512,10 @@
             "genre_ids": [
                 28,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -461,7 +533,10 @@
                 35,
                 18,
                 10749
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -477,7 +552,10 @@
             "vote_average": 0.0,
             "genre_ids": [
                 10749
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -496,7 +574,10 @@
                 10751,
                 14,
                 10749
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -514,7 +595,10 @@
                 53,
                 35,
                 80
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -530,7 +614,10 @@
             "vote_average": 6.5,
             "genre_ids": [
                 27
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -548,7 +635,10 @@
                 28,
                 12,
                 878
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -566,7 +656,10 @@
                 27,
                 9648,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -584,7 +677,10 @@
                 878,
                 12,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -603,7 +699,10 @@
                 12,
                 878,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -619,7 +718,10 @@
             "vote_average": 5.9,
             "genre_ids": [
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -638,7 +740,10 @@
                 12,
                 28,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -655,7 +760,10 @@
             "genre_ids": [
                 18,
                 10749
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -675,7 +783,10 @@
                 10751,
                 12,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -693,7 +804,10 @@
                 12,
                 14,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -709,7 +823,10 @@
             "vote_average": 4.6,
             "genre_ids": [
                 16
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -727,7 +844,10 @@
                 16,
                 28,
                 14
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -746,7 +866,10 @@
                 28,
                 12,
                 10751
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -762,7 +885,10 @@
             "vote_average": 8.5,
             "genre_ids": [
                 18
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -780,7 +906,10 @@
                 10751,
                 28,
                 12
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -793,7 +922,13 @@
             "poster_path": "/44qdUtA6f3y7daHwo4z3RPRYoKk.jpg",
             "release_date": "2011-04-14",
             "title": "옥보단 3D",
-            "vote_average": 4.9
+            "vote_average": 4.9,
+            "genre_ids" : [
+                10749
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -813,7 +948,10 @@
                 10749,
                 28,
                 36
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -830,7 +968,10 @@
             "genre_ids": [
                 28,
                 878
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -847,7 +988,10 @@
             "genre_ids": [
                 27,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -863,7 +1007,10 @@
             "vote_average": 8.1,
             "genre_ids": [
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -880,7 +1027,10 @@
             "genre_ids": [
                 35,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -898,7 +1048,10 @@
                 10752,
                 28,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -914,7 +1067,10 @@
             "vote_average": 6.2,
             "genre_ids": [
                 80
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -930,7 +1086,10 @@
             "vote_average": 6.3,
             "genre_ids": [
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -948,7 +1107,10 @@
                 28,
                 80,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -964,7 +1126,10 @@
             "vote_average": 6.1,
             "genre_ids": [
                 27
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -982,7 +1147,10 @@
                 878,
                 27,
                 35
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -1000,7 +1168,10 @@
                 28,
                 12,
                 53
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -1018,7 +1189,10 @@
                 14,
                 28,
                 12
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -1036,7 +1210,10 @@
                 28,
                 12,
                 878
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     },
     {
@@ -1054,7 +1231,10 @@
                 878,
                 12,
                 28
-            ]
+            ],
+            "like_movie_users" : [],
+            "register_manager" : [],
+            "follow_users" : []
         }
     }
 ]

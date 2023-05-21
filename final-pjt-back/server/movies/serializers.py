@@ -29,10 +29,12 @@ class BoardSerializer(serializers.ModelSerializer):
 # 영화 댓글
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
+    
     class MovieSerializer(serializers.ModelSerializer):
         class Meta:
             model = Movie
             fields = ('id', 'title')
+            
     movie = MovieSerializer(read_only=True)
     class Meta:
         model = Comment
@@ -46,6 +48,7 @@ class MovieDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = '__all__'
+        # read_only_fields = ('genre_ids', 'comment_set',)
     
 # 자유게시판 글의 댓글
 class BoardCommentSerializer(serializers.ModelSerializer):
