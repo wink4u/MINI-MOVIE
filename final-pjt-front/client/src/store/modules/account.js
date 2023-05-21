@@ -133,9 +133,8 @@ const accounts = {
             })
             .then(res => {
               console.log(res.data)
-              context.commit('GETUSERPROFILE', res.data)
+              context.dispatch('getuserProfile', res.data.id)
               console.log(res.data.id)
-              router.push({ name: 'UserProfile', params: { user_id : res.data.id } })
             })
             .catch(err => {
               console.error(err)
@@ -143,6 +142,10 @@ const accounts = {
           
           },
           getuserProfile(context, user_id) {
+            if (router.UserProfile === 'UserProfile' && router.UserProfile.params.user_id === user_id) {
+              console.warn('Avoided redundant navigation to current location:', router.UserProfile.path);
+              return; // 중복된 탐색을 무시하고 함수 실행 종료
+            }
             axios({
               url: `${API_URL}/accounts/profile/${user_id}/`,
               method: 'get',
@@ -154,6 +157,7 @@ const accounts = {
               console.log(res.data)
               console.log('12345')
               context.commit('GETUSERPROFILE', res.data)
+              router.push({ name: 'UserProfile', params: { user_id : user_id } })
 
             })
             .catch(err => {

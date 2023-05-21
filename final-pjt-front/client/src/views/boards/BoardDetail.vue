@@ -3,6 +3,7 @@
     <div>
       <h2><span>제목: </span>{{ Boardlist[board_id].title }}</h2>
       <h3><span>내용: </span>{{ Boardlist[board_id].content }}</h3>
+      <h3><span>작성자: <a @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</a></span></h3>
     </div>
     <div>
       <form @submit.prevent="onSubmit" class="comment-list-form" style="margin-right: 0px;margin-left: 35px;">
@@ -15,7 +16,7 @@
       <div class="commentstyle container">
         <div class="row">
           <div class="col-5">
-            <span class="username">작 성 자</span>
+            <span class="username" >작 성 자</span>
           </div>
           <div class="col-5">
             <span class="content">댓 글 내 용</span>
@@ -25,7 +26,7 @@
         <div v-for="(comment, index) in Comments" :key="index" class="commentstyle container">
           <div class="row">
             <div class="col-4">
-              <span class="username">{{ comment.write_comment_user.username }}</span>
+              <span class="username" >{{ comment.write_comment_user.username }}</span>
             </div>
             <div class="col-7">
               <span class="content">{{ comment.content }}</span>
@@ -75,7 +76,10 @@ export default {
       } else {
         alert('남의 댓글은 삭제 안대용')
       }
-    }
+    },
+    profileEach(user_id){
+            this.$store.dispatch('getuserProfile', user_id)
+        },
   },
 
   mounted() {

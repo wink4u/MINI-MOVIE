@@ -14,7 +14,8 @@ const movies = {
         movieLike: {
             like_movie_users: [],
           },
-        movie: []
+        movie: [],
+        conceptMovieList: [],
     },
     getters: {
     },

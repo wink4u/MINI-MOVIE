@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from .serializers import UserSerializer, UserGetSerializer
+from .serializers import UserSerializer, UserGetSerializer, FollowSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import User
 from rest_framework import status
@@ -15,6 +15,7 @@ def userinfo(request):
 
 
 @api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
 def profile(request, user_id):
     user = get_object_or_404(User, id=user_id)
     if request.method == 'PUT':

@@ -32,7 +32,7 @@
                     <div v-for="(comment, index) in eachComments" :key="index" class="commentstyle container">
                         <div class="row">
                             <div class="col-4">
-                            <span class="username">{{ comment.user.username }}</span>
+                            <a @click=profileEach(comment.user.pk)><span class="username">{{ comment.user.username }}</span></a>
                             </div>
                             <div class="col-7">
                             <span class="content">{{ comment.content }}</span>
@@ -87,7 +87,10 @@ export default {
             } else {
                 alert('남의 댓글은 삭제 안대용')
             }
-        }
+        },
+        profileEach(user_id){
+            this.$store.dispatch('getuserProfile', user_id)
+        },
 
     },
     computed : {
