@@ -39,13 +39,12 @@ def user_delete(request):
     return Response(data, status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def follow(request, user_pk):
-    # user_pk : 팔로우 하려는 사람의 pk
-    follow_user = get_object_or_404(User, pk=user_pk)
+# @permission_classes([IsAuthenticated])
+def follow(request, each_id):
+    follow_user = get_object_or_404(User, pk=each_id)
     user = request.user
     if follow_user != user:
-        if follow_user.followings.filter(pk=user.pk).exists():
+        if follow_user.followings.filter(pk=each_id).exists():
             follow_user.followings.remove(user)
             follow = '팔로우' 
         else:
@@ -57,9 +56,10 @@ def follow(request, user_pk):
         follow_status = {
             'follow' : follow,
             'count' : follow_user.followings.count(), 
-            # 팔로워(from_user_id가 팔로우 당한사람 : user_pk)(followings가 팔로우를 한 사람) 목록
             'follow_list' : serializer.data.get('followings'),
-            # 팔로잉 수
             'following_count' : follow_user.followers.count(),
+            
         }
-    return JsonResponse(follow_status)
+        return JsonResponse(follow_status)
+        # return Response(serializer.data)
+    return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -14,6 +14,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch('savenow')
     this.getDataMovies();
   },
 

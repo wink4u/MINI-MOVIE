@@ -13,10 +13,10 @@
               <router-link to="/" class="nav-link active" aria-current="page">홈</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/login" class="nav-link active" aria-current="page" v-if="!currentUser">로그인</router-link>
+              <router-link to="/login" class="nav-link active" aria-current="page" v-if="!isLoggedIn">로그인</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link active cursor-on" aria-current="page" @click="logout" v-if="currentUser">로그아웃</a>
+              <a class="nav-link active cursor-on" aria-current="page" @click="logout" v-if="isLoggedIn">로그아웃</a>
             </li>
             <li class="nav-item">
               <router-link to="/signup" class="nav-link active" aria-current="page">회원가입</router-link>
@@ -24,7 +24,7 @@
             <li class="nav-item">
               <router-link to="/board" class="nav-link active" aria-current="page">자유게시판</router-link>
             </li>
-            <li class="nav-item" v-if="currentUser">
+            <li class="nav-item" v-if="isLoggedIn">
               <router-link to="/profile" class="nav-link active" aria-current="page">프로필</router-link>
             </li>
           </ul>
@@ -57,13 +57,13 @@ export default {
     }
   } ,
   computed: {
-    currentUser() {
-      return this.$store.getters.currentUser
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn
     }
   },
-  // created(){
-  //   this.$store.dispatch('CurrentUser')
-  // } 
+  created(){
+    this.$store.dispatch('savenow')
+  } 
 }
 </script>
 <style>

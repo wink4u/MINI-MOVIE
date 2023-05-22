@@ -25,6 +25,7 @@ export default {
         ...mapState({ MovieList: state => state.movies.movieList })
     },
     created(){
+        this.$store.dispatch('savenow')
         this.$store.dispatch('getDataMovies')
     }
 

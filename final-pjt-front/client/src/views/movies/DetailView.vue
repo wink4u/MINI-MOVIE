@@ -13,7 +13,8 @@
             <form @submit.prevent="createMcomment" class="comment-list-form" style="margin-right: 0px;margin-left: 35px;">
                 <label for="comment"></label>
                 <input type="text" style="margin-right: 10px;" size="38" placeholder="따끈따끈 리뷰작성" id="comment" v-model="content" required>
-                <button type="submit" class="btn-floating pulse" style="width: 40px;"><i class="material-icons" style="font-size: 18px; padding-right: 3px;">작성</i></button>
+                <button type="submit" v-if="isLoggedIn" class="btn-floating pulse" style="width: 40px;"><i class="material-icons" style="font-size: 18px; padding-right: 3px;">작성</i></button>
+                <p v-if="!isLoggedIn">로그인할래용?</p>
             </form>
         </div>
         <div class="comment-container">
@@ -94,6 +95,9 @@ export default {
 
     },
     computed : {
+        isLoggedIn() {
+        return this.$store.getters.isLoggedIn
+        },
         eachComments(){
             return this.$store.state.movies.eachComments
         },        
