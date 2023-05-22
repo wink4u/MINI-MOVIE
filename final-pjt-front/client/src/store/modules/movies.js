@@ -16,6 +16,7 @@ const movies = {
           },
         movie: [],
         conceptMovieList: [],
+        videoId : null,
     },
     getters: {
     },
@@ -38,6 +39,9 @@ const movies = {
         },
         ALL_COMMENTS(state, data) {
             state.allMovieComments = data
+        },
+        GETVIDEO(state, data){
+            state.videoId = data
         }
 
     },
@@ -136,6 +140,28 @@ const movies = {
             console.error(err)
             })
         },
+
+        GetVideo(context, movietitle) {
+            const apiKey = 'AIzaSyAt7zqRKJCkQDfB9wsteGM5cd9m8VNxDqY';
+            const query = `${movietitle} 예고편`;
+            const total_query = query
+
+            axios.get('https://www.googleapis.com/youtube/v3/search', {
+                params: {
+                key: apiKey,
+                q: total_query,
+                part: 'snippet',
+                maxResults: 1,
+                type: 'video',
+                },
+            })
+            .then(response => {
+                context.commit('GETVIDEO', response.data.items[0].id.videoId)
+            })
+            .catch(error => {
+                console.error('Error searching videos:', error);
+            });
+        }
         
 
     }

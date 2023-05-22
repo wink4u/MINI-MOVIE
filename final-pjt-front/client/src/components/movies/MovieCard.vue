@@ -21,7 +21,7 @@
             <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
-              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id }}">
+              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id, 'title' : this.movie.title }}">
                 상세 보기 
               </router-link>
             </div>

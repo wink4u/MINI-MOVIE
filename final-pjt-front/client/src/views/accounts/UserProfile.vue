@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    follow()
+    // follow()
   }
   // methods: {
   //   UserProfile() {
