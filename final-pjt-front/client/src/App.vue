@@ -41,9 +41,8 @@
       </div>
     </div>
   </div>
-    <nav>
-      <router-link to="/normal">일반</router-link> |
-      <router-link to="/concept">특성</router-link>
+    <nav class="test">
+      
     </nav>
     <router-view/>
 </div>
@@ -59,7 +58,6 @@ export default {
   },
   methods: {
     logout() {
-      console.log('1')
       this.$store.dispatch('logout')
     },
     saveValue() {
