@@ -8,7 +8,7 @@
       <li>Location: {{ eachUser.region ? eachUser.region:'추가하세용' }}</li>
       <button @click="follow">{{ followState.follow }}</button>
       <li>팔로잉수: {{ followState.following_count }}</li>
-      <li>팔로워수: {{ followState.count }}</li>
+      <li>팔로워수: {{ followState.count }}1</li>
       <h1>asdsad</h1>
     </ul>
   </div>
