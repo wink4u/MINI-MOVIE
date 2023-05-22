@@ -13,7 +13,9 @@ const accounts = {
         isLoggedIn: false,
         currentUser: '',
         eachUser: '',
-        followstate: ''
+        followstate: '',
+        userId: null,
+        username: null
     },
     getters: {
         currentUser(state) {return state.currentUser},
@@ -21,13 +23,16 @@ const accounts = {
         userData(state) {return state.userData},
         token(state) {return state.token},
         isLoggedIn(state) {return state.isLoggedIn},
+        userId(state) {return state.userId},
+        username(state) {return state.username},
         
     },
     mutations: {
         SAVENOW(state) {
           state.isLoggedIn = sessionStorage.getItem('key') ? true : false
           state.token = sessionStorage.getItem('key') ? sessionStorage.getItem('key') : null
-          console.log(state.isLoggedIn)
+          state.userId = sessionStorage.getItem('userId') ? sessionStorage.getItem('userId') : null
+          state.username = sessionStorage.getItem('username') ? sessionStorage.getItem('username') : null
           console.log(state.token)
         },
         LOGIN(state, userData) {
@@ -181,6 +186,7 @@ const accounts = {
               console.error(err)
             })
           },
+
         follow(context, each_id){
           axios({
             url: `${API_URL}/accounts/follow/${each_id}/`,
@@ -193,10 +199,10 @@ const accounts = {
             context.commit('FOLLOW', res)
           })
           .catch((err)=>{
-            alert('본인을 팔로우 할 수 없습니다.')
             console.log(err)
           })
         },
+
     },
 
 }

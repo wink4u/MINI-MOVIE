@@ -11,7 +11,7 @@ import DetailView from '@/views/movies/DetailView'
 import BoardDetail from '@/views/boards/BoardDetail'
 import ProfileView from '@/views/accounts/ProfileView'
 import UserProfile from '@/views/accounts/UserProfile'
-
+import SearchView from '@/views/movies/SearchView'
 Vue.use(VueRouter)
 
 const routes = [
@@ -64,7 +64,7 @@ const routes = [
     props: true
   },
   {
-    path: '/profile/',
+    path: '/profile',
     name: 'profile',
     component: ProfileView,
   },
@@ -72,6 +72,12 @@ const routes = [
     path: '/profile/:user_id',
     name: 'UserProfile',
     component: UserProfile,
+    props: true
+  },
+  {
+    path: '/search/:search',
+    name: 'search',
+    component: SearchView,
     props: true
   },
 
@@ -82,5 +88,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router

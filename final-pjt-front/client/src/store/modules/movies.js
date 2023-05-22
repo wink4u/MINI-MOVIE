@@ -1,10 +1,15 @@
 import axios from 'axios'
-// import router from '../router'
+import router from '@/router'
+import createPersistedState from 'vuex-persistedstate'
+
 const token = sessionStorage.getItem('key')
 
 const API_URL = 'http://127.0.0.1:8000'
 
 const movies = {
+    plugins: [
+        createPersistedState()
+    ],
     state: {
         userData: {},
         token: null,
@@ -19,6 +24,9 @@ const movies = {
         videoId : null,
     },
     getters: {
+        movieList(state) {
+            return state.movieList
+        }
     },
     mutations: {
         GETDATAMOVIES(state, data) {
@@ -47,6 +55,7 @@ const movies = {
     },
     actions: {
         getDataMovies(context) {
+            console.log('마리오ㅠㅠㅠㅠㅠ')
             axios({
                 method: 'get',
                 url: `${API_URL}/movies/`,
@@ -161,8 +170,28 @@ const movies = {
             .catch(error => {
                 console.error('Error searching videos:', error);
             });
-        }
+        },
+        // search(context, searchData){
+        //     console.log(searchData)
+        //     console.log(this.getters.movieList)
+        //     this.state.movieList.map((movie) => {
+            
+        //         if (searchData in movie.title || searchData in movie.overview) {
+        //             return movie
+        //         }
+        //     })
+        // }
+        search(context, searchData) {
+            const filteredMovies = this.getters.movieList.filter((movie) => {
+                console.log(searchData.trim().toLowerCase())
+                console.log(movie.title.toLowerCase())
+            return  movie.title.toLowerCase().includes(searchData.trim().toLowerCase()) || 
+                    movie.overview.toLowerCase().includes(searchData.trim().toLowerCase())
+            });
+            console.log(filteredMovies);
+            router.push({ name: 'search', params: { filteredMovies: filteredMovies, 'search':searchData } })
         
+        }
 
     }
 }

@@ -27,7 +27,16 @@
             <li class="nav-item" v-if="isLoggedIn">
               <router-link to="/profile" class="nav-link active" aria-current="page">프로필</router-link>
             </li>
+
           </ul>
+          <div class="collapse navbar-collapse searchmovie" id="navbarNav">
+
+            <div class="search-input-wrapper">
+              <input type="text" id="search-input" v-model="searchData" placeholder="검색어를 입력하세요" @keyup.enter="search">
+              <img src="./assets/search.png" class="searchImg" @click="search">
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +54,7 @@ export default {
   data() {
     return {
       checkOut: false,
+      searchData: ''
     }
   },
   methods: {
@@ -54,6 +64,15 @@ export default {
     },
     saveValue() {
       localStorage.setItem('checkOut', JSON.stringify(true));
+    },
+    search() {
+      this.$store.dispatch('getDataMovies')
+      if (this.searchData.trim().length === 0) {
+        alert('다시 입력해주세요')
+      } else {
+        this.$store.dispatch('search', this.searchData)
+      } this.searchData = ''
+
     }
   } ,
   computed: {
@@ -90,6 +109,28 @@ nav a.router-link-exact-active {
 
 .cursor-on {
   cursor : pointer;
+}
+.searchImg{
+  width: 50px;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#search-input {
+  margin-right: 5px;
+}
+
+.searchImg {
+  width: 40px;
+  height: 40px;
 }
 </style>
 

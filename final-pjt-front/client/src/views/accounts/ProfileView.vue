@@ -19,16 +19,15 @@ export default {
       userData: '',
       email: '',
       region: '',
-      username: ''
     }
   },
   methods: {
-    findUser(){
-      this.userData = this.currentUser
-      this.username = this.userData.username
-    },
+    // findUser(){
+    //   this.userData = this.currentUser
+    //   this.username = this.userData.username
+    // },
     updateProfile() {
-      const data = {'email' : this.email,  'region':this.region, 'sex':this.sex, 'user_id': this.userData.id, 'username': this.username}
+      const data = {'email' : this.email,  'region':this.region, 'sex':this.sex, 'user_id': this.userId, 'username': this.username}
       console.log(data)
       this.$store.dispatch('updateProfile', data)
     }
@@ -36,7 +35,14 @@ export default {
   computed: {
     currentUser() {
       return this.$store.getters.currentUser
+    },
+    userId(){
+      return this.$store.getters.userId
+    },
+    username(){
+      return this.$store.getters.username
     }
+    
   },
   created() {
     this.findUser()
