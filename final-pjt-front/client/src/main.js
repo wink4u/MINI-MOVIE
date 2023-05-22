@@ -9,10 +9,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Material from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
-
+import VueCarousel from 'vue-carousel';
+import Carousel3d from 'vue-carousel-3d';
 
 Vue.use(Material)
 Vue.use(BootstrapVue)
+Vue.use(VueCarousel)
+Vue.use(Carousel3d)
 Vue.config.productionTip = false
 
 new Vue({
