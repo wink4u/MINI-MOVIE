@@ -1,18 +1,6 @@
 <template>
   <div>
-    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-        </div>
-        <div class="carousel-item">
-        </div>
-        <div class="carousel-item">
-        </div>
-      </div>
-    </div> -->
-    
     <div>
-      {{ movie }}
       <div class="card">
         <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
         <div class="middle">
