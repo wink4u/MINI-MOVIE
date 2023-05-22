@@ -12,14 +12,24 @@ const accounts = {
         token: null,
         isLoggedIn: false,
         currentUser: '',
-        eachUser: ''
+        eachUser: '',
+        followstate: ''
     },
     getters: {
-        currentUser(state) {
-            return state.currentUser
-        }
+        currentUser(state) {return state.currentUser},
+        followState(state) {return state.followstate},
+        userData(state) {return state.userData},
+        token(state) {return state.token},
+        isLoggedIn(state) {return state.isLoggedIn},
+        
     },
     mutations: {
+        SAVENOW(state) {
+          state.isLoggedIn = sessionStorage.getItem('key') ? true : false
+          state.token = sessionStorage.getItem('key') ? sessionStorage.getItem('key') : null
+          console.log(state.isLoggedIn)
+          console.log(state.token)
+        },
         LOGIN(state, userData) {
             state.userData = userData
             state.isLoggedIn = true
@@ -45,9 +55,15 @@ const accounts = {
         GETUSERPROFILE(state, userData) {
           state.eachUser = userData
           console.log(state.eachUser)
+        },
+        FOLLOW(state, followstate){
+          state.followstate = followstate
         }
     },
     actions: {
+        savenow(context){
+          context.commit('SAVENOW')
+        },
         login(context, payload) {
             context.commit('LOGIN', payload)
             const username = payload.username
@@ -67,6 +83,7 @@ const accounts = {
                 })
                 .catch((err) => {
                     console.log(err)
+                    alert('아이디 or 패스워드 확인 바랍니다')
                 })
         },
 
@@ -144,7 +161,7 @@ const accounts = {
           getuserProfile(context, user_id) {
             if (router.UserProfile === 'UserProfile' && router.UserProfile.params.user_id === user_id) {
               console.warn('Avoided redundant navigation to current location:', router.UserProfile.path);
-              return; // 중복된 탐색을 무시하고 함수 실행 종료
+              return; 
             }
             axios({
               url: `${API_URL}/accounts/profile/${user_id}/`,
@@ -163,7 +180,23 @@ const accounts = {
             .catch(err => {
               console.error(err)
             })
-          }
+          },
+        follow(context, each_id){
+          axios({
+            url: `${API_URL}/accounts/follow/${each_id}/`,
+            method: 'post',
+            headers: {
+              'Authorization': `Token ${sessionStorage.getItem('key')}`
+            },
+          })
+          .then((res) => {
+            context.commit('FOLLOW', res)
+          })
+          .catch((err)=>{
+            alert('본인을 팔로우 할 수 없습니다.')
+            console.log(err)
+          })
+        },
     },
 
 }

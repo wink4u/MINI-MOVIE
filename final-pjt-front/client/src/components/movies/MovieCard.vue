@@ -17,7 +17,8 @@
         <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
         <div class="middle">
           <div class="text-block">
-            <button class="heart-button" @click="changeLike()" :class="{'liked' : userLike}"></button>
+            <button class="heart-button" @click="changeLike()" v-if="isLoggedIn" :class="{'liked' : userLike}"></button>
+            <p v-if="!isLoggedIn">로그인해봐요</p>
             <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
@@ -43,7 +44,7 @@ export default {
   data() {
     return {
       maxLength : 11,
-      userLike: false
+      userLike: false,
     }
   },
   props: {
@@ -60,8 +61,10 @@ export default {
       }
     },
     changeLike(){
+    
       this.userLike = !this.userLike
       this.$store.dispatch('likeMovie', this.movie.id)
+      
     },
       // this.userLike = !this.userLike
     getdetailmovie() {
@@ -72,6 +75,9 @@ export default {
     this.like_movie()
   },
   computed: {
+    isLoggedIn(){
+      return this.$store.getters.isLoggedIn
+    },
     currentUser() {
       return this.$store.getters.currentUser
     }

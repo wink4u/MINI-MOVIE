@@ -6,7 +6,10 @@
     <ul>
       <li>Email: {{ eachUser.email ? eachUser.email: '추가하세용'}}</li>
       <li>Location: {{ eachUser.region ? eachUser.region:'추가하세용' }}</li>
-      <button @click="follow">팔로우해버리깃</button>
+      <button @click="follow">{{ followState.follow }}</button>
+      <li>팔로잉수: {{ followState.following_count }}</li>
+      <li>팔로워수: {{ followState.count }}</li>
+
     </ul>
   </div>
 </template>
@@ -20,10 +23,17 @@ export default {
   computed: {
     eachUser() {
       return this.$store.state.accounts.eachUser;
+    },
+    followState() {
+      return this.$store.getters.followState.data
     }
   },
   methods: {
-    // follow()
+    follow(){
+      console.log('id')
+      console.log(this.user_id)
+      this.$store.dispatch('follow', this.user_id)
+    }
   }
   // methods: {
   //   UserProfile() {

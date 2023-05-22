@@ -17,7 +17,7 @@
           </tr>
         </tbody>
       </table>
-      <button class="btn waves-effect waves-light" type="submit" @click="createBoard">작성</button>
+      <button class="btn waves-effect waves-light" type="submit" v-if="isLoggedIn" @click="createBoard">작성</button>
   </div>
 </template>
 
@@ -49,7 +49,9 @@ export default {
       boards() {
         return this.$store.state.board.freeBoard
       },
-      
+      isLoggedIn() {
+      return this.$store.getters.isLoggedIn
+    }
     },
     created() {
         this.getBoard()
