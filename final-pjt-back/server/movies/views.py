@@ -99,6 +99,12 @@ def board_create(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['DELETE'])
+def board_delete(request, real_id):
+    board = Board(id=real_id)
+    board.delete()
+    return Response(status=status.HTTP_200_OK)
+
 # 자유게시판 댓글 작성 , 게시판하나당 댓글
 @api_view(['GET', 'POST'])
 # @permission_classes([])

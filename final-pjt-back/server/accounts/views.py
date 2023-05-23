@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .serializers import UserSerializer, UserGetSerializer, FollowSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .models import User
 from django.contrib.auth import get_user_model
 from rest_framework import status
@@ -27,7 +27,6 @@ def profileM(request, user_id):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def profile(request, user_id):
     user = get_object_or_404(User, id=user_id)
     # if request.method == 'PUT':
@@ -41,7 +40,7 @@ def profile(request, user_id):
         return Response(serializer.data)
     
 # 회원탈퇴
-@api_view(['POST'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated]) # 인증된 사용자만 권한 허용
 def user_delete(request):
     request.user.delete()
@@ -79,7 +78,6 @@ def follow(request, each_id):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def followget(request, each_id):
     follow_user = get_object_or_404(User, pk=each_id)
     user = request.user
