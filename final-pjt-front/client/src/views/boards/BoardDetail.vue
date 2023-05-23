@@ -1,10 +1,23 @@
 <template>
   <div>
     <div>
+      <h2>{{ board_id }}</h2>
       <h2><span>제목: </span>{{ Boardlist[board_id].title }}</h2>
       <h3><span>내용: </span>{{ Boardlist[board_id].content }}</h3>
       <h3><span>작성자: <a @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</a></span></h3>
+      <h3><span>작성시간: </span>{{ Boardlist[board_id].created_at.slice(0,10) }}</h3>
+      <a class="btn " @click="deleteBoard()">DELETE</a>
+    <!-- </div>
+    <div class="post">
+    <div class="post-title"><span>제목: </span>{{ Boardlist[board_id].title }}</div>
+    <div class="post-content">
+      <span>내용: </span>{{ Boardlist[board_id].content }}
     </div>
+    <div class="post-meta">
+      <span>작성자: <button @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</button></span>
+      <span>작성일: {{ Boardlist[board_id].created_at.slice(0,10) }}</span>
+    </div>-->
+  </div> 
     <div>
       <form @submit.prevent="onSubmit" class="comment-list-form" style="margin-right: 0px;margin-left: 35px;">
         <label for="comment"></label>
@@ -14,22 +27,31 @@
     </div>
     <div class="comment-container">
       <div class="commentstyle container">
-        <div class="row">
-          <div class="col-5">
+        <div class="row tableboard">
+          <div class="col-3">
             <span class="username" >작 성 자</span>
           </div>
-          <div class="col-5">
+          <div class="col-4">
             <span class="content">댓 글 내 용</span>
+          </div>
+          <div class="col-4">
+            <span class="content">작 성 시 간</span>
+          </div>
+          <div class="col-1">
+            <span class="content">삭 제</span>
           </div>
         </div>
       
-        <div v-for="(comment, index) in Comments" :key="index" class="commentstyle container">
+        <div v-for="(comment, index) in Comments" :key="index">
           <div class="row">
-            <div class="col-4">
+            <div class="col-3">
               <span class="username" >{{ comment.write_comment_user.username }}</span>
             </div>
-            <div class="col-7">
+            <div class="col-4">
               <span class="content">{{ comment.content }}</span>
+            </div>
+            <div class="col-4">
+              <span class="content">{{ comment.created_at.slice(0,10) }}</span>
             </div>
             <div class="col-1">
               <a class="btn btninline" @click="deleteComment(comment)">삭제</a>
@@ -46,7 +68,8 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'BoardDetail',
   props: {
-    board_id : Number
+    board_id : Number,
+    real_id: Number
   },
   data() {
     return {
@@ -65,21 +88,25 @@ export default {
     ...mapActions(['createComment', 'GetComments']),
     onSubmit() {
       // alert("댓글 고마워요 꼬마아가씨.")
-      this.createComment({ board_id: this.board_id, content: this.content })
+      
+      this.createComment({ board_id: this.real_id, content: this.content })
       this.content = ''
     },
     deleteComment(comment){
       const username = sessionStorage.getItem('username')
   
       if (comment.write_comment_user.username === username) {
-        this.$store.dispatch('deleteComment', { board_id: this.board_id, id: comment.id })
+        this.$store.dispatch('deleteComment', { board_id: this.real_id, id: comment.id })
       } else {
         alert('남의 댓글은 삭제 안대용')
       }
     },
     profileEach(user_id){
-            this.$store.dispatch('getuserProfile', user_id)
-        },
+      this.$store.dispatch('getuserProfile', user_id)
+    },
+    deleteBoard() {
+      this.$store.dispatch('deleteBoard', this.real_id)
+    }
   },
 
   mounted() {
@@ -145,4 +172,34 @@ export default {
     display: inline-flexbox;
     width:  70px;
   }
+  .tableboard{
+    font-weight: bolder
+  }
+  .post {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .post-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .post-content {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .post-meta {
+      font-size: 20px;
+      color: #888;
+    }
+    
+    .post-meta span {
+      margin-right: 10px;
+    }
+
 </style>

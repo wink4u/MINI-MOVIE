@@ -13,6 +13,7 @@ urlpatterns = [
     #자유게시판
     path('board/', views.board_list),
     path('board/create/', views.board_create),
+    path('board/<int:real_id>/', views.board_delete),
     path('comments/' , views.comments),
     path('<int:board_pk>/comment/', views.board_create_comment),
     path('board/<int:board_pk>/<int:id>/', views.board_change_comment),
