@@ -143,8 +143,9 @@ nav a.router-link-exact-active {
 }
 
 #app {
-  height: 1000px;
+  height: 100%;
   background-color : rgb(255, 217, 102);
+  font-family: 'Jua', sans-serif;
 }
 .test{
   position: absolute;

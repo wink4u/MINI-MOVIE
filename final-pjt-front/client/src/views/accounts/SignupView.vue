@@ -1,40 +1,45 @@
 <template>
-    <b-container role="group" class="p-5 login-form">
-        <h1>회원가입</h1><hr>
+    <b-container role="group">
+        <h2>회원가입</h2><hr>
         <b-row>
-            <label for="input-email">E-mail</label>
+            <label class="signup-font" for="input-email">E-mail</label>
             <b-form-input id="input-email" placeholder="EMAIL" v-model="email"
             trim aria-describedby=" input-live-feedback"
             ></b-form-input>
         </b-row>
         <br>
         <b-row>
-            <label for="input-username">아이디</label>
+            <label class="signup-font" for="input-username">아이디</label>
             <b-form-input id="input-username" placeholder="ID" v-model="username"
             trim :state="nameState" aria-describedby=" input-live-feedback"
             ></b-form-input>
-            <b-form-invalid-feedback id="input-username-feedback" class="text-right">
+            <b-form-invalid-feedback id="input-username-feedback" class="check-font text-right">
                 알파벳/숫자 3글자 이상
             </b-form-invalid-feedback>
         </b-row>
         <b-row>
-            <label for="input-password1">비밀번호</label>
+            <label class="signup-font" for="input-password1">비밀번호</label>
             <b-form-input id="input-password1" placeholder="PASSWORD" v-model="password1"
             trim type="password" :state="passwordState1" aria-describedby=" input-live-feedback"></b-form-input>
-            <b-form-invalid-feedback id="input-password1-feedback" class="text-right">
+            <b-form-invalid-feedback id="input-password1-feedback" class=" check-fonttext-right">
                 비밀번호 5글자 이상
             </b-form-invalid-feedback>
         </b-row>
 
         <b-row>
-            <label for="input-password2">비밀번호</label>
+            <label class="signup-font" for="input-password2">비밀번호 재확인</label>
             <b-form-input id="input-password2" placeholder="PASSWORD확인" v-model="password2"
             trim type="password" :state="passwordState2" aria-describedby=" input-live-feedback"></b-form-input>
-            <b-form-invalid-feedback id="input-password2-feedback" class="text-right">
-                비밀번호 5글자 이상
+            <b-form-invalid-feedback id="input-password2-feedback" class="check-font text-right ">
+                비밀번호 설정과 동일한 값 입력
             </b-form-invalid-feedback>
         </b-row>
-        <b-button variant="success" @click="signup">회원가입</b-button>
+        <div class="signup-button">
+            <b-button variant="success" @click="signup">회원가입</b-button>
+            <div>
+                <img src="@/assets/MINI/minions_full.png" alt="">
+            </div>
+        </div>
     
     </b-container>
 </template>
@@ -88,8 +93,18 @@ export default {
 </script>
 
 <style>
-.login-form {
-    background-color: #eee;
-    box-shadow: 20px 20px 10px 0px lightgrey;
-}
+    .signup-font {
+        font-size : 20px;
+        font-weight : bold;
+        color : rgb(59, 58, 58);
+    }
+
+    .check-font {
+        font-size : 13px;
+    }
+
+    .signup-button {
+        display : flex;
+        flex-direction : column;
+    }
 </style>

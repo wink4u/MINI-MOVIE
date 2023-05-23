@@ -15,13 +15,14 @@
       <div class="into-back">
         <div class="d-flex justify-content-around">
           <div class="image-container">
-            <img class="mini-run moving-image" src="@/assets/MINI/미니언즈.jpg" alt="">
+            <img class="mini-run moving-image" src="@/assets/MINI/minions-dance.gif" alt="">
           </div> 
           <div class="d-flex align-items-center justify-content-center">
-            <div class="btn btn-primary">입장하기!</div>
+            <router-link to="/normal" class="btn btn-primary" aria-current="page">입장하기!</router-link>
           </div>
         </div>
       </div>
+      <div class="temp1"></div>
     </div>
   </div>
 </template>
@@ -102,7 +103,7 @@ export default {
 }
 .mini-run {
   height : 150px;
-  margin-right : 100px;
+  margin-right : 200px;
 }
 
 .image-container {
@@ -118,10 +119,15 @@ export default {
     transform: translateX(0); /* 초기 위치 */
   }
   50% {
-    transform: translateX(100px); /* 우측으로 이동할 거리 */
+    transform: translateX(200px); /* 우측으로 이동할 거리 */
   }
   100% {
-    transform: translateX(0); /* 원래 위치로 되돌아옴 */
+    transform: translateX(100); /* 원래 위치로 되돌아옴 */
   }
+}
+
+.temp1 {
+  height: 100px;
+  background-color : rgb(255, 217, 102);
 }
 </style>

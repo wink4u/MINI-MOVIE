@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <b-container role="group" class="p-5 login-form">
-      <h1>로그인</h1>
+  <div class = "main">
+    <b-container role="group">
+      <img src="@/assets/MINI/mini_jeans.png" alt="">
+      <h2>로그인</h2>
       <b-row>
-        <label for="input-username">ID</label>
+        <label for="input-username" class="login-font">ID</label>
         <b-form-input id="input-username" placeholder="ID" v-model="username" 
         :state="nameState" aria-describedby="input-live-feedback" trim></b-form-input>
       <b-form-invalid-feedback id="input-username-feedback" calss="text-right">알파벳/숫자 3글자 이상</b-form-invalid-feedback>
       </b-row><br>
         
       <b-row>
-        <label for="input-password">PASSWORD</label>
+        <label for="input-password" class="login-font">PASSWORD</label>
         <b-form-input 
         id="input-password" 
         placeholder="PASSWORD" 
@@ -21,7 +22,12 @@
         ></b-form-input>
       <b-form-invalid-feedback id="input-password-feedback" calss="text-right">알파벳/숫자 5글자 이상</b-form-invalid-feedback>
       </b-row>
-      <b-button variant="success" @click="login">로그인</b-button>
+      <div class="login-button ">
+        <b-button variant="success" @click="login">로그인</b-button>
+        <div>
+          <img class="tri-mini" src="@/assets/MINI/minis_back.png" alt="">
+        </div>
+      </div>
     </b-container>
   </div>
 </template>
@@ -59,8 +65,25 @@ methods : {
 </script>
 
 <style>
+.main {
+  margin : auto;
+}
 .login-form {
   background-color: #faf9f9;
   box-shadow: 20px 20px 10px 0px rgb(243, 242, 242);
+}
+
+.login-font {
+  font-size : 20px;
+  font-weight : bold;
+}
+
+.login-button {
+  display : flex;
+  flex-direction : column;
+}
+
+.tri-mini {
+  width : 314px;
 }
 </style>
