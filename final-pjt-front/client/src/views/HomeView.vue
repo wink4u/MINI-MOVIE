@@ -125,7 +125,6 @@ export default {
     transform: translateX(100); /* 원래 위치로 되돌아옴 */
   }
 }
-
 .temp1 {
   height: 100px;
   background-color : rgb(255, 217, 102);

@@ -111,6 +111,17 @@ const board = {
           method: 'get',
         })
         .then((res) => context.commit('ALL_COMMENTS', res.data))
+      },
+      deleteBoard(context, real_id) {
+        const token = sessionStorage.getItem('key')
+        axios({
+          method: 'delete',
+          url: `${API_URL}/movies/board/${real_id}/`,
+          headers: {'Authorization': `Token ${token}`},
+        })
+        .then(()=>{
+          router.push({name: 'board'})
+        })
       }
     },
 

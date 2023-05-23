@@ -170,9 +170,9 @@ const accounts = {
             axios({
               url: `${API_URL}/accounts/profile/${user_id}/`,
               method: 'get',
-              headers: {
-                'Authorization': `Token ${sessionStorage.getItem('key')}`
-              },
+              // headers: {
+              //   'Authorization': `Token ${sessionStorage.getItem('key')}`
+              // },
             })
             .then(res => {
               console.log(res.data)
@@ -207,9 +207,9 @@ const accounts = {
           axios({
             url: `${API_URL}/accounts/follow/${each_id}/get`,
             method: 'get',
-            headers: {
-              'Authorization': `Token ${sessionStorage.getItem('key')}`
-            },
+            // headers: {
+            //   'Authorization': `Token ${sessionStorage.getItem('key')}`
+            // },
           })
           .then((res) => {
             console.log(res)

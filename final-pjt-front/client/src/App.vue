@@ -24,24 +24,22 @@
             <li class="nav-item nav-font">
               <router-link to="/board" class="nav-link active" aria-current="page">자유게시판</router-link>
             </li>
-            <li class="nav-item nav-font" v-if="isLoggedIn">
+            <li class="nav-item nav-font" id="right" v-if="isLoggedIn">
               <router-link to="/profile" class="nav-link active" aria-current="page">프로필</router-link>
             </li>
-
+            <li class="nav-item nav-font d-md-none" id="right" v-if="isLoggedIn">
+              <a class="nav-link active cursor-on signout " aria-current="page" @click="signOut" >회원탈퇴</a>
+            </li>
+            
           </ul>
-          <div class="collapse navbar-collapse searchmovie" id="navbarNav">
-
+          <div class="collapse navbar-collapse searchmovie d-md-none" id="navbarNav">
             <div class="search-input-wrapper">
               <input type="text" id="search-input" v-model="searchData" placeholder="검색어를 입력하세요" @keyup.enter="search">
               <img src="./assets/search.png" class="searchImg" @click="search">
             </div>
-
           </div>
         </div>
       </div>
-    </div>
-    <div class="test">
-      <p>123</p>
     </div>
   </div>
   <router-view/>
@@ -49,6 +47,18 @@
 </div>
 </template>
 <script>
+import axios from 'axios';
+  window.addEventListener('scroll', function() {
+    var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
+    var body = document.querySelector('body');
+    
+    if (scrolledHeight > 0) {
+      body.style.backgroundColor = 'rgb(255, 217, 102)';
+    } else {
+      body.style.backgroundColor = 'transparent';
+    }
+  });
+
 export default {
   name: 'APP',
   data() {
@@ -71,9 +81,22 @@ export default {
       } else {
         this.$store.dispatch('search', this.searchData)
       } this.searchData = ''
+    },
 
+    signOut() {
+      const API_URL = 'http://127.0.0.1:8000'
+      axios({
+        url: `${API_URL}/accounts/delete/`,
+        method: 'delete',
+        headers: {
+          'Authorization': `Token ${sessionStorage.getItem('key')}`
+        },
+      })
+      .then(() => {
+        this.$store.commit('LOGOUT')
+      })
     }
-  } ,
+  },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn
@@ -81,7 +104,8 @@ export default {
   },
   created(){
     this.$store.dispatch('savenow')
-  } 
+  }
+  
 }
 </script>
 <style>
@@ -92,7 +116,15 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(255, 217, 102);
+    background-attachment: fixed;
+  }
 nav a {
   font-weight: bold;
   color: #34383b !important;
@@ -150,6 +182,10 @@ nav a.router-link-exact-active {
 .test{
   position: absolute;
   bottom: 0;
+}
+.searchmovie{
+  position: absolute;
+  right: 0
 }
 </style>
 

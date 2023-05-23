@@ -14,7 +14,7 @@
             trim :state="nameState" aria-describedby=" input-live-feedback"
             ></b-form-input>
             <b-form-invalid-feedback id="input-username-feedback" class="check-font text-right">
-                알파벳/숫자 3글자 이상
+                알파벳/숫자 6글자 이상
             </b-form-invalid-feedback>
         </b-row>
         <b-row>
@@ -22,7 +22,7 @@
             <b-form-input id="input-password1" placeholder="PASSWORD" v-model="password1"
             trim type="password" :state="passwordState1" aria-describedby=" input-live-feedback"></b-form-input>
             <b-form-invalid-feedback id="input-password1-feedback" class=" check-fonttext-right">
-                비밀번호 5글자 이상
+                비밀번호 8글자 이상
             </b-form-invalid-feedback>
         </b-row>
 

@@ -14,7 +14,7 @@
 
         <!-- <GenreMovies :genre="28"/>  -->
         <!-- <GenreMovies :genre="35"/>  -->
-        <GenreMovies :genre="16"/> 
+        <!-- <GenreMovies :genre="16"/>  -->
         <!-- <GenreMovies :genre="878"/>  -->
         <!-- <GenreMovies :genre="10749"/>  -->
         <!-- 로맨스, 스릴러, 액션, 코미디, 애니, SF-->
