@@ -4,7 +4,7 @@ import NormalView from '@/views/movies/NormalView'
 import ConceptView from '@/views/movies/ConceptView'
 import LoginView from '@/views/accounts/LoginView'
 import SignupView from '@/views/accounts/SignupView'
-import HomeView from '@/views/HomeView'
+// import HomeView from '@/views/HomeView'
 import FreeBoard from '@/views/boards/FreeBoard'
 import createBoard from '@/views/boards/createBoard'
 import DetailView from '@/views/movies/DetailView'
@@ -39,7 +39,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: () => import('@/views/HomeView.vue')
   },
   {
     path: '/board',

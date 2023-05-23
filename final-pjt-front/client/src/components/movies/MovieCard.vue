@@ -2,7 +2,7 @@
   <div>
     <div>
       <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="...">
+        <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="..." id="imgsize">
         <div class="middle">
           <div class="text-block">
             <button class="heart-button" @click="changeLike()" v-if="isLoggedIn" :class="{'liked' : userLike}"></button>
@@ -23,12 +23,12 @@
         <p class="image_title_text" v-else> {{ movie.title.slice(0, maxLength) }}..</p> 
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
 export default {
+  name: 'MovieCard',
   data() {
     return {
       maxLength : 11,
@@ -74,9 +74,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  height: 500px;
-}
+/* .card {
+  height: 300px;
+  width: 300px;
+} */
 .card:hover .image {
   opacity: 0.2;
 }
@@ -84,14 +85,12 @@ export default {
   opacity: 1;
 }
 
-.button-margin {
+/* .button-margin {
   height : 100px;
-}
+} */
 
-.btn-size {
-  left : 0%;
-}
-.middle {
+
+/* .middle {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
@@ -101,7 +100,7 @@ export default {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
   
-}
+} */
 .text-block {
   color: #000;
   padding-left: 30px;
@@ -109,15 +108,17 @@ export default {
   bottom: 20px;
   right: 20px;
   width: 500px;
-  
+  font-size: 10px;
 }
 .image {
   opacity: 1;
   transition: .5s ease;
   backface-visibility: hidden;
-  height: 500px;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
 }
+#imgsize {}
 
 .movie_detail {
   height : 60px;
@@ -128,8 +129,7 @@ export default {
   display : flex;
   align-items : center;
   justify-content : center;
-  height : 50px;
-  
+
 }
 
 .image_title_text {

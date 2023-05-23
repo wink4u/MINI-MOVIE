@@ -40,6 +40,9 @@
         </div>
       </div>
     </div>
+    <div class="test">
+      <p>123</p>
+    </div>
   </div>
   <router-view/>
     
@@ -142,6 +145,10 @@ nav a.router-link-exact-active {
 #app {
   height: 1000px;
   background-color : rgb(255, 217, 102);
+}
+.test{
+  position: absolute;
+  bottom: 0;
 }
 </style>
 

@@ -31,6 +31,7 @@ const movies = {
     mutations: {
         GETDATAMOVIES(state, data) {
             state.movieList = data
+            console.log(state.movieList)
         },
         GETDETAILMOVIE(state, data){
             state.movie = data

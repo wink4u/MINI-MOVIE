@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video v-if="showScreen" ref="introVideo" @ended="onvideoEnded">
+    <video v-if="showScreen" ref="introVideo" @ended="onvideoEnded"  muted autoplay>
       <source src="@/assets/Intro.mp4" type="video/mp4">
     </video>
     <div v-else>
@@ -36,7 +36,7 @@ export default {
   name: 'HomeView',
   data() {
     return {
-      showScreen : true
+      showScreen : false
     }
   },
   components: {
