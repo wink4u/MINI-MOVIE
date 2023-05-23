@@ -78,6 +78,7 @@ export default {
   height: 300px;
   width: 300px;
 } */
+
 .card:hover .image {
   opacity: 0.2;
 }
@@ -90,7 +91,7 @@ export default {
 } */
 
 
-/* .middle {
+.middle {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
@@ -99,8 +100,7 @@ export default {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  
-} */
+}
 .text-block {
   color: #000;
   padding-left: 30px;
@@ -114,8 +114,8 @@ export default {
   opacity: 1;
   transition: .5s ease;
   backface-visibility: hidden;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
 }
 #imgsize {}
