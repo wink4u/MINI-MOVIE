@@ -6,9 +6,10 @@
     <ul>
       <li>Email: {{ eachUser.email ? eachUser.email: '추가하세용'}}</li>
       <li>Location: {{ eachUser.region ? eachUser.region:'추가하세용' }}</li>
+      <p>{{ followState }}</p>
       <button @click="follow">{{ followState.follow }}</button>
       <li>팔로잉수: {{ followState.following_count }}</li>
-      <li>팔로워수: {{ followState.count }}1</li>
+      <li>팔로워수: {{ followState.count }}</li>
       <h1>asdsad</h1>
     </ul>
   </div>
@@ -22,7 +23,7 @@ export default {
   },
   computed: {
     eachUser() {
-      return this.$store.state.accounts.eachUser;
+      return this.$store.getters.eachUser;
     },
     followState() {
       return this.$store.getters.followState.data
@@ -36,15 +37,18 @@ export default {
     follow(){
       console.log(this.user_id)
       this.$store.dispatch('follow', this.user_id)
+    },
+    UserProfile() {
+      this.$store.dispatch('getuserProfile', this.user_id);
+    },
+    findfollow(){
+      this.$store.dispatch('findfollow', this.user_id)
     }
   },
-  // methods: {
-  //   UserProfile() {
-  //     this.$store.dispatch('getuserProfile', this.user_id);
-  //   },
-  // },
+
   created() {
-    this.follow();
+    this.findfollow()
+    this.$store.dispatch('GETUSERPROFILE', this.user_id)
   }
 }
 </script>

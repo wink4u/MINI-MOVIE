@@ -22,12 +22,12 @@ export default {
     }
   },
   methods: {
-    // findUser(){
-    //   this.userData = this.currentUser
-    //   this.username = this.userData.username
-    // },
+    findUser(){
+      this.userData = this.currentUser
+      this.username = this.userData.username
+    },
     updateProfile() {
-      const data = {'email' : this.email,  'region':this.region, 'sex':this.sex, 'user_id': this.userId, 'username': this.username}
+      const data = {'email' : this.email,  'region':this.region, 'sex':this.sex, 'user_id': sessionStorage.getItem('userId'), 'username': this.username}
       console.log(data)
       this.$store.dispatch('updateProfile', data)
     }

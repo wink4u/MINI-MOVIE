@@ -25,6 +25,7 @@ const accounts = {
         isLoggedIn(state) {return state.isLoggedIn},
         userId(state) {return state.userId},
         username(state) {return state.username},
+        eachUser(state) {return state.eachUser}
         
     },
     mutations: {
@@ -146,7 +147,7 @@ const accounts = {
             } 
             const user_id = data.user_id        
             axios({
-              url: `${API_URL}/accounts/profile/${user_id}/`,
+              url: `${API_URL}/accounts/profile/${user_id}/my/`,
               method: 'put',
               data: userdata,
               headers: {
@@ -154,9 +155,7 @@ const accounts = {
               },
             })
             .then(res => {
-              console.log(res.data)
               context.dispatch('getuserProfile', res.data.id)
-              console.log(res.data.id)
             })
             .catch(err => {
               console.error(err)
@@ -164,10 +163,10 @@ const accounts = {
           
           },
           getuserProfile(context, user_id) {
-            if (router.UserProfile === 'UserProfile' && router.UserProfile.params.user_id === user_id) {
-              console.warn('Avoided redundant navigation to current location:', router.UserProfile.path);
-              return; 
-            }
+            // if (router.UserProfile === 'UserProfile' && router.UserProfile.params.user_id === user_id) {
+            //   console.warn('Avoided redundant navigation to current location:', router.UserProfile.path);
+            //   return; 
+            // }
             axios({
               url: `${API_URL}/accounts/profile/${user_id}/`,
               method: 'get',
@@ -188,6 +187,7 @@ const accounts = {
           },
 
         follow(context, each_id){
+          console.log(each_id)
           axios({
             url: `${API_URL}/accounts/follow/${each_id}/`,
             method: 'post',
@@ -196,12 +196,26 @@ const accounts = {
             },
           })
           .then((res) => {
+            console.log(res)
             context.commit('FOLLOW', res)
           })
           .catch((err)=>{
             console.log(err)
           })
         },
+        findfollow(context, each_id){
+          axios({
+            url: `${API_URL}/accounts/follow/${each_id}/get`,
+            method: 'get',
+            headers: {
+              'Authorization': `Token ${sessionStorage.getItem('key')}`
+            },
+          })
+          .then((res) => {
+            console.log(res)
+            context.commit('FOLLOW', res)
+          })
+        }
 
     },
 

@@ -10,8 +10,10 @@ app_name = 'accounts'
 urlpatterns = [
     path('userinfo/', views.userinfo),
     path('profile/<int:user_id>/', views.profile),
+    path('profile/<int:user_id>/my/', views.profileM),
     path('delete/', views.user_delete,),
     path('follow/<int:each_id>/' , views.follow),
+    path('follow/<int:each_id>/get/' , views.followget),
     
 ]
 

@@ -18,7 +18,7 @@ const movies = {
         allMovieComments : [],
         movieLike: {
             like_movie_users: [],
-          },
+        },
         movie: [],
         conceptMovieList: [],
         videoId : null,
@@ -40,7 +40,7 @@ const movies = {
             state.eachComments = data
         },
         LIKE_MOVIE(state, like_data) {
-     
+    
             state.movieLike= like_data
             console.log(state.movieLike)
             console.log('1234')
@@ -115,9 +115,9 @@ const movies = {
             const movie_id = data.movie_id
             const id = data.id
             axios({
-              url: `${API_URL}/movies/${movie_id}/${id}`,
-              method: 'delete',
-              headers: {'Authorization': `Token ${token}`},
+                url: `${API_URL}/movies/${movie_id}/${id}`,
+                method: 'delete',
+                headers: {'Authorization': `Token ${token}`},
             })
             .then(()=> {
                 context.dispatch('GetCommentsMovie', movie_id)
