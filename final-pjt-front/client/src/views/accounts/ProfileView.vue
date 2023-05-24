@@ -1,8 +1,32 @@
 <template>
   <div>
     <b-container role="group">
-
-      <h2>프로필 </h2><hr>
+      <br>
+        <h2>프로필</h2>
+        <div class="d-flex justify-content-end">
+          <div>
+          <b-button v-b-modal.modal-center>프로필 이미지 선택</b-button>
+          </div>
+          <div>
+            <b-modal id="modal-center" centered title="프로필 이미지 고르기" @hide="modalClosed" no-fade class="fullscreen-modal">
+              <div>
+                <div class="row">
+                  <div class="col-md-4 col-6 d-flex align-items-center justify-content-center" v-for="i in 20" :key="i">
+                        <img
+                          :src="require(`@/assets/profileImg/${i}.png`)"
+                          alt=""
+                          @mouseover="highlightImage"
+                          @mouseout="unhighlightImage"
+                          @click="selectImage(i)"
+                          style="width: 100%; height: 90%; margin-right: 15%; margin-left: -30%;"
+                        >
+                  </div>
+                </div>
+              </div>
+            </b-modal>
+          </div>
+        </div>
+        <hr>
         <br>
         <b-row>
             <label class="signup-font" for="input-username">아이디</label>
@@ -32,38 +56,6 @@
             trim type="text" aria-describedby=" input-live-feedback"></b-form-input>
         </b-row>
             <!-- 이미지 선택 -->
-        <div>
-          <b-button v-b-modal.modal-center>프로필 이미지 선택</b-button>
-        </div>
-        <div>
-          <b-modal id="modal-center" centered title="프로필 이미지 고르기" @hide="modalClosed" no-fade class="fullscreen-modal">
-            <div>
-              <div class="row">
-                <div class="col-md-4 col-6" v-for="i in 20" :key="i">
-
-                    <div
-                      style="width: 150%; height: 150px; display: flex; align-items: center; justify-content: center; position: relative;"
-                      @mouseover="highlightImage"
-                      @mouseout="unhighlightImage"
-                      @click="selectImage(i)"
-                    >
-                      <img
-                        :src="require(`@/assets/profileImg/${i}.png`)"
-                        alt=""
-                        style="width: 90%; height: 90%; margin-right: 15%; margin-left: -30%;"
-                      >
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </b-modal>
-        </div>
-
-
-        
-        
-
 
         <div class="signup-button">
             <b-button variant="success" @click="updateProfile">프로필정보변경</b-button>
@@ -157,11 +149,13 @@ body :scope{
 .imgmargin{
   margin: 30px 30px 30px 30px;
 }
-/* .fullscreen-modal .modal-dialog {
-  max-height: 100% !important;
-  padding-top: 10% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-} */
+
+.div-modal {
+  width: 100%; 
+  height: 100px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  position: relative;
+}
 </style>
