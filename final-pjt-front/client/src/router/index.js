@@ -12,6 +12,9 @@ import BoardDetail from '@/views/boards/BoardDetail'
 import ProfileView from '@/views/accounts/ProfileView'
 import UserProfile from '@/views/accounts/UserProfile'
 import SearchView from '@/views/movies/SearchView'
+import worldCup from '@/views/games/worldCup'
+// import RspGame from '@/views/games/RspGame'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -80,6 +83,16 @@ const routes = [
     component: SearchView,
     props: true
   },
+  {
+    path: '/games/worldCup',
+    name: 'worldCup',
+    component: worldCup
+  },
+  // {
+  //   path: '/games/rsp',
+  //   name: 'RspGame',
+  //   component: RspGame
+  // },
 
 ]
   

@@ -30,6 +30,9 @@
             <li class="nav-item nav-font d-md-none" id="right" v-if="isLoggedIn">
               <a class="nav-link active cursor-on signout " aria-current="page" @click="signOut" >회원탈퇴</a>
             </li>
+            <li class="nav-item nav-font">
+              <router-link to="/games/worldCup" class="nav-link active" aria-current="page">게임</router-link>
+            </li>
             
           </ul>
           <div class="collapse navbar-collapse searchmovie d-md-none" id="navbarNav">
@@ -38,6 +41,7 @@
               <img src="./assets/search.png" class="searchImg" @click="search">
             </div>
           </div>
+
         </div>
       </div>
     </div>

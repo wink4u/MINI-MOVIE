@@ -49,9 +49,9 @@ export default {
     computed: {
         ...mapState({ MovieList: state => state.movies.movieList })
     },
-    created(){
-        this.$store.dispatch('getDataMovies')
-    },
+    // created(){
+    //     this.$store.dispatch('getDataMovies')
+    // },
     mounted() {
       var slider = document.getElementById('slider');
 
