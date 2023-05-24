@@ -11,7 +11,6 @@
 
         <tbody v-if="boards">
           <tr v-for="(board, index) in boards" :key="index" @click="detailBoard(index, board.id)">
-            <h5>{{ board.id }}</h5>
             <td>{{ board.user.username }}</td>
             <td>{{ board.title.slice(0, 10) }}</td>
             <td>{{ board.content.slice(0, 30) }}</td>

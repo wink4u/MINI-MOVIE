@@ -6,8 +6,8 @@
       <b-row>
         <label for="input-username" class="login-font">ID</label>
         <b-form-input id="input-username" placeholder="ID" v-model="username" 
-        :state="nameState" aria-describedby="input-live-feedback" trim></b-form-input>
-      <b-form-invalid-feedback id="input-username-feedback" calss="text-right">알파벳/숫자 3글자 이상</b-form-invalid-feedback>
+        :state="nameState" aria-describedby="input-live-feedback" trim @keyup.enter="login"></b-form-input>
+      <b-form-invalid-feedback id="input-username-feedback" calss="text-right">알파벳/숫자 5글자 이상</b-form-invalid-feedback>
       </b-row><br>
         
       <b-row>
@@ -18,7 +18,7 @@
         v-model="password" 
         trim
         type="password"
-        :state="passwordState" aria-describedby="input-live-feedback"
+        :state="passwordState" aria-describedby="input-live-feedback" @keyup.enter="login"
         ></b-form-input>
       <b-form-invalid-feedback id="input-password-feedback" calss="text-right">알파벳/숫자 5글자 이상</b-form-invalid-feedback>
       </b-row>

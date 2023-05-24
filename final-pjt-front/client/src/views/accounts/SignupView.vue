@@ -1,12 +1,7 @@
 <template>
     <b-container role="group">
         <h2>회원가입</h2><hr>
-        <b-row>
-            <label class="signup-font" for="input-email">E-mail</label>
-            <b-form-input id="input-email" placeholder="EMAIL" v-model="email"
-            trim aria-describedby=" input-live-feedback"
-            ></b-form-input>
-        </b-row>
+
         <br>
         <b-row>
             <label class="signup-font" for="input-username">아이디</label>

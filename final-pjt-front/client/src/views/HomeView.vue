@@ -37,7 +37,7 @@ export default {
   name: 'HomeView',
   data() {
     return {
-      showScreen : false
+      showScreen : true
     }
   },
   components: {
@@ -48,12 +48,17 @@ export default {
   methods: {
     onvideoEnded() {
       this.showScreen = false
-    }
+      sessionStorage.setItem('showScreen', true)
+    },
   },
   computed: {
-    ...mapState({ MovieList : state => state.movies.movieList})
+    ...mapState({ MovieList : state => state.movies.movieList}),
+
   },
   created() {
+    if (sessionStorage.getItem('showScreen')) {
+      this.showScreen = false
+    }
     this.$store.dispatch('savenow')
     if (!this.$store.state.movieList){
       this.$store.dispatch('getDataMovies')
