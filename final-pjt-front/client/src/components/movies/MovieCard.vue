@@ -10,7 +10,8 @@
             <h3 class="image_title_text font_regular">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
-              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id, 'title' : this.movie.title }}">
+              <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id, 'title' : this.movie.title,
+                                                        'overview' : this.movie.overview, 'release_date' : this.movie.release_date, 'vote_average' : this.movie.vote_average }}">
                 상세 보기 
               </router-link>
             </div>
@@ -98,17 +99,17 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .text-block {
   color: #000;
   padding-left: 30px;
   padding-right: 20px;
   bottom: 20px;
   right: 20px;
-  width: 500px;
   font-size: 10px;
+  width : 250px;
 }
 .image {
   opacity: 1;
@@ -118,8 +119,6 @@ export default {
   width: 300px;
   object-fit: cover;
 }
-#imgsize {}
-
 .movie_detail {
   height : 60px;
 }

@@ -56,7 +56,6 @@ const movies = {
     },
     actions: {
         getDataMovies(context) {
-            console.log('마리오ㅠㅠㅠㅠㅠ')
             axios({
                 method: 'get',
                 url: `${API_URL}/movies/`,
@@ -152,7 +151,9 @@ const movies = {
         },
 
         GetVideo(context, movietitle) {
-            const apiKey = 'AIzaSyAt7zqRKJCkQDfB9wsteGM5cd9m8VNxDqY';
+            // 'AIzaSyAt7zqRKJCkQDfB9wsteGM5cd9m8VNxDqY' 내꺼
+            // AIzaSyCzX11JfosePWWHawgosV6vD__dpCWaOMs 태형이형
+            const apiKey = 'AIzaSyCzX11JfosePWWHawgosV6vD__dpCWaOMs';
             const query = `${movietitle} 예고편`;
             const total_query = query
 

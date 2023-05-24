@@ -1,11 +1,37 @@
 <template>
-    <div class = "container">
-        <div v-if="getvideoId">
-            <p>{{ getvideoId }}</p>
-            <iframe :src="'https://www.youtube.com/embed/' + getvideoId"></iframe>
+    <div>
+      <img class="help-mini" src="@/assets/MINI/help.png" alt="">
+      <div class= "row">
+        <div v-if="getvideoId" class="col offset-1" >
+          <youtube  :video-id=getvideoId :player-vars="playerVars"></youtube>
         </div>
-        <h1>{{ title }}</h1>
-        <h1>댓글</h1>
+        <div class="col">
+          <hr>
+          <div class="row">
+            <div class="col-4 table-name">영화제목</div>
+            <div class="col-8 table-content">{{ title }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-4 table-name">줄거리</div>
+            <div class="col-8 table-content">{{ overview }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-4 table-name">개봉일</div>
+            <div class="col-8 table-content">{{ release_date }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-4 table-name">평점</div>
+            <div class="col-8 table-content">{{ vote_average }}</div>
+          </div>
+          <hr> 
+        </div>
+      </div>
+      <img class="catch-mini" src="@/assets/MINI/catch.png" alt="">
+      <div class="container">
+        <h2>댓글</h2>
         <div>
             <form @submit.prevent="createMcomment" class="comment-list-form" style="margin-right: 0px;margin-left: 35px;">
                 <label for="comment"></label>
@@ -44,6 +70,8 @@
             </div>
         </div>
 
+      </div>
+
     </div>
 </template>
 
@@ -54,11 +82,19 @@ export default {
     name : 'DetailView',
     props: {
         id : Number,
-        title : String
+        title : String,
+        release_date : String,
+        vote_average : Number,
+        overview : String,
     },
     data() {
         return {
             content: '',
+            playerVars: {
+              autoplay : 1,
+              controls : 0,
+              showinfo : 0,
+            }
         } 
     },
     methods : {
@@ -111,11 +147,62 @@ export default {
     },
     created() {
         this.$store.dispatch('GetCommentsMovie', this.id)
-        // this.$store.dispatch('GetVideo', this.title)
+        this.$store.dispatch('GetVideo', this.title)
     },
 }
 </script>
 
 <style>
+  .row {
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    position: relative;
+    z-index: 1;
+  }
 
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  .table-name {
+    background-color : white;
+    border-radius: 40%;
+    font-weight : bold;
+    font-size : 18px;
+    width : 20%;
+    border : 1px solid black;
+  }
+
+  .table-content {
+    font-size : 20px;
+    font-weight : bold;
+  }
+
+  .video-size {
+    width : 100%;
+    height : 100%;
+  }
+
+  #video-container {
+  width: 100%; /* div 요소의 가로 너비 */
+  height: 0; /* 높이를 0으로 설정하여 비율을 유지합니다 */
+  padding-bottom: 56.25%; /* YouTube 동영상의 16:9 비율에 맞게 설정합니다 */
+  position: relative; /* 포지션 설정은 필요한 경우에 따라 조정할 수 있습니다 */
+  }
+
+  .help-mini {
+    width : 100px;
+    position : absolute;
+    left : 50px;
+    z-index: 0;
+  }
+
+  .catch-mini {
+    width : 300px;
+    position : absolute;
+    left : 0px;
+    top : 450px;
+    z-index: 0;
+  }
 </style>

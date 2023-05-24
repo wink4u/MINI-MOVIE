@@ -11,11 +11,14 @@ import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 import VueCarousel from 'vue-carousel';
 import Carousel3d from 'vue-carousel-3d';
+import VueYoutube from 'vue-youtube'
 
 Vue.use(Material)
 Vue.use(BootstrapVue)
 Vue.use(VueCarousel)
 Vue.use(Carousel3d)
+Vue.use(VueYoutube)
+
 Vue.config.productionTip = false
 
 new Vue({
