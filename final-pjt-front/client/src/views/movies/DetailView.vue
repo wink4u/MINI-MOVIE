@@ -2,6 +2,7 @@
     <div>
       <img class="help-mini" src="@/assets/MINI/help.png" alt="">
       <div class= "row">
+        <hr>
         <div v-if="getvideoId" class="col offset-1" >
           <youtube  :video-id=getvideoId :player-vars="playerVars"></youtube>
         </div>

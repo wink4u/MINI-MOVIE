@@ -12,14 +12,15 @@ const games = {
     ],
     state: {
         randomList: [],
-        randomPick: null
+        randomPick: null,
+        randomvalue: [],
     },
     getters: {
         randomList(state){
             return state.randomList
         },
         randomPick(state) {
-            return state.randomPick
+            return state.randomvalue
         }
     },
     mutations: {
@@ -27,7 +28,7 @@ const games = {
             state.randomList = randomList
         },
         RANDOMPICK(state, randomPick){
-            state.randomPick = randomPick
+            state.randomvalue = randomPick
         }
     },
     actions: {
@@ -47,16 +48,23 @@ const games = {
         },
 
         winnergenre({ getters, commit }, data) {
-            const genre_ids = data[0];
+            const genre_ids = data[0]
+            const randomMovie = []
             const randompick = getters.movieList.filter((movie) => {
-              return movie.genre_ids.includes(genre_ids);
+                return movie.genre_ids.includes(genre_ids);
             });
             console.log(randompick)
-            const randomIndex = Math.floor(Math.random() * randompick.length);
-            const randomMovie = randompick[randomIndex];
+            while (randomMovie.length != 4){
+                const randomIndex = Math.floor(Math.random() * randompick.length)
+                if (randomMovie.indexOf(randomIndex) < 0 ){
+                    randomMovie.push(randompick[randomIndex])
+                }
+
+            }
+            console.log('sss')
             console.log(randomMovie);
-            commit('randompick', randomMovie);
-          }
+            commit('RANDOMPICK', randomMovie);
+        }
     },
 }
 export default games
