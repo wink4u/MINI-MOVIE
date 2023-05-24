@@ -1,55 +1,113 @@
 <template>
   <div>
-    <h2>영화 월드컵</h2>
+    <br>
+    <p class="worldcupt-title">영화 월드컵</p>
     <div v-if="winner">
       <h3>우승자</h3>
-      <img :src="getMoviePosterPath(winner.poster_path)" alt="Winner">
+      <b-button v-b-modal.modal-center><img :src="getMoviePosterPath(winner.poster_path)" alt="Winner" class="btn p-0" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></b-button>
+      <!-- <button type="button" class="btn btn-primary" >
+        Launch static backdrop modal
+      </button> -->
       <p>{{ winner.title }}</p>
-      <p>{{ winner }}</p>
-      {{ winnergenreRandomMovie }}
     </div>
     <div v-else>
       <div v-if="round === 1">
-        <h3>Round 1</h3>
-        <h1>VS</h1>
+        <h3>Round 1</h3>           
         <div class="row">
-          <div v-for="(movie, index) in randomList" :key="movie.id" class="col-sm-6" @click="selectMovie(movie)">
-            <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2 || index === cnt*2+1">
-            <p v-if="index === cnt*2 || index === cnt*2+1">{{ movie.title }}</p>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in randomList" :key="movie.id" class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2">
+              <p v-if="index === cnt*2">{{ movie.title }}</p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h1>VS</h1>
+          </div>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in randomList" :key="movie.id" class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2+1">
+              <p v-if="index === cnt*2+1">{{ movie.title }}</p>
+            </div>
           </div>
         </div>
       </div>
       <div v-if="round === 2">
         <h3>Round 2</h3>
-        <h1>VS</h1>
         <div class="row">
-          <div v-for="(movie, index) in movie8" :key="movie.id" class="col-sm-6" @click="selectMovie(movie)">
-            <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2 || index === cnt*2+1">
-            <p v-if="index === cnt*2 || index === cnt*2+1">{{ movie.title }}</p>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie8" :key="movie.id"  class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2">
+              <p v-if="index === cnt*2">{{ movie.title }}</p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h1>VS</h1>
+          </div>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie8" :key="movie.id" class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2+1">
+              <p v-if="index === cnt*2+1">{{ movie.title }}</p>
+            </div>
           </div>
         </div>
       </div>
       <div v-if="round === 3">
         <h3>Round 3</h3>
-        <h1>VS</h1>
         <div class="row">
-          <div v-for="(movie, index) in movie4" :key="movie.id" class="col-sm-6" @click="selectMovie(movie)">
-            <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2 || index === cnt*2+1">
-            <p v-if="index === cnt*2 || index === cnt*2+1">{{ movie.title }}</p>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie4" :key="movie.id" class="image-transition"  @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2">
+              <p v-if="index === cnt*2">{{ movie.title }}</p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h1>VS</h1>
+          </div>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie4" :key="movie.id" class="image-transition"  @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2+1">
+              <p v-if="index === cnt*2+1">{{ movie.title }}</p>
+            </div>
           </div>
         </div>
       </div>
       <div v-else-if="round === 4">
         <h3>Final Round</h3>
         <div class="row">
-          <div v-for="movie in movie2" :key="movie.id" @click="selectMovie(movie)" class="col-sm-6">
-            <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie">
-            <p>{{ movie.title }}</p>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie2" :key="movie.id" class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2">
+              <p v-if="index === cnt*2">{{ movie.title }}</p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h1>VS</h1>
+          </div>
+          <div class="col-md-5">
+            <div v-for="(movie, index) in movie2" :key="movie.id" class="image-transition" @click="selectMovie(movie)">
+              <img :src="getMoviePosterPath(movie.poster_path)" alt="Movie" v-if="index === cnt*2+1">
+              <p v-if="index === cnt*2+1">{{ movie.title }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+<!-- 
+    <div class="modal fade modal-fade-centered" id="staticBackdrop" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div> -->
   </div>
+
+  
 </template>
 
 <script>
@@ -62,7 +120,7 @@ export default {
       movie4: [],
       movie2: [],
       winner: null,
-      cnt : 0
+      cnt : 0,
     }
   },
   computed: {
@@ -126,5 +184,23 @@ img {
 }
 .hidden {
   display: none;
+}
+
+.vs {
+  width : 20%;
+  height : 20%;
+}
+.image-transition:hover {
+  transform: scale(1.1);
+}
+
+p {
+  font-size : 40px;
+  font-weight : bold;
+}
+
+.worldcupt-title {
+  font-size : 60px;
+  font-weight : bold;
 }
 </style>
