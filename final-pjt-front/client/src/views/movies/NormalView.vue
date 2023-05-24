@@ -72,9 +72,11 @@ export default {
             return array;
         }
     },
-    created(){
-        this.$store.dispatch('getDataMovies')
-    },
+    // created(){
+    //     this.$store.dispatch('getDataMovies')
+    // },
+    // mounted() {
+    //   var slider = document.getElementById('slider');
 
 }
 

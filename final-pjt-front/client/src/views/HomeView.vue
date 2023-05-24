@@ -55,7 +55,9 @@ export default {
   },
   created() {
     this.$store.dispatch('savenow')
-    this.$store.dispatch('getDataMovies')
+    if (!this.$store.state.movieList){
+      this.$store.dispatch('getDataMovies')
+    }
   },
   mounted() {
     this.$refs.introVideo.play()
