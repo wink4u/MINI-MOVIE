@@ -8,3 +8,4 @@ class User(AbstractUser):
     region = models.CharField(max_length=100,blank=True)
     profile =  models.CharField(max_length=200, null=True, blank=True)
     followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
+    imgId = models.IntegerField(null=True, blank=True)

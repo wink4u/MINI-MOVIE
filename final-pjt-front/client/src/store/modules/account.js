@@ -143,7 +143,8 @@ const accounts = {
               sex: data.sex,
               region: data.region,
               email: data.email,
-              username: data.username
+              username: data.username,
+              imgId: data.imgId,
             } 
             const user_id = data.user_id        
             axios({
@@ -155,6 +156,7 @@ const accounts = {
               },
             })
             .then(res => {
+              console.log(res.data)
               context.dispatch('getuserProfile', res.data.id)
             })
             .catch(err => {
