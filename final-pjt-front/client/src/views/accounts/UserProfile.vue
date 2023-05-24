@@ -1,11 +1,12 @@
 <template>
-<div class="user-profile pb-5 flex-column align-items-center">
+<div class="user-profile pb-1 flex-column align-items-center">
+  
   <div class="d-flex align-items-start justify-content-start">
     <img
       v-if="eachUser.imgId"
       :src="require(`@/assets/profileImg/${eachUser.imgId}.png`)"
       alt=""
-      style="width: 70%; height: 50%; margin-top: 50px; margin-right: 30px;"
+      style="width: 50%; height: 50%; margin-top: 100px; margin-right: 30px;"
     >
     <img
       v-if="!eachUser.imgId"
@@ -26,13 +27,29 @@
       </ul>
     </div>
   </div>
+  <div>
+    <h3>좋아요한 영화들</h3>
+    <h5>평점 높은 순(최대12개)</h5>
+    <div class="movie-card-container">
+      <div class="row">
+        <!-- <MovieCard v-for="(movie, index) in likemovie" :key="index" :movie="movie" style="width: 200px;"/> -->
+        <CheckLike v-for="(movie, index) in likemovie" :key="index" :movie="movie" style="width: 200px;"/>
+      </div>
+    </div>
+  </div>
 </div>
 
 </template>
 
 <script>
+// import MovieCard from '@/components/movies/MovieCard.vue'
+import CheckLike from '@/components/movies/CheckLike.vue'
 export default {
   name: 'UserProfile',
+  components: {
+    // MovieCard,
+    CheckLike
+  },
   props: {
     user_id: Number
   },
@@ -46,6 +63,10 @@ export default {
     userId(){
       return this.$store.getters.userId
     },
+    likemovie() {
+      return this.$store.getters.likemovie
+    }
+
 
   },
   methods: {
@@ -64,7 +85,11 @@ export default {
   created() {
     this.findfollow()
     this.$store.dispatch('GETUSERPROFILE', this.user_id)
+    if (!this.$store.state.likemovie){
+      this.$store.dispatch('getlikemovies', this.user_id)
+    }
   }
+
 }
 </script>
 
@@ -98,5 +123,10 @@ export default {
 .user-profile h1 {
   font-size: 20px;
   font-weight: bold;
+}
+.movie-card-container :scope{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 </style>

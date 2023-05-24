@@ -36,21 +36,23 @@
           <b-button v-b-modal.modal-center>프로필 이미지 선택</b-button>
         </div>
         <div>
-          <b-modal id="modal-center" centered title="프로필 이미지 고르기" @hide="modalClosed" no-fade>
-            <div class="container">
+          <b-modal id="modal-center" centered title="프로필 이미지 고르기" @hide="modalClosed" no-fade class="fullscreen-modal">
+            <div>
               <div class="row">
-                <div class="col-4" v-for="i in 20" :key="i">
-                  <div
-                    style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; position: relative;"
-                    @mouseover="highlightImage"
-                    @mouseout="unhighlightImage"
-                    @click="selectImage(i)"
-                  >
-                    <img
-                      :src="require(`@/assets/profileImg/${i}.png`)"
-                      alt=""
-                      style="width: 100%; height: 100%;"
+                <div class="col-md-4 col-6" v-for="i in 20" :key="i">
+
+                    <div
+                      style="width: 150%; height: 150px; display: flex; align-items: center; justify-content: center; position: relative;"
+                      @mouseover="highlightImage"
+                      @mouseout="unhighlightImage"
+                      @click="selectImage(i)"
                     >
+                      <img
+                        :src="require(`@/assets/profileImg/${i}.png`)"
+                        alt=""
+                        style="width: 90%; height: 90%; margin-right: 15%; margin-left: -30%;"
+                      >
+
                   </div>
                 </div>
               </div>
@@ -58,6 +60,8 @@
           </b-modal>
         </div>
 
+
+        
         
 
 
@@ -136,22 +140,28 @@ export default {
 </script>
 
 <style>
+body :scope{
+	width:100%;
+	/* height:100vh; */
+}
+.modal{
+  box-sizing: padding;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-0%, -60%);
+}
 .form-select{
   margin-bottom: 30px;
 }
 .imgmargin{
-  margin: 15px 15px 15px 15px;
+  margin: 30px 30px 30px 30px;
 }
-.modal{
-  padding-left: 100px;
-}
-#modal-center {
-  display:inline-flexbox !important;
+/* .fullscreen-modal .modal-dialog {
   max-height: 100% !important;
-  padding-top: 30% !important;
-  padding-bottom: 10% !important;
+  padding-top: 10% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-} 
+} */
 </style>

@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from .models import User
 from django.contrib.auth import get_user_model
 from rest_framework import status
+
 # Create your views here.
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -99,5 +100,4 @@ def followget(request, each_id):
         return JsonResponse(follow_status)
         # return Response(serializer.data)
     return Response(status=status.HTTP_400_BAD_REQUEST)
-
 

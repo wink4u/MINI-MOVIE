@@ -138,3 +138,9 @@ def board_change_comment(request, board_pk, id):
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
+@api_view(['GET'])
+def movie_liked(request, user_id):
+    user = get_object_or_404(get_user_model(), pk=user_id)
+    liked_movies = user.like_movies.all()
+    serializer = MovieListSerializer(liked_movies, many=True)
+    return Response(serializer.data)

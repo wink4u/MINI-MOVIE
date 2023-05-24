@@ -14,6 +14,6 @@ urlpatterns = [
     path('delete/', views.user_delete,),
     path('follow/<int:each_id>/' , views.follow),
     path('follow/<int:each_id>/get/' , views.followget),
-    
+
 ]
 

@@ -22,8 +22,14 @@ const movies = {
         movie: [],
         conceptMovieList: [],
         videoId : null,
+        likemovie: [],
     },
     getters: {
+        likemovie(state) {
+            const sortedMovies = state.likemovie.sort((a, b) => b.vote_average - a.vote_average);
+            const slicedMovies = sortedMovies.slice(0, 12);
+            return slicedMovies;
+          },
         movieList(state) {
             return state.movieList
         }
@@ -51,6 +57,9 @@ const movies = {
         },
         GETVIDEO(state, data){
             state.videoId = data
+        },
+        GETLIKEMOVIES(state, data) {
+            state.likemovie = data
         }
 
     },
@@ -193,6 +202,19 @@ const movies = {
             console.log(filteredMovies);
             router.push({ name: 'search', params: { filteredMovies: filteredMovies, 'search':searchData } })
         
+        },
+        getlikemovies(context, user_id) {
+            const token = sessionStorage.getItem('key')
+            axios({
+                url: `${API_URL}/movies/like/${user_id}`,
+                method: 'get',
+                headers: {'Authorization': `Token ${token}`},
+            })
+            .then((res) => {
+                console.log('좋아요')
+                console.log(res.data)
+                context.commit('GETLIKEMOVIES', res.data)
+            })
         }
 
     }

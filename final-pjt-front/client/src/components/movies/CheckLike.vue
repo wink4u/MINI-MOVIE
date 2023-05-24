@@ -5,23 +5,17 @@
         <img :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`" class="img-fluid image" alt="..." id="imgsize">
         <div class="middle">
           <div class="text-block">
-            <button class="heart-button" @click="changeLike()" v-if="isLoggedIn" :class="{'liked' : userLike}"></button>
-            <p v-if="!isLoggedIn">로그인해봐요</p>
             <h3 class="image_title_text font_regular" style="font-size: 30px;">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
               <router-link class="custom-button" :to="{ name: 'detail' , params: { 'id' : this.movie.id, 'title' : this.movie.title,
                                                         'overview' : this.movie.overview, 'release_date' : this.movie.release_date, 'vote_average' : this.movie.vote_average }}">
-                상세 보기 
+                <h5>상세 보기</h5> 
               </router-link>
             </div>
             <!-- <div class="btn btn-primary" @click="movie_datil(movie.pk)">영화 상세보기</div> -->
           </div>
         </div>
-      </div>
-      <div class="image_title font_regular">
-        <p class="image_title_text" v-if="movie.title.length <= maxLength ">{{ movie.title }}</p> 
-        <p class="image_title_text" v-else> {{ movie.title.slice(0, maxLength) }}..</p> 
       </div>
     </div>
   </div>
@@ -29,7 +23,7 @@
 
 <script>
 export default {
-  name: 'MovieCard',
+  name: 'CheckLike',
   data() {
     return {
       maxLength : 11,
@@ -42,35 +36,10 @@ export default {
     }
   },
   methods: {
-    like_movie() {
-      if (this.currentUser.id in this.movie.like_movie_users){
-        this.userLike = true
-      } else {
-        this.userLike = false
-      }
-    },
-    changeLike(){
-    
-      this.userLike = !this.userLike
-      this.$store.dispatch('likeMovie', this.movie.id)
-      
-    },
-      // this.userLike = !this.userLike
     getdetailmovie() {
       this.$store.dispatch('getdetailMovie', this.movie.id)
     }
   },
-  created() {
-    this.like_movie()
-  },
-  computed: {
-    isLoggedIn(){
-      return this.$store.getters.isLoggedIn
-    },
-    currentUser() {
-      return this.$store.getters.currentUser
-    }
-    }
   }
 </script>
 
