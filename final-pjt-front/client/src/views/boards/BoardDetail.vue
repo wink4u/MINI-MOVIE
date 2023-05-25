@@ -24,7 +24,7 @@
       </div>
       <div class="table-content">
         <div style="width:100%;">
-          <h4 style = "margin-left : 10px; overflow-wrap: break-word;">{{ Boardlist[board_id].content }}</h4>
+          <h4 style = "text-align: left; margin-left: 10px;">{{ Boardlist[board_id].content }}</h4>
         </div>
       </div>
       <div class="d-flex justify-content-start">
