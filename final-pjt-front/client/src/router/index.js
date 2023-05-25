@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NormalView from '@/views/movies/NormalView'
-import ConceptView from '@/views/movies/ConceptView'
 import LoginView from '@/views/accounts/LoginView'
 import SignupView from '@/views/accounts/SignupView'
 // import HomeView from '@/views/HomeView'
@@ -14,7 +13,7 @@ import UserProfile from '@/views/accounts/UserProfile'
 import SearchView from '@/views/movies/SearchView'
 import worldCup from '@/views/games/worldCup'
 // import RspGame from '@/views/games/RspGame'
-
+import NotFound from '@/views/accounts/NotFound'
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,11 +22,7 @@ const routes = [
     name: 'normal',
     component: NormalView
   },
-  {
-    path: '/concept',
-    name: 'concept',
-    component: ConceptView
-  },
+
 
   {
     path: '/signup',
@@ -88,6 +83,15 @@ const routes = [
     name: 'worldCup',
     component: worldCup
   },
+  {
+    path: '/404',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect:'/404'
+  }
   // {
   //   path: '/games/rsp',
   //   name: 'RspGame',
