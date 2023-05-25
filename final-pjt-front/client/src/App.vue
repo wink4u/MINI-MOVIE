@@ -69,13 +69,6 @@
 </div>
 </template>
 <script>
-let num = 0.5;
-document.querySelectorAll('.aniview_card').forEach((el)=>{
-  // 각 엘리먼트의 animation-delay를 0.5, 1.0, 1.5 ~ 차례로 준다.
-  el.style.setProperty('animation-delay', `${num}s`);
-  num += 0.5;
-})
-
 
 import axios from 'axios';
   window.addEventListener('scroll', function() {
@@ -107,7 +100,7 @@ export default {
     search() {
       this.$store.dispatch('getDataMovies')
       if (this.searchData.trim().length === 0) {
-        alert('다시 입력해주세요')
+        // alert('다시 입력해주세요')
       } else {
         this.$store.dispatch('search', this.searchData)
       } this.searchData = ''

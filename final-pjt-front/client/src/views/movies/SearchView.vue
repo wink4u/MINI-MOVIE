@@ -13,19 +13,7 @@
   </div>
   <div v-if="paginatedMovies.length === 0" style="margin-top: 300px;">
     <h2>죄송합니다 찾으시는 영화 정보가 없습니다!!</h2>
-    <div class="row">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-      <img src="@/assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
-    </div>
+
   </div>
 
   <div class="d-flex justify-content-center" v-if="paginatedMovies.length !== 0">

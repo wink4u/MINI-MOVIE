@@ -3,17 +3,25 @@
         <br>
         <img class="welcom-img" src="@/assets/MINI/welcom.png" alt="">
         <h1 class="detail-title">MINIBOX</h1>
+          <button type="button" :style="getColor(0)" class="btn" @click="click_button(0, '전체영화')">전체영화</button>
         <hr>
         <carousel :per-page="perPage">
             <slide v-for="(genre, index) in genre_data" :key="index">
                 <button type="button" :style="getColor(index)" class="btn" @click="click_button(index, genre)">{{ genre }}</button>
             </slide>
         </carousel>
-        <div v-for="genre in select_genre" :key="genre">
-            <h3>- {{ genre[1] }} -</h3>
-            <GenreMovies :genre="parseInt(genre[0])"/>
-            <hr>
-        </div>      
+
+        <div v-if="!checkallmovie">
+          <div v-for="genre in select_genre" :key="genre">
+              <h3>- {{ genre[1] }} -</h3>
+              <GenreMovies :genre="parseInt(genre[0])"/>
+              <hr>
+          </div>      
+        </div>
+        <div v-if="checkallmovie">
+          <h3>- 전체 영화 -</h3>
+          <GenreMovies :genre="0"/>
+        </div>
     </div>
 </template>
 
@@ -66,7 +74,15 @@ export default {
             const genres = Object.entries(this.genre_data)
             const shuffledGenres = this.shuffleArray(genres)
             return shuffledGenres.slice(0,4)
-        }
+        },
+        checkallmovie(){
+          this.select_genre.forEach((genre) => {
+            console.log(genre[0])
+            if (genre[0]===0){
+              this.check = true 
+            } 
+          } )
+          return this.check}
     },
     methods: {
         shuffleArray(array) {
@@ -102,6 +118,7 @@ export default {
           // return index === this.clickedIndex ? 'background-color: #00ff00' : 'background-color: #ff0000'
         },
         click_button(index, genre) {
+          this.check = false
           let flag = true
 
           for(let i = 0; i < this.select_genre.length; i++){
