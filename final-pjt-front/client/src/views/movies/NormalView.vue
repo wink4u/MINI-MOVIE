@@ -33,6 +33,7 @@ export default {
     },
     data() {
         return {
+          check : false,
             genre_data : {
                 12: '모험',
                 14 : '판타지',
@@ -92,7 +93,13 @@ export default {
           }
         },
         getColor(index){
-          return index === this.clickedIndex ? 'background-color: #00ff00' : 'background-color: #ff0000'
+          for (let i = 0; i < this.select_genre.length; i++) {
+            if (this.select_genre[i][0] === index){
+              return 'background-color: #00ff00'
+            } 
+          } return 'background-color: #ff0000'
+          
+          // return index === this.clickedIndex ? 'background-color: #00ff00' : 'background-color: #ff0000'
         },
         click_button(index, genre) {
           let flag = true

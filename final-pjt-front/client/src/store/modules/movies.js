@@ -201,8 +201,8 @@ const movies = {
             });
             console.log(filteredMovies);
             router.push({ name: 'search', params: { filteredMovies: filteredMovies, 'search':searchData } })
-        
         },
+        
         getlikemovies(context, user_id) {
             const token = sessionStorage.getItem('key')
             axios({

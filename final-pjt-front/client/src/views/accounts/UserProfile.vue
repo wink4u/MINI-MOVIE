@@ -20,10 +20,12 @@
       <ul>
         <li>Email: {{ eachUser.email ? eachUser.email : '추가하세용' }}</li>
         <li>Location: {{ eachUser.region ? eachUser.region : '추가하세용' }}</li>
-        <b-button @click="follow">{{ followState.follow }}</b-button>
-        <span >
-          <p>팔로잉수: {{ followState.following_count }}  /  팔로워수: {{ followState.count }}</p>
-        </span>
+        <div v-if="user_id != currentid">
+          <b-button @click="follow">{{ followState.follow }}</b-button>
+          <span >
+            <p>팔로잉수: {{ followState.following_count }}  /  팔로워수: {{ followState.count }}</p>
+          </span>
+        </div>
       </ul>
     </div>
   </div>
@@ -65,6 +67,9 @@ export default {
     },
     likemovie() {
       return this.$store.getters.likemovie
+    },
+    currentid() {
+      return sessionStorage.getItem('userId')
     }
 
 

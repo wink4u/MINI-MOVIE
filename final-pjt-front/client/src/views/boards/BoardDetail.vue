@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div>
-      {{ Boardlist[board_id] }}
-      <h2><span>제목: </span>{{ Boardlist[board_id].title }}</h2>
-      <h3><span>내용: </span>{{ Boardlist[board_id].content }}</h3>
-      <h3><span class="profile-link">작성자: <a @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</a></span></h3>
-      <h3><span>작성시간: </span>{{ Boardlist[board_id].created_at.slice(0,10) }}</h3>
+    <div class="container">
+      <h2>제목: {{ Boardlist[board_id].title }}</h2>
+      <h3 @click=profileEach(Boardlist[board_id].user.pk) class="profile-link">작성자: {{ Boardlist[board_id].user.username }}</h3>
+      <h3>작성시간: {{ Boardlist[board_id].created_at.slice(0,10) }}</h3>
+      <h3>내용: {{ Boardlist[board_id].content }}</h3>
       <a class="btn " @click="deleteBoard()">DELETE</a>
     </div> 
     <div>

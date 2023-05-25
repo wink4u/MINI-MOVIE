@@ -3,7 +3,7 @@
     <div>
       <div class="navbar navbar-expand-lg bg-body-tertiary nav-color">
       <div class="container-fluid">
-        <img class="mini_logo" src="@/assets/MINI/glass_mini.png" alt="mini_img">
+        <img class="mini_logo animate__animated animate__wobble" src="@/assets/MINI/glass_mini2.png" alt="mini_img">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,10 +47,33 @@
     </div>
   </div>
   <router-view/>
-    
+  <footer v-if="this.$route.name !== 'signup'">
+    <div class="row">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+      <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
+
+    </div>
+  </footer>
 </div>
 </template>
 <script>
+let num = 0.5;
+document.querySelectorAll('.aniview_card').forEach((el)=>{
+  // 각 엘리먼트의 animation-delay를 0.5, 1.0, 1.5 ~ 차례로 준다.
+  el.style.setProperty('animation-delay', `${num}s`);
+  num += 0.5;
+})
+
+
 import axios from 'axios';
   window.addEventListener('scroll', function() {
     var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
@@ -68,7 +91,7 @@ export default {
   data() {
     return {
       checkOut: false,
-      searchData: ''
+      searchData: '',
     }
   },
   methods: {
@@ -99,7 +122,7 @@ export default {
       .then(() => {
         this.$store.commit('LOGOUT')
       })
-    }
+    },
   },
   computed: {
     isLoggedIn() {
@@ -191,5 +214,10 @@ nav a.router-link-exact-active {
   position: absolute;
   right: 0
 }
+footer {
+  position: sticky;
+  bottom: 0;
+}
+
 </style>
 

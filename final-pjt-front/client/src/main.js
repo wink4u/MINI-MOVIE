@@ -13,6 +13,7 @@ import "materialize-css/dist/js/materialize.min.js";
 import VueCarousel from 'vue-carousel';
 import Carousel3d from 'vue-carousel-3d';
 import VueYoutube from 'vue-youtube'
+import 'animate.css'
 
 Vue.use(Material)
 Vue.use(BootstrapVue)
