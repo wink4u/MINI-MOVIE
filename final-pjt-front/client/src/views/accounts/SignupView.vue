@@ -24,7 +24,7 @@
         <b-row>
             <label class="signup-font" for="input-password2">비밀번호 재확인</label>
             <b-form-input id="input-password2" placeholder="PASSWORD확인" v-model="password2"
-            trim type="password" :state="passwordState2" aria-describedby=" input-live-feedback"></b-form-input>
+            trim type="password" :state="passwordState2" aria-describedby=" input-live-feedback" @keyup.enter="signup"></b-form-input>
             <b-form-invalid-feedback id="input-password2-feedback" class="check-font text-right ">
                 비밀번호 설정과 동일한 값 입력
             </b-form-invalid-feedback>
@@ -65,23 +65,27 @@ export default {
     },
     methods: {
         signup() {
-            axios({
-                method: 'post',
-                url: "http://127.0.0.1:8000/auth/signup/",
-                data: {
-                    // email : this.email,
-                    username: this.username,
-                    password1: this.password1,
-                    password2: this.password2,
-                }
-            })
-            .then((res) => {
-                console.log(res.data)
-                this.$router.push({name:'login'})
-            })
-            .catch((err)=> {
-                console.log(err)
-            })
+            if (!this.$store.getters.isLoggedIn){
+                axios({
+                    method: 'post',
+                    url: "http://127.0.0.1:8000/auth/signup/",
+                    data: {
+                        // email : this.email,
+                        username: this.username,
+                        password1: this.password1,
+                        password2: this.password2,
+                    }
+                })
+                .then((res) => {
+                    console.log(res.data)
+                    this.$router.push({name:'login'})
+                })
+                .catch((err)=> {
+                    console.log(err)
+                })
+            } else {
+                this.$router.push({name:'home'})
+            }
         }
     }
 }

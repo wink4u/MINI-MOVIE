@@ -97,6 +97,7 @@ const board = {
         const token = sessionStorage.getItem('key')
         const board_id = data.board_id
         const id = data.id
+        
   
         axios({
           url: `${API_URL}/movies/board/${board_id}/${id}`,
@@ -105,7 +106,7 @@ const board = {
           headers: {'Authorization': `Token ${token}`},
         })
         .then(()=> {
-          context.dispatch('allComments')
+          // context.dispatch('allComments')
           context.dispatch('GetComments', board_id)
         })
       },
@@ -116,7 +117,9 @@ const board = {
         })
         .then((res) => context.commit('ALL_COMMENTS', res.data))
       },
+
       deleteBoard(context, real_id) {
+
         const token = sessionStorage.getItem('key')
         axios({
           method: 'delete',

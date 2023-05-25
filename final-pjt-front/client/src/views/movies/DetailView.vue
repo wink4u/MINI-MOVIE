@@ -42,34 +42,38 @@
             </form>
         </div>
         <div class="comment-container">
-            <div class="commentstyle container">
-                <div class="row">
+          <div class="commentstyle container">
+            <div>
+              <div class="row">
                 <div class="col-4">
                     <span class="username">작 성 자</span>
                 </div>
-                <div class="col-7">
+                <div class="col-6">
                     <span class="content">리 뷰 내 용</span>
-                </div>
-                <div class="col-1">
-                </div>
+                </div >
+                  <div class="col-2">삭제
                 </div>
                 <div v-if="eachComments">
-                    <div v-for="(comment, index) in eachComments" :key="index" class="commentstyle container">
+                  <br>
+                    <div v-for="(comment, index) in eachComments" :key="index" >
                         <div class="row">
-                            <div class="col-4">
-                            <a @click=profileEach(comment.user.pk)><span class="username">{{ comment.user.username }}</span></a>
-                            </div>
-                            <div class="col-7">
+                          <div class="col-4 profile-link"  @click=profileEach(comment.user.pk)>
+                            <a><span class="username">{{ comment.user.username }}</span></a>
+                          </div>
+                          <div class="col-6">
                             <span class="content">{{ comment.content }}</span>
-                            </div>
-                            <div class="col-1">
+                          </div>
+                          <div class="col-2">
                             <a class="btn btninline" @click="deleteComment(comment)">삭제</a>
-                            </div>
+                          </div>
                         </div>
                     </div>
                 </div>
             </div>
+          </div>
+        
         </div>
+      </div>
 
       </div>
 
@@ -205,5 +209,13 @@ export default {
     left : 0px;
     top : 450px;
     z-index: 0;
+  }
+
+  .username {
+  font-weight: bold;
+  }
+
+  .profile-link {
+    cursor: pointer;
   }
 </style>

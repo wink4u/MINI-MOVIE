@@ -1,23 +1,13 @@
 <template>
   <div>
     <div>
-      <h2>{{ board_id }}</h2>
+      {{ Boardlist[board_id] }}
       <h2><span>제목: </span>{{ Boardlist[board_id].title }}</h2>
       <h3><span>내용: </span>{{ Boardlist[board_id].content }}</h3>
-      <h3><span>작성자: <a @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</a></span></h3>
+      <h3><span class="profile-link">작성자: <a @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</a></span></h3>
       <h3><span>작성시간: </span>{{ Boardlist[board_id].created_at.slice(0,10) }}</h3>
       <a class="btn " @click="deleteBoard()">DELETE</a>
-    <!-- </div>
-    <div class="post">
-    <div class="post-title"><span>제목: </span>{{ Boardlist[board_id].title }}</div>
-    <div class="post-content">
-      <span>내용: </span>{{ Boardlist[board_id].content }}
-    </div>
-    <div class="post-meta">
-      <span>작성자: <button @click=profileEach(Boardlist[board_id].user.pk)>{{ Boardlist[board_id].user.username }}</button></span>
-      <span>작성일: {{ Boardlist[board_id].created_at.slice(0,10) }}</span>
-    </div>-->
-  </div> 
+    </div> 
     <div>
       <form @submit.prevent="onSubmit" class="comment-list-form" style="margin-right: 0px;margin-left: 35px;">
         <label for="comment"></label>
@@ -44,7 +34,7 @@
       
         <div v-for="(comment, index) in Comments" :key="index">
           <div class="row">
-            <div class="col-3">
+            <div class="col-3 profile-link" @click=profileEach(comment.write_comment_user.pk)>
               <span class="username" >{{ comment.write_comment_user.username }}</span>
             </div>
             <div class="col-4">
@@ -105,12 +95,14 @@ export default {
       this.$store.dispatch('getuserProfile', user_id)
     },
     deleteBoard() {
+      console.log(this.board_id)
+      console.log(this.real_id)
       this.$store.dispatch('deleteBoard', this.real_id)
     }
   },
 
   mounted() {
-    this.GetComments(this.board_id)
+    this.GetComments(this.real_id)
   },
   created() {
   }
