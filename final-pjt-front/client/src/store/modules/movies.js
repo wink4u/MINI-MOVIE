@@ -194,12 +194,12 @@ const movies = {
         // }
         search(context, searchData) {
             const filteredMovies = this.getters.movieList.filter((movie) => {
-                console.log(searchData.trim().toLowerCase())
-                console.log(movie.title.toLowerCase())
+                // console.log(searchData.trim().toLowerCase())
+                // console.log(movie.title.toLowerCase())
             return  movie.title.toLowerCase().includes(searchData.trim().toLowerCase()) || 
                     movie.overview.toLowerCase().includes(searchData.trim().toLowerCase())
             });
-            console.log(filteredMovies);
+            // console.log(filteredMovies);
             router.push({ name: 'search', params: { filteredMovies: filteredMovies, 'search':searchData } })
         
         },
