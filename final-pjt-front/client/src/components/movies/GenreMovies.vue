@@ -1,11 +1,13 @@
 <template>
   <div>
-    <carousel :pagination-enabled="false" :per-page="perPage" :autoplay="true"
-              :loop = "true">
-      <slide v-for="(movie, index) in genremovies" :key="index">
-        <MovieCard :movie="movie"/>
-      </slide>
-    </carousel>
+    <div>
+      <carousel :pagination-enabled="false" :per-page="perPage" :autoplay="true"
+                :loop = "true">
+        <slide v-for="(movie, index) in genremovies" :key="index">
+          <MovieCard :movie="movie"/>
+        </slide>
+      </carousel>
+    </div>
 
   </div>
   
