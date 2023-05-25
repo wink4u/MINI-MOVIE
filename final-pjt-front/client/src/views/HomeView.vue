@@ -4,13 +4,23 @@
       <source src="@/assets/Intro.mp4" type="video/mp4">
     </video>
     <div v-else>
-      <carousel-3d :perspective="2000" :space="200" 
-        :autoplay="true" :autoplay-timeout="3000" 
-        :height="500" :animation="slide">
-          <slide :index="index" v-for="(movie, index) in MovieList" :key="movie.id">
-              <slide-card :movie="movie"></slide-card>
-          </slide>
-      </carousel-3d>
+      <div class="row">
+        <div class="col-lg-4 d-none d-lg-block" style="margin-top : 250px;">
+          <img class="home-mini-left" src="@/assets/MINI/panti-minion.png" alt="">
+        </div>
+        <div class="col-lg-4">
+          <carousel-3d :perspective="2000" :space="200" 
+            :autoplay="true" :autoplay-timeout="3000" 
+            :height="500" :animation="slide">
+              <slide :index="index" v-for="(movie, index) in MovieList" :key="movie.id">
+                  <slide-card :movie="movie"></slide-card>
+              </slide>
+          </carousel-3d>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block" style="margin-top : 250px;">
+          <img class="home-mini-right" src="@/assets/MINI/run-minion.png" alt="">
+        </div>
+      </div>
       <div class="blank"></div>
       <div class="into-back">
         <div class="d-flex justify-content-around">
@@ -135,5 +145,13 @@ export default {
 .temp1 {
   height: 100px;
   background-color : rgb(255, 217, 102);
+}
+
+.home-mini-left {
+  width : 350px;
+}
+.home-mini-right {
+  width : 450px;
+  
 }
 </style>

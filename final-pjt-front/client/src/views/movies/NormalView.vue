@@ -4,7 +4,12 @@
         <img class="welcom-img" src="@/assets/MINI/welcom.png" alt="">
         <h1 class="detail-title">MINIBOX</h1>
         <hr>
-        <div v-for="genre in randomGenres" :key="genre">
+        <carousel :per-page="perPage">
+            <slide v-for="(genre, index) in genre_data" :key="index">
+                <button type="button" :style="getColor(index)" class="btn" @click="click_button(index, genre)">{{ genre }}</button>
+            </slide>
+        </carousel>
+        <div v-for="genre in select_genre" :key="genre">
             <h3>- {{ genre[1] }} -</h3>
             <GenreMovies :genre="parseInt(genre[0])"/>
             <hr>
@@ -14,6 +19,7 @@
 
 <script>
 
+import { Carousel, Slide } from 'vue-carousel'
 import { mapState } from 'vuex'
 
 
@@ -21,7 +27,9 @@ import GenreMovies from '@/components/movies/GenreMovies'
 export default {
     name: 'NormalView',
     components: {
-        GenreMovies
+        GenreMovies,
+        Carousel,
+        Slide,
     },
     data() {
         return {
@@ -45,7 +53,10 @@ export default {
                 10751 : '가족',
                 10752 : '전쟁',
                 10770 : 'TV영화',
-            }
+            },
+            perPage : 10,
+            clickedIndex : null,
+            select_genre : [],
         }
     },
     computed: {
@@ -68,16 +79,48 @@ export default {
                 array[currentIndex] = array[randomIndex];
                 array[randomIndex] = temporaryValue;
             }
-
             return array;
+        },
+
+        handleResize() {
+          if (window.innerWidth < 768) {
+            this.perPage = 4
+          } else if (window.innerWidth < 1200) {
+            this.perPage = 8
+          } else {
+            this.perPage = 10
+          }
+        },
+        getColor(index){
+          return index === this.clickedIndex ? 'background-color: #00ff00' : 'background-color: #ff0000'
+        },
+        click_button(index, genre) {
+          let flag = true
+
+          for(let i = 0; i < this.select_genre.length; i++){
+            if (this.select_genre[i][0] === index){
+              console.log(this.select_genre[i][0])
+              this.select_genre.splice(i, 1)
+              this.clickedIndex = null
+              flag = false
+              break
+            }
+          }  
+          if (flag === true)
+          {
+            this.select_genre.push([index, genre])
+            this.clickedIndex = index  
+          }   
+          console.log(this.select_genre)
         }
     },
-    // created(){
-    //     this.$store.dispatch('getDataMovies')
-    // },
-    // mounted() {
-    //   var slider = document.getElementById('slider');
-
+    mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+    },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.handleResize);
+    },
 }
 
 </script>
