@@ -3,7 +3,7 @@
     <div>
       <div class="navbar navbar-expand-lg bg-body-tertiary nav-color">
       <div class="container-fluid">
-        <img class="mini_logo animate__animated animate__wobble" src="@/assets/MINI/glass_mini2.png" alt="mini_img">
+        <img class="mini_logo animate__animated animate__wobble" src="@/assets/MINI/glass_mini2.png" alt="mini_img" style="margin-right : 30px; margin-left : 10px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +36,7 @@
             
           </ul>
           <div class="collapse navbar-collapse searchmovie d-md-none" id="navbarNav">
-            <div class="search-input-wrapper">
+            <div class="search-input-wrapper" style="margin-right : 20px;">
               <input type="text" id="search-input" v-model="searchData" placeholder="검색어를 입력하세요" @keyup.enter="search">
               <img src="./assets/search.png" class="searchImg" @click="search">
             </div>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <router-view/>
-  <footer v-if="this.$route.name !== 'signup'">
+  <!-- <footer v-if="this.$route.name !== 'signup' || this.$route.name !== 'home'">
     <div class="row">
       <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
       <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
@@ -62,7 +62,7 @@
       <img src="./assets/MINI/minis_back.png" class="col-1 animate__animated animate__swing">
 
     </div>
-  </footer>
+  </footer> -->
 </div>
 </template>
 <script>
@@ -187,6 +187,7 @@ nav a.router-link-exact-active {
 .searchImg {
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .nav-font {

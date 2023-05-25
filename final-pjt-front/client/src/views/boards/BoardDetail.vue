@@ -1,10 +1,39 @@
 <template>
   <div>
     <div class="container">
-      <h2>제목: {{ Boardlist[board_id].title }}</h2>
-      <h3 @click=profileEach(Boardlist[board_id].user.pk) class="profile-link">작성자: {{ Boardlist[board_id].user.username }}</h3>
-      <h3>작성시간: {{ Boardlist[board_id].created_at.slice(0,10) }}</h3>
-      <h3>내용: {{ Boardlist[board_id].content }}</h3>
+      <br>
+      <hr>
+      <div class="d-flex justify-content-start">
+        <h4 style = "margin-right:20px;">작성자</h4>
+        <!-- <img v-if="eachUser.imgId" :src="require(`@/assets/profileImg/${eachUser.imgId}.png`)"
+        alt="" style="width: 50%; height: 50%; margin-top: 100px; margin-right: 30px;">
+        <img v-if="!eachUser.imgId" src="@/assets/profileImg/21.png" alt=""
+        style="width: 40%; height: 40%; margin-top: 50px; margin-right: 30px;"> -->
+      </div>
+      <div class="table-content">
+        <h4 @click=profileEach(Boardlist[board_id].user.pk) class="profile-link" style = "margin-left : 10px;">{{ Boardlist[board_id].user.username }}</h4>
+      </div>
+      <div class="d-flex justify-content-start">
+        <h4 style = "margin-right:20px;">제목</h4>
+      </div>
+      <div class="table-content" style="width: 100%;">
+        <h4 style = "margin-left : 10px;">{{ Boardlist[board_id].title }}</h4>
+      </div>
+      <div class="d-flex justify-content-start">
+        <h4 style = "margin-right:20px;">내용</h4>
+      </div>
+      <div class="table-content">
+        <div style="width:100%;">
+          <h4 style = "margin-left : 10px; overflow-wrap: break-word;">{{ Boardlist[board_id].content }}</h4>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start">
+        <h4 style = "margin-right:20px; white-space : pre;">작성시간</h4>
+      </div>
+      <div class="table-content">
+        <h4 style = "margin-left : 10px;">{{ Boardlist[board_id].created_at.slice(0,10) }}</h4>
+      </div>
+      <br>
       <a class="btn " @click="deleteBoard()">DELETE</a>
     </div> 
     <div>
@@ -72,6 +101,9 @@ export default {
     Comments() {
       return this.$store.state.board.Comments
     },
+    eachUser() {
+      return this.$store.getters.eachUser;
+    }
   },
   methods: {
     ...mapActions(['createComment', 'GetComments']),
@@ -193,4 +225,10 @@ export default {
       margin-right: 10px;
     }
 
+    .table-content {
+      background-color : white;
+      display : flex;
+      justify-content : start;
+      border : 1px solid black;
+    }
 </style>
