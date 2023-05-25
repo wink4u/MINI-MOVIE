@@ -13,9 +13,6 @@
               <router-link to="/" class="nav-link active" aria-current="page">홈</router-link>
             </li>
             <li class="nav-item nav-font">
-              <router-link to="/fullscreen" class="nav-link active" aria-current="page">전체상영관</router-link>
-            </li>
-            <li class="nav-item nav-font">
               <router-link to="/login" class="nav-link active" aria-current="page" v-if="!isLoggedIn">로그인</router-link>
             </li>
             <li class="nav-item nav-font">
