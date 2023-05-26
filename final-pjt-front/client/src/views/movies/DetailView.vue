@@ -152,7 +152,7 @@ export default {
     },
     created() {
         this.$store.dispatch('GetCommentsMovie', this.id)
-        // this.$store.dispatch('GetVideo', this.title)
+        this.$store.dispatch('GetVideo', this.title)
     },
 }
 </script>

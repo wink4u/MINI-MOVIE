@@ -20,7 +20,8 @@
       <ul>
         <li>Email: {{ eachUser.email ? eachUser.email : '추가하세용' }}</li>
         <li>Location: {{ eachUser.region ? eachUser.region : '추가하세용' }}</li>
-        <div v-if="user_id != currentid">
+        <!-- <div v-if="user_id != currentid"> -->
+          <div v-if="currentid">
           <b-button @click="follow">{{ followState.follow }}</b-button>
           <span >
             <p>팔로잉수: {{ followState.following_count }}  /  팔로워수: {{ followState.count }}</p>

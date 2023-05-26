@@ -126,9 +126,17 @@ export default {
       this.$store.dispatch('getuserProfile', user_id)
     },
     deleteBoard() {
-      console.log(this.board_id)
-      console.log(this.real_id)
-      this.$store.dispatch('deleteBoard', this.real_id)
+      const username = sessionStorage.getItem('username')
+      if(this.Boardlist[this.board_id].user.username === username) {
+        this.$store.dispatch('deleteBoard', this.real_id)
+      } else {
+        alert('남의 글은 삭제 안대용')
+      }
+      // console.log(this.Boardlist[this.board_id].user.username)
+      // console.log(sessionStorage.getItem('username'))
+      // console.log(this.board_id)
+      // console.log(this.real_id)
+      // this.$store.dispatch('deleteBoard', this.real_id)
     }
   },
 

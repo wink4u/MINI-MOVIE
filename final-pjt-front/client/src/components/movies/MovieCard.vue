@@ -6,7 +6,7 @@
         <div class="middle">
           <div class="text-block">
             <button class="heart-button" @click="changeLike()" v-if="isLoggedIn" :class="{'liked' : userLike}"></button>
-            <p v-if="!isLoggedIn">로그인해봐요</p>
+            <p class= "p-font" v-if="!isLoggedIn">로그인해봐요</p>
             <h3 class="image_title_text font_regular" style="font-size: 30px;">평점 : {{movie.vote_average}}</h3>
             <div class="button-margin"></div>
             <div class="button-wrapper">
@@ -171,6 +171,10 @@ export default {
   padding: 0;
   position: relative;
   text-decoration: none;
+  font-size : 25px;
+}
+
+.p-font {
   font-size : 25px;
 }
 </style>
